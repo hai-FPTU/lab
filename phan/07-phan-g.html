@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHẦN G · THỰC HÀNH VỚI GRAFANA · Cẩm nang thực hành</title>
+<link rel="stylesheet" href="../assets/css/cam-nang.css">
+</head>
+<body>
+<div id="tien-do"></div>
+<div id="lop-phu" role="dialog" aria-label="Xem hình phóng to"></div>
+<button id="nut-canh" aria-label="Mở mục lục">☰</button>
+
+<nav id="canh">
+  <header>
+    <a href="../index.html" class="ve-dau">Cẩm nang thực hành</a>
+    <div class="phu">Dành cho học viên · An ninh mạng nâng cao</div>
+  </header>
+  <input id="o-tim" type="search" placeholder="Tìm trong cẩm nang…" autocomplete="off">
+  <div id="kq-tim"></div>
+  <div id="ml"><a class="ml-phan" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="ml-phan" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-phan" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-phan" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="ml-phan" href="05-phan-e.html">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-phan" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="ml-phan dang-xem" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-chuong cap1" href="#phan-g-thuc-hanh-voi-grafana" data-id="phan-g-thuc-hanh-voi-grafana">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-chuong cap2" href="#chuong-20-cai-loki-va-grafana-len-ubuntu" data-id="chuong-20-cai-loki-va-grafana-len-ubuntu">Chương 20 · Cài Loki và Grafana lên Ubuntu</a>
+<a class="ml-chuong cap3" href="#201-mot-diem-can-hieu-ro-truoc-khi-cai" data-id="201-mot-diem-can-hieu-ro-truoc-khi-cai">20.1. Một điểm cần hiểu rõ trước khi cài</a>
+<a class="ml-chuong cap3" href="#202-buoc-1-cai-loki-va-promtail" data-id="202-buoc-1-cai-loki-va-promtail">20.2. Bước 1 — Cài Loki và Promtail</a>
+<a class="ml-chuong cap3" href="#203-buoc-2-cai-grafana" data-id="203-buoc-2-cai-grafana">20.3. Bước 2 — Cài Grafana</a>
+<a class="ml-chuong cap3" href="#204-buoc-3-dat-hai-file-cau-hinh" data-id="204-buoc-3-dat-hai-file-cau-hinh">20.4. Bước 3 — Đặt hai file cấu hình</a>
+<a class="ml-chuong cap3" href="#205-buoc-4-tao-dich-vu-de-tu-khoi-dong" data-id="205-buoc-4-tao-dich-vu-de-tu-khoi-dong">20.5. Bước 4 — Tạo dịch vụ để tự khởi động</a>
+<a class="ml-chuong cap2" href="#chuong-21-nap-bo-du-lieu-va-kiem-chung" data-id="chuong-21-nap-bo-du-lieu-va-kiem-chung">Chương 21 · Nạp bộ dữ liệu và kiểm chứng</a>
+<a class="ml-chuong cap3" href="#211-nap-lai-tu-dau" data-id="211-nap-lai-tu-dau">21.1. Nạp lại từ đầu</a>
+<a class="ml-chuong cap3" href="#212-ba-lenh-kiem-chung-bat-buoc" data-id="212-ba-lenh-kiem-chung-bat-buoc">21.2. Ba lệnh kiểm chứng bắt buộc</a>
+<a class="ml-chuong cap3" href="#213-bang-muoi-hai-nguon-va-nhan-kem-theo" data-id="213-bang-muoi-hai-nguon-va-nhan-kem-theo">21.3. Bảng mười hai nguồn và nhãn kèm theo</a>
+<a class="ml-chuong cap2" href="#chuong-22-lam-quen-giao-dien-grafana" data-id="chuong-22-lam-quen-giao-dien-grafana">Chương 22 · Làm quen giao diện Grafana</a>
+<a class="ml-chuong cap3" href="#221-dang-nhap-va-them-nguon-du-lieu" data-id="221-dang-nhap-va-them-nguon-du-lieu">22.1. Đăng nhập và thêm nguồn dữ liệu</a>
+<a class="ml-chuong cap3" href="#222-man-hinh-kham-pha" data-id="222-man-hinh-kham-pha">22.2. Màn hình Khám phá</a>
+<a class="ml-chuong cap3" href="#223-buoc-bat-buoc-truoc-moi-truy-van" data-id="223-buoc-bat-buoc-truoc-moi-truy-van">22.3. Bước bắt buộc trước mọi truy vấn</a>
+<a class="ml-chuong cap3" href="#224-truy-van-dau-tien" data-id="224-truy-van-dau-tien">22.4. Truy vấn đầu tiên</a>
+<a class="ml-chuong cap2" href="#chuong-23-sau-bai-thuc-hanh-theo-tinh-huong" data-id="chuong-23-sau-bai-thuc-hanh-theo-tinh-huong">Chương 23 · Sáu bài thực hành theo tình huống</a>
+<a class="ml-chuong cap3" href="#231-cach-lam-sau-bai-nay" data-id="231-cach-lam-sau-bai-nay">23.1. Cách làm sáu bài này</a>
+<a class="ml-chuong cap3" href="#232-tinh-huong-1-ca-truc-sang-thu-hai" data-id="232-tinh-huong-1-ca-truc-sang-thu-hai">23.2. Tình huống 1 — Ca trực sáng thứ Hai</a>
+<a class="ml-chuong cap3" href="#233-tinh-huong-2-nha-thau-bao-khong-dang-nhap-duoc" data-id="233-tinh-huong-2-nha-thau-bao-khong-dang-nhap-duoc">23.3. Tình huống 2 — Nhà thầu báo không đăng nhập được</a>
+<a class="ml-chuong cap3" href="#234-tinh-huong-3-cau-hoi-cua-doan-kiem-tra" data-id="234-tinh-huong-3-cau-hoi-cua-doan-kiem-tra">23.4. Tình huống 3 — Câu hỏi của đoàn kiểm tra</a>
+<a class="ml-chuong cap3" href="#235-tinh-huong-4-hoa-don-internet-tang-dot-bien" data-id="235-tinh-huong-4-hoa-don-internet-tang-dot-bien">23.5. Tình huống 4 — Hoá đơn Internet tăng đột biến</a>
+<a class="ml-chuong cap3" href="#236-tinh-huong-5-canh-bao-tu-ben-ngoai" data-id="236-tinh-huong-5-canh-bao-tu-ben-ngoai">23.6. Tình huống 5 — Cảnh báo từ bên ngoài</a>
+<a class="ml-chuong cap3" href="#237-tinh-huong-6-dung-dashboard-cho-ca-truc" data-id="237-tinh-huong-6-dung-dashboard-cho-ca-truc">23.7. Tình huống 6 — Dựng dashboard cho ca trực</a>
+<a class="ml-chuong cap2" href="#chuong-24-tong-hop-sau-tinh-huong" data-id="chuong-24-tong-hop-sau-tinh-huong">Chương 24 · Tổng hợp sáu tình huống</a>
+<a class="ml-chuong cap3" href="#241-ghep-cac-manh-lai" data-id="241-ghep-cac-manh-lai">24.1. Ghép các mảnh lại</a>
+<a class="ml-chuong cap3" href="#242-ba-bai-hoc-rut-ra" data-id="242-ba-bai-hoc-rut-ra">24.2. Ba bài học rút ra</a>
+<a class="ml-chuong cap3" href="#243-cau-hoi-cuoi-cung" data-id="243-cau-hoi-cuoi-cung">24.3. Câu hỏi cuối cùng</a>
+<a class="ml-phan" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-phan" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-phan" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="ml-phan" href="11-phan-k.html">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-phan" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a></div>
+</nav>
+
+<main id="than">
+<h1 id="phan-g-thuc-hanh-voi-grafana">PHẦN G · THỰC HÀNH VỚI GRAFANA<a class="neo" href="#phan-g-thuc-hanh-voi-grafana" aria-label="Liên kết tới mục này">#</a></h1>
+<p><em>Cài đặt, sử dụng và sáu bài theo tình huống</em></p>
+<ul>
+<li>Cài Loki và Grafana lên Ubuntu</li>
+<li>Nạp bộ dữ liệu và kiểm chứng</li>
+<li>Làm quen giao diện Grafana</li>
+<li>Sáu bài thực hành theo tình huống</li>
+<li>Dựng dashboard hoàn chỉnh</li>
+</ul>
+<hr>
+<p><code>PHẦN G · GRAFANA</code></p>
+<h2 id="chuong-20-cai-loki-va-grafana-len-ubuntu">Chương 20 · Cài Loki và Grafana lên Ubuntu<a class="neo" href="#chuong-20-cai-loki-va-grafana-len-ubuntu" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Trong ảnh máy ảo đã cài sẵn. Chương này dùng khi cần cài lại, hoặc khi bạn muốn tự dựng ở đơn vị.</em></p>
+<h3 id="201-mot-diem-can-hieu-ro-truoc-khi-cai">20.1. Một điểm cần hiểu rõ trước khi cài<a class="neo" href="#201-mot-diem-can-hieu-ro-truoc-khi-cai" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Nhiều người nghĩ rằng dữ liệu được đẩy thẳng vào Grafana. Điều đó không đúng, và hiểu sai chỗ này sẽ gây lúng túng khi có sự cố.</p>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Grafana không lưu trữ dữ liệu log. Grafana chỉ là giao diện hiển thị. Dữ liệu log được lưu trong Loki. Khi bạn gõ một truy vấn trên Grafana, Grafana gửi truy vấn đó sang Loki, Loki tìm và trả kết quả về, Grafana vẽ ra màn hình. Nếu màn hình trống, nguyên nhân nằm ở Loki hoặc ở khoảng thời gian, hầu như không bao giờ nằm ở Grafana.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Cổng</th>
+<th>Việc nó làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Promtail</td>
+<td>không có</td>
+<td>Đọc từng dòng trong file log, bóc mốc thời gian, gắn nhãn, rồi đẩy sang Loki. Chạy một lần khi nạp dữ liệu</td>
+</tr>
+<tr>
+<td>Loki</td>
+<td>3100</td>
+<td>Nhận dữ liệu, lưu trữ, lập chỉ mục theo nhãn, và trả lời truy vấn. Đây là nơi dữ liệu thật sự nằm</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>3000</td>
+<td>Giao diện web để gõ truy vấn, xem kết quả và dựng dashboard. Không lưu dữ liệu log</td>
+</tr>
+</tbody>
+</table>
+<figure class="so-do"><img src="../assets/img/hinh-04-sodo-giamsat.svg" alt="Luồng dữ liệu từ file log tới Grafana" loading="lazy"><figcaption>Hình 4 — Luồng dữ liệu từ file log tới Grafana</figcaption></figure>
+
+<h3 id="202-buoc-1-cai-loki-va-promtail">20.2. Bước 1 — Cài Loki và Promtail<a class="neo" href="#202-buoc-1-cai-loki-va-promtail" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash"># Chuẩn bị
+sudo apt update
+sudo apt install -y unzip curl wget jq
+
+# Tải hai thành phần
+cd /tmp
+curl -sLO https://github.com/grafana/loki/releases/download/v3.1.0/loki-linux-amd64.zip
+curl -sLO https://github.com/grafana/loki/releases/download/v3.1.0/promtail-linux-amd64.zip
+unzip -q loki-linux-amd64.zip
+unzip -q promtail-linux-amd64.zip
+
+# Đưa vào folder chương trình hệ thống
+sudo mv loki-linux-amd64     /usr/local/bin/loki
+sudo mv promtail-linux-amd64 /usr/local/bin/promtail
+sudo chmod +x /usr/local/bin/loki /usr/local/bin/promtail
+
+# Kiểm tra đã cài được
+loki --version
+promtail --version
+</code></pre>
+<h3 id="203-buoc-2-cai-grafana">20.3. Bước 2 — Cài Grafana<a class="neo" href="#203-buoc-2-cai-grafana" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-text"># Thêm kho phần mềm chính thức của Grafana
+sudo apt install -y apt-transport-https software-properties-common
+sudo mkdir -p /etc/apt/keyrings
+wget -q -O - https://apt.grafana.com/gpg.key \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/grafana.gpg
+echo &quot;deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main&quot; \
+  | sudo tee /etc/apt/sources.list.d/grafana.list
+
+# Cài và khởi động
+sudo apt update
+sudo apt install -y grafana
+sudo systemctl enable --now grafana-server
+
+# Kiểm tra: phải trả về mã 200 hoặc 302
+curl -s -o /dev/null -w &quot;%{http_code}\n&quot; http://localhost:3000
+</code></pre>
+<h3 id="204-buoc-3-dat-hai-file-cau-hinh">20.4. Bước 3 — Đặt hai file cấu hình<a class="neo" href="#204-buoc-3-dat-hai-file-cau-hinh" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Hai file cấu hình nằm trong gói dữ liệu, folder giamsat. Đây là bước quan trọng nhất, vì cấu hình mặc định của Loki không dùng được với bộ dữ liệu này.</p>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash">sudo mkdir -p /etc/loki /etc/promtail
+sudo mkdir -p /var/loki/chunks /var/loki/rules /var/lib/promtail
+
+sudo cp /var/lab/giamsat/loki-config.yaml     /etc/loki/
+sudo cp /var/lab/giamsat/promtail-config.yaml /etc/promtail/
+</code></pre>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Tham số reject_old_samples trong file cấu hình Loki phải đặt là false. Mặc định Loki từ chối mọi bản ghi cũ hơn bảy ngày. Dữ liệu của bộ lab có mốc thời gian tháng 9 năm 2026, nên nếu giữ cấu hình mặc định thì toàn bộ dữ liệu sẽ bị từ chối và Loki không báo lỗi rõ ràng.</p>
+<p>Phần pipeline_stages trong file cấu hình Promtail phải bóc đúng mốc thời gian từ trong mỗi dòng log. Nếu thiếu phần này, mọi bản ghi sẽ mang thời điểm bạn nạp dữ liệu thay vì thời điểm sự việc thật sự xảy ra, và mọi bài phân tích theo timeline sẽ sai.</p>
+</blockquote>
+<h3 id="205-buoc-4-tao-dich-vu-de-tu-khoi-dong">20.5. Bước 4 — Tạo dịch vụ để tự khởi động<a class="neo" href="#205-buoc-4-tao-dich-vu-de-tu-khoi-dong" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Dịch vụ Loki
+sudo tee /etc/systemd/system/loki.service &gt; /dev/null &lt;&lt;UNIT
+[Unit]
+Description=Loki log aggregation
+After=network.target
+[Service]
+ExecStart=/usr/local/bin/loki -config.file=/etc/loki/loki-config.yaml
+Restart=always
+User=root
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+# Dịch vụ Promtail
+sudo tee /etc/systemd/system/promtail.service &gt; /dev/null &lt;&lt;UNIT
+[Unit]
+Description=Promtail log shipper
+After=loki.service
+[Service]
+ExecStart=/usr/local/bin/promtail -config.file=/etc/promtail/promtail-config.yaml
+Restart=always
+User=root
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+# Nạp lại danh sách dịch vụ và bật Loki trước
+sudo systemctl daemon-reload
+sudo systemctl enable --now loki
+sleep 10
+
+# Kiểm tra Loki đã sẵn sàng rồi mới bật Promtail
+curl -s http://localhost:3100/ready
+# Kết quả đúng: ready
+sudo systemctl enable --now promtail
+</code></pre>
+<blockquote>
+<p><strong>LƯU Ý</strong></p>
+<p>Thứ tự quan trọng. Promtail phải khởi động sau Loki. Nếu bật cùng lúc, Promtail sẽ thử đẩy dữ liệu khi Loki chưa sẵn sàng và báo lỗi liên tục trong vài phút đầu.</p>
+</blockquote>
+<hr>
+<p><code>PHẦN G · GRAFANA</code></p>
+<h2 id="chuong-21-nap-bo-du-lieu-va-kiem-chung">Chương 21 · Nạp bộ dữ liệu và kiểm chứng<a class="neo" href="#chuong-21-nap-bo-du-lieu-va-kiem-chung" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Quá trình nạp mất từ ba đến sáu phút cho 747.194 dòng.</em></p>
+<h3 id="211-nap-lai-tu-dau">21.1. Nạp lại từ đầu<a class="neo" href="#211-nap-lai-tu-dau" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Nạp dữ liệu</strong></p>
+<pre><code class="language-bash">cd /var/lab/giamsat
+sudo bash nap_dulieu.sh
+
+# Script thực hiện năm bước:
+#   1. Kiểm tra folder dữ liệu có đủ file
+#   2. Dừng hai dịch vụ, xoá dữ liệu cũ và vị trí đọc cũ
+#   3. Khởi động Loki, chờ đến khi sẵn sàng
+#   4. Khởi động Promtail để bắt đầu nạp
+#   5. In số dòng đã nạp mỗi 15 giây
+
+# Khi con số không tăng nữa thì việc nạp đã xong.
+# Bấm Ctrl và C để dừng phần theo dõi.
+</code></pre>
+<p>Nếu muốn nạp lại thủ công thay vì dùng script, ba lệnh sau là phần cốt lõi. Bước xoá file ghi vị trí đọc là bắt buộc, nếu không Promtail sẽ nghĩ rằng đã đọc hết và không nạp lại gì.</p>
+<p><strong>Cách thủ công</strong></p>
+<pre><code class="language-bash">sudo systemctl stop promtail loki
+sudo rm -rf /var/loki/chunks /var/loki/index_* /var/lib/promtail/positions.yaml
+sudo mkdir -p /var/loki/chunks /var/loki/rules /var/lib/promtail
+sudo systemctl start loki &amp;&amp; sleep 10 &amp;&amp; sudo systemctl start promtail
+</code></pre>
+<h3 id="212-ba-lenh-kiem-chung-bat-buoc">21.2. Ba lệnh kiểm chứng bắt buộc<a class="neo" href="#212-ba-lenh-kiem-chung-bat-buoc" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Kiểm chứng</strong></p>
+<pre><code class="language-bash"># 1. Loki sẵn sàng
+curl -s http://localhost:3100/ready
+# Kết quả đúng: ready
+
+# 2. Đủ mười hai nguồn dữ liệu
+curl -s &quot;http://localhost:3100/loki/api/v1/label/nguon/values&quot; | jq -r &quot;.data[]&quot;
+# Kết quả đúng: auth, cloud, dns, firewall, mail, mfa,
+#               netflow, suricata, sysmon, tls, web, windows
+
+# 3. Mốc thời gian đã được bóc đúng, không phải thời điểm nạp
+curl -sG &quot;http://localhost:3100/loki/api/v1/query_range&quot; \
+  --data-urlencode 'query={nguon=&quot;auth&quot;}' \
+  --data-urlencode 'start=2026-09-01T00:00:00+07:00' \
+  --data-urlencode 'end=2026-09-15T00:00:00+07:00' \
+  --data-urlencode 'limit=1' | jq -r &quot;.data.result | length&quot;
+# Kết quả đúng: 1 hoặc lớn hơn.
+# Nếu ra 0 thì mốc thời gian đã bị ghi sai, phải nạp lại.
+</code></pre>
+<h3 id="213-bang-muoi-hai-nguon-va-nhan-kem-theo">21.3. Bảng mười hai nguồn và nhãn kèm theo<a class="neo" href="#213-bang-muoi-hai-nguon-va-nhan-kem-theo" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nhãn nguồn</th>
+<th>File tương ứng</th>
+<th>Nhãn phụ có sẵn</th>
+<th>Dùng cho tình huống</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td>auth.log</td>
+<td>may</td>
+<td>TH-2, TH-3</td>
+</tr>
+<tr>
+<td>firewall</td>
+<td>pfsense_filterlog.log</td>
+<td>may</td>
+<td>TH-4, TH-5</td>
+</tr>
+<tr>
+<td>netflow</td>
+<td>netflow.csv</td>
+<td>không có</td>
+<td>TH-4, TH-5</td>
+</tr>
+<tr>
+<td>windows</td>
+<td>windows_security.ndjson</td>
+<td>may, ma_su_kien</td>
+<td>TH-3, TH-6</td>
+</tr>
+<tr>
+<td>sysmon</td>
+<td>sysmon.ndjson</td>
+<td>may, ma_su_kien</td>
+<td>TH-6</td>
+</tr>
+<tr>
+<td>suricata</td>
+<td>suricata_eve.json</td>
+<td>muc_do</td>
+<td>TH-1, TH-5</td>
+</tr>
+<tr>
+<td>web</td>
+<td>web_access.log</td>
+<td>ma</td>
+<td>TH-1</td>
+</tr>
+<tr>
+<td>dns</td>
+<td>dns_query.log</td>
+<td>may</td>
+<td>TH-5</td>
+</tr>
+<tr>
+<td>mail</td>
+<td>mail.log</td>
+<td>may</td>
+<td>TH-6</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><code>PHẦN G · GRAFANA</code></p>
+<h2 id="chuong-22-lam-quen-giao-dien-grafana">Chương 22 · Làm quen giao diện Grafana<a class="neo" href="#chuong-22-lam-quen-giao-dien-grafana" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mười phút làm quen trước khi vào sáu bài tình huống.</em></p>
+<h3 id="221-dang-nhap-va-them-nguon-du-lieu">22.1. Đăng nhập và thêm nguồn dữ liệu<a class="neo" href="#221-dang-nhap-va-them-nguon-du-lieu" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Trên máy Kali, mở trình duyệt vào địa chỉ http://192.168.10.20:3000.</li>
+<li>Đăng nhập bằng tài khoản admin và mật khẩu LabMinhAn2026.</li>
+<li>Mở menu bên trái, chọn Kết nối, chọn Nguồn dữ liệu, chọn Thêm nguồn dữ liệu mới.</li>
+<li>Chọn Loki trong danh sách.</li>
+<li>Ở ô Địa chỉ, nhập http://localhost:3100.</li>
+<li>Kéo xuống cuối trang, chọn Lưu và kiểm tra. Phải hiện thông báo màu xanh là thành công.</li>
+</ol>
+<blockquote>
+<p><strong>LƯU Ý</strong></p>
+<p>Trong ảnh máy ảo, nguồn dữ liệu đã được thêm sẵn. Bạn chỉ cần làm lại các bước này nếu tự cài từ đầu.</p>
+</blockquote>
+<h3 id="222-man-hinh-kham-pha">22.2. Màn hình Khám phá<a class="neo" href="#222-man-hinh-kham-pha" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Đây là màn hình bạn dùng nhiều nhất. Mở bằng cách chọn Khám phá ở menu bên trái.</p>
+<table>
+<thead>
+<tr>
+<th>Thành phần trên màn hình</th>
+<th>Chức năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ô chọn nguồn dữ liệu, góc trên bên trái</td>
+<td>Chọn Loki. Nếu chọn nhầm nguồn khác thì mọi truy vấn đều báo lỗi</td>
+</tr>
+<tr>
+<td>Ô chọn khoảng thời gian, góc trên bên phải</td>
+<td>Đây là ô quan trọng nhất. Phải đặt đúng khoảng có dữ liệu</td>
+</tr>
+<tr>
+<td>Ô nhập truy vấn, ở giữa</td>
+<td>Nơi gõ truy vấn LogQL. Có hai chế độ: Trình dựng và Mã. Dùng chế độ Mã để gõ trực tiếp</td>
+</tr>
+<tr>
+<td>Nút Chạy truy vấn, góc trên bên phải</td>
+<td>Hoặc bấm tổ hợp phím Shift và Enter</td>
+</tr>
+<tr>
+<td>Khu vực kết quả, phía dưới</td>
+<td>Hiện biểu đồ số lượng theo thời gian ở trên, và danh sách dòng log ở dưới</td>
+</tr>
+</tbody>
+</table>
+<h3 id="223-buoc-bat-buoc-truoc-moi-truy-van">22.3. Bước bắt buộc trước mọi truy vấn<a class="neo" href="#223-buoc-bat-buoc-truoc-moi-truy-van" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Đặt khoảng thời gian thành 2026-09-01 00:00:00 đến 2026-09-15 00:00:00. Mặc định Grafana hiển thị sáu giờ gần nhất. Dữ liệu của bộ lab nằm ở tháng 9 năm 2026, nên nếu không đổi khoảng thời gian, màn hình sẽ trống và bạn sẽ tưởng việc nạp dữ liệu thất bại. Đây là lỗi phổ biến nhất khi mới bắt đầu.</p>
+</blockquote>
+<ol>
+<li>Bấm vào ô chọn khoảng thời gian ở góc trên bên phải.</li>
+<li>Chọn thẻ Khoảng tuyệt đối.</li>
+<li>Ô Từ nhập: 2026-09-01 00:00:00</li>
+<li>Ô Đến nhập: 2026-09-15 00:00:00</li>
+<li>Bấm Áp dụng khoảng thời gian.</li>
+</ol>
+<figure class="so-do"><img src="../assets/img/hinh-05-gf-explore.svg" alt="Màn hình Explore của Grafana. Mọi con số là số thật trong bộ dữ liệu." loading="lazy"><figcaption>Hình 5 — Màn hình Explore của Grafana. Mọi con số là số thật trong bộ dữ liệu.</figcaption></figure>
+
+<h3 id="224-truy-van-dau-tien">22.4. Truy vấn đầu tiên<a class="neo" href="#224-truy-van-dau-tien" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Truy vấn đầu tiên</strong></p>
+<pre><code class="language-bash"># Gõ vào ô truy vấn, ở chế độ Mã:
+
+{nguon=&quot;auth&quot;}
+
+# Bấm Shift và Enter để chạy.
+# Kết quả đúng: biểu đồ cột hiện lên ở trên,
+#   danh sách dòng log hiện ở dưới,
+#   dòng mới nhất có mốc ngày 14 tháng 9 năm 2026.
+</code></pre>
+<p>Nếu kết quả đúng như mô tả, môi trường của bạn đã sẵn sàng. Nếu trống, quay lại mục 22.3 kiểm tra khoảng thời gian, rồi kiểm tra ba lệnh ở mục 21.2.</p>
+<hr>
+<p><code>PHẦN G · GRAFANA</code></p>
+<h2 id="chuong-23-sau-bai-thuc-hanh-theo-tinh-huong">Chương 23 · Sáu bài thực hành theo tình huống<a class="neo" href="#chuong-23-sau-bai-thuc-hanh-theo-tinh-huong" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mỗi bài bắt đầu bằng một tình huống thật, đặt ra câu hỏi phải trả lời, rồi hướng dẫn cách đi tới câu trả lời.</em></p>
+<h3 id="231-cach-lam-sau-bai-nay">23.1. Cách làm sáu bài này<a class="neo" href="#231-cach-lam-sau-bai-nay" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Sáu bài được thiết kế theo trình tự tăng dần. Bài sau dùng kết quả của bài trước. Mỗi bài có cùng một cấu trúc sáu mục.</p>
+<table>
+<thead>
+<tr>
+<th>Mục</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tình huống</td>
+<td>Bối cảnh công việc dẫn tới việc bạn phải điều tra. Đọc kỹ, vì nó quy định phạm vi cần tìm</td>
+</tr>
+<tr>
+<td>Câu hỏi phải trả lời</td>
+<td>Từ hai đến bốn câu hỏi cụ thể. Đây là thứ bạn phải nộp lại</td>
+</tr>
+<tr>
+<td>Mục tiêu kỹ năng</td>
+<td>Kỹ năng bạn luyện trong bài này, để biết bài này dạy gì</td>
+</tr>
+<tr>
+<td>Cách đi tới câu trả lời</td>
+<td>Các bước, kèm truy vấn đầy đủ sao chép được</td>
+</tr>
+<tr>
+<td>Kết quả mong đợi</td>
+<td>Kết quả đúng, để bạn tự kiểm tra</td>
+</tr>
+<tr>
+<td>Phiếu ghi nhận</td>
+<td>Bảng trống để điền và nộp lại</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Trước mỗi bài, kiểm tra lại khoảng thời gian trên Grafana đang là 2026-09-01 đến 2026-09-15. Khoảng thời gian bị đổi trong lúc làm bài là nguyên nhân của phần lớn kết quả sai.</p>
+</blockquote>
+<h3 id="232-tinh-huong-1-ca-truc-sang-thu-hai">23.2. Tình huống 1 — Ca trực sáng thứ Hai<a class="neo" href="#232-tinh-huong-1-ca-truc-sang-thu-hai" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>TÌNH HUỐNG</strong></p>
+<p>Bạn là chuyên viên giám sát an ninh của Công ty Minh An. Sáng thứ Hai ngày 15 tháng 9 năm 2026, bạn nhận ca trực. Người trực ca trước bàn giao lại một câu ngắn gọn: cuối tuần hệ thống có vẻ yên, nhưng tôi chưa kịp xem hết.</p>
+<p>Cấp trên yêu cầu bạn nộp một bản tóm tắt tình hình hai tuần qua trong vòng ba mươi phút, trước cuộc họp lúc chín giờ.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Câu hỏi phải trả lời</th>
+<th>Mục tiêu kỹ năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trong hai tuần qua, nguồn log nào sinh ra nhiều bản ghi nhất, và con số là bao nhiêu?</td>
+<td>Làm quen cú pháp chọn nhãn và hàm đếm theo thời gian</td>
+</tr>
+<tr>
+<td>Có bao nhiêu cảnh báo phát hiện xâm nhập ở mức nghiêm trọng nhất? Chúng xuất hiện vào những ngày nào?</td>
+<td>Lọc theo nhãn phụ và đọc biểu đồ theo thời gian</td>
+</tr>
+<tr>
+<td>Ngày nào trong hai tuần có nhiều hoạt động bất thường nhất? Căn cứ vào đâu?</td>
+<td>Đọc hình dạng biểu đồ để chọn hướng điều tra</td>
+</tr>
+<tr>
+<td>Cảnh báo mức 1 dồn vào một ngày hay rải đều? Hai kiểu phân bố này khác nhau thế nào về mức nguy hiểm?</td>
+<td>Phân biệt sự việc đã kết thúc với sự việc đang tiếp diễn</td>
+</tr>
+</tbody>
+</table>
+<h4>Cách đi tới câu trả lời</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash"># Bước 1 — Xem tổng quan khối lượng theo từng nguồn
+#   Hàm count_over_time đếm số dòng trong mỗi cửa sổ thời gian.
+#   Cửa sổ 24h nghĩa là đếm theo từng ngày.
+
+sum by (nguon) (count_over_time({nguon=~&quot;.+&quot;} [24h]))
+
+#   Chọn kiểu hiển thị Biểu đồ cột để nhìn rõ chênh lệch giữa các nguồn.
+</code></pre>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-bash"># Bước 2 — Xem riêng cảnh báo phát hiện xâm nhập mức nghiêm trọng nhất
+#   Nhãn muc_do có giá trị từ 1 đến 3, trong đó 1 là nghiêm trọng nhất.
+
+{nguon=&quot;suricata&quot;, muc_do=&quot;1&quot;}
+
+#   Đếm theo ngày để biết chúng dồn vào ngày nào:
+
+sum(count_over_time({nguon=&quot;suricata&quot;, muc_do=&quot;1&quot;} [24h]))
+</code></pre>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Bước 3 — Tìm ngày có hoạt động bất thường
+#   So sánh số lần xác thực thất bại theo từng giờ trong cả kỳ.
+#   Cột nào cao vọt lên so với phần còn lại là điểm đáng xem.
+
+sum(count_over_time({nguon=&quot;auth&quot;} |= &quot;Failed password&quot; [1h]))
+
+#   Bấm vào cột cao nhất trên biểu đồ, Grafana sẽ tự thu hẹp
+#   khoảng thời gian về đúng giờ đó. Xem các dòng log bên dưới.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Kết quả mong đợi</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nguồn firewall nhiều bản ghi nhất, khoảng 191.900 dòng. Tiếp theo là web với khoảng 180.600 dòng</td>
+<td>Nguồn nhiều bản ghi nhất không đồng nghĩa với nguồn quan trọng nhất</td>
+</tr>
+<tr>
+<td>Có 98 cảnh báo mức 1 trong cả kỳ</td>
+<td>Con số này đủ nhỏ để một người xem hết trong vài phút</td>
+</tr>
+<tr>
+<td>Phân bố theo ngày rất đặc biệt: 58 cảnh báo dồn vào ngày 01 tháng 9, hai ngày sau đó không có cảnh báo nào, rồi từ ngày 04 tháng 9 trở đi mỗi ngày đều có từ 3 đến 4 cảnh báo và không ngày nào dừng</td>
+<td>Đây là hai hiện tượng khác nhau. Một đợt dồn dập rồi hết là một sự việc đã kết thúc. Một nhịp đều đặn không dừng là dấu hiệu của thứ đang chạy liên tục trong hệ thống</td>
+</tr>
+<tr>
+<td>Biểu đồ xác thực thất bại có một cột cao vọt vào tối ngày 01 tháng 9</td>
+<td>Đây là điểm khởi đầu của Tình huống 2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Hình dạng phân bố quan trọng hơn con số tổng. Một đợt cảnh báo dồn vào một ngày rồi chấm dứt và một nhịp cảnh báo đều đặn kéo dài mười ngày là hai loại vấn đề hoàn toàn khác nhau. Loại thứ hai nguy hiểm hơn vì nó vẫn đang diễn ra tại thời điểm bạn phân tích.</p>
+</blockquote>
+<section class="bm" data-bm="bm-01" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Cách đi tới câu trả lời</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Phiếu ghi nhận TH-1</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Nguồn nhiều bản ghi nhất và số lượng</td><td><textarea rows="2" data-k="Nguồn nhiều bản ghi nhất và số lượng · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số cảnh báo mức nghiêm trọng nhất</td><td><textarea rows="2" data-k="Số cảnh báo mức nghiêm trọng nhất · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Các ngày có cảnh báo mức 1 và số lượng từng ngày</td><td><textarea rows="2" data-k="Các ngày có cảnh báo mức 1 và số lượng từng ngày · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Nhận xét về hình dạng phân bố</td><td><textarea rows="2" data-k="Nhận xét về hình dạng phân bố · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Giờ có nhiều xác thực thất bại nhất</td><td><textarea rows="2" data-k="Giờ có nhiều xác thực thất bại nhất · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<h3 id="233-tinh-huong-2-nha-thau-bao-khong-dang-nhap-duoc">23.3. Tình huống 2 — Nhà thầu báo không đăng nhập được<a class="neo" href="#233-tinh-huong-2-nha-thau-bao-khong-dang-nhap-duoc" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>TÌNH HUỐNG</strong></p>
+<p>Chín giờ ba mươi sáng, bộ phận hỗ trợ chuyển cho bạn một phiếu yêu cầu. Nhà thầu Việt Tân Tech báo rằng tài khoản của họ bị khoá vào tuần trước và họ phải gọi điện để được mở lại. Họ hỏi vì sao.</p>
+<p>Phiếu yêu cầu này trông như một việc hỗ trợ kỹ thuật bình thường. Nhưng ở Tình huống 1 bạn đã thấy một cột cao vọt trong biểu đồ xác thực thất bại. Hai việc có thể liên quan.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Câu hỏi phải trả lời</th>
+<th>Mục tiêu kỹ năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tài khoản nhà thầu bị thử mật khẩu bao nhiêu lần, từ địa chỉ nào, trong khoảng thời gian nào?</td>
+<td>Bóc tách một trường từ dòng log bằng regex trong LogQL</td>
+</tr>
+<tr>
+<td>Đây là người dùng gõ nhầm hay là hành vi brute force tự động? Căn cứ vào đâu?</td>
+<td>Phân biệt hành vi dồn dập với hành vi rải rác</td>
+</tr>
+<tr>
+<td>Sau chuỗi thất bại đó, có lần đăng nhập nào thành công không?</td>
+<td>Nhận ra dấu hiệu nguy hiểm nhất của một cuộc brute force</td>
+</tr>
+</tbody>
+</table>
+<h4>Cách đi tới câu trả lời</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash"># Bước 1 — Xem các lần thất bại vào tài khoản nhà thầu
+
+{nguon=&quot;auth&quot;} |= &quot;Failed password&quot; |= &quot;nhathau_vt&quot;
+
+#   Nhìn biểu đồ phía trên: các dòng này dồn vào một khoảng ngắn
+#   hay rải đều trong hai tuần?
+</code></pre>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-text"># Bước 2 — Bóc địa chỉ nguồn ra thành một trường riêng
+#   Toán tử regexp bóc phần nằm sau chữ from thành trường dia_chi.
+#   Sau đó đếm theo cửa sổ một giờ và chỉ giữ nhóm vượt ngưỡng 50 lần.
+
+sum by (dia_chi) (
+  count_over_time(
+    {nguon=&quot;auth&quot;} |= &quot;Failed password&quot;
+    | regexp &quot;from (?P&lt;dia_chi&gt;[0-9.]+) port&quot; [1h]
+  )
+) &gt; 50
+
+#   Ngưỡng 50 được chọn vì người dùng bình thường không gõ nhầm
+#   quá vài lần trong một giờ.
+</code></pre>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Bước 3 — Kiểm tra có lần nào thành công từ địa chỉ đó không
+#   Thay địa chỉ bằng địa chỉ bạn tìm được ở bước 2.
+
+{nguon=&quot;auth&quot;} |= &quot;Accepted&quot; |= &quot;&lt;địa_chỉ_tìm_được&gt;&quot;
+
+#   Nếu có kết quả, đọc kỹ từng dòng: thành công vào tài khoản nào,
+#   trên máy nào, vào lúc mấy giờ.
+</code></pre>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Bước 4 — Đối chiếu với hồ sơ nhân sự trên máy Kali
+#   Grafana không chứa hồ sơ. Mở cửa sổ dòng lệnh và tra trực tiếp.
+
+grep &quot;nhathau_vt&quot; ~/lab/dulieu/danh_sach_nhan_su.csv
+
+#   Chú ý cột giờ làm việc. So với giờ đăng nhập thành công.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Kết quả mong đợi</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>287 lần thất bại từ một địa chỉ duy nhất, dồn trong khoảng một giờ hai mươi phút tối ngày 01 tháng 9</td>
+<td>Tốc độ này không phải của con người. Đây là công cụ brute force tự động</td>
+</tr>
+<tr>
+<td>Có 14 lần đăng nhập thành công từ chính địa chỉ đó, lần đầu lúc 02 giờ 14 phút ngày 02 tháng 9</td>
+<td>Cuộc brute force đã thành công. Đây là chuyển biến từ một việc hỗ trợ thành một sự cố an ninh</td>
+</tr>
+<tr>
+<td>Hồ sơ ghi giờ làm việc của tài khoản này là 09 đến 17</td>
+<td>Đăng nhập lúc 02 giờ 14 phút nằm hoàn toàn ngoài khung giờ làm việc</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Điểm quan trọng của bài này: một phiếu yêu cầu hỗ trợ bình thường có thể là dấu hiệu đầu tiên của một sự cố an ninh. Ba mảnh ghép độc lập là chuỗi thất bại dồn dập, một lần thành công ngay sau đó, và giờ đăng nhập nằm ngoài khung làm việc. Không mảnh nào đủ một mình.</p>
+</blockquote>
+<section class="bm" data-bm="bm-02" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Cách đi tới câu trả lời</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Phiếu ghi nhận TH-2</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Địa chỉ nguồn brute force</td><td><textarea rows="2" data-k="Địa chỉ nguồn brute force · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số lần thất bại và khoảng thời gian</td><td><textarea rows="2" data-k="Số lần thất bại và khoảng thời gian · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Có đăng nhập thành công không, lúc nào</td><td><textarea rows="2" data-k="Có đăng nhập thành công không, lúc nào · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Giờ làm việc theo hồ sơ của tài khoản này</td><td><textarea rows="2" data-k="Giờ làm việc theo hồ sơ của tài khoản này · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Kết luận: đây là sự cố hay không, căn cứ nào</td><td><textarea rows="2" data-k="Kết luận: đây là sự cố hay không, căn cứ nào · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<figure class="so-do"><img src="../assets/img/hinh-06-gf-brute.svg" alt="Kết quả TH-2. Cùng một dữ liệu, hai cách đếm cho hai kết luận trái ngược." loading="lazy"><figcaption>Hình 6 — Kết quả TH-2. Cùng một dữ liệu, hai cách đếm cho hai kết luận trái ngược.</figcaption></figure>
+
+<h3 id="234-tinh-huong-3-cau-hoi-cua-doan-kiem-tra">23.4. Tình huống 3 — Câu hỏi của đoàn kiểm tra<a class="neo" href="#234-tinh-huong-3-cau-hoi-cua-doan-kiem-tra" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>TÌNH HUỐNG</strong></p>
+<p>Mười giờ sáng, bộ phận pháp chế báo rằng tuần sau có đoàn kiểm tra nội bộ. Họ hỏi bạn một câu: trong hai tuần qua, có tài khoản đặc quyền nào được tạo ra mà không có change request tương ứng không?</p>
+<p>Đây là câu hỏi về tuân thủ. Nhưng sau khi làm xong Tình huống 2, bạn có lý do để nghĩ rằng câu trả lời sẽ không chỉ liên quan tới tuân thủ.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Câu hỏi phải trả lời</th>
+<th>Mục tiêu kỹ năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Có bao nhiêu tài khoản được tạo trong kỳ, trên máy nào, vào lúc nào?</td>
+<td>Tìm một loại sự kiện trên nhiều nguồn khác nhau</td>
+</tr>
+<tr>
+<td>Tài khoản nào có phiếu thay đổi tương ứng, tài khoản nào không?</td>
+<td>Đối chiếu log với hồ sơ quản lý</td>
+</tr>
+<tr>
+<td>Tài khoản không có phiếu có gì đặc biệt về mặt quyền hạn?</td>
+<td>Đọc chi tiết một dòng log để hiểu mức nguy hiểm</td>
+</tr>
+</tbody>
+</table>
+<h4>Cách đi tới câu trả lời</h4>
+<p><strong>Bước 1 và 2</strong></p>
+<pre><code class="language-bash"># Bước 1 — Tìm sự kiện tạo tài khoản trên hệ thống Linux
+#   Toán tử |~ khớp theo biểu thức chính quy.
+#   Dấu gạch đứng bên trong nghĩa là hoặc.
+
+{nguon=&quot;auth&quot;} |~ &quot;new user|to group 'sudo'&quot;
+
+# Bước 2 — Tìm sự kiện tương ứng trên hệ thống Windows
+#   Mã sự kiện 4720 là tài khoản người dùng được tạo.
+
+{nguon=&quot;windows&quot;, ma_su_kien=&quot;4720&quot;}
+</code></pre>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Bước 3 — Đối chiếu với hồ sơ thay đổi, trên máy Kali
+
+column -s, -t ~/lab/dulieu/ho_so_thay_doi.csv
+
+#   Với mỗi tài khoản tìm được ở bước 1 và 2, tìm xem có phiếu
+#   thay đổi nào trong bảng này nhắc tới việc tạo tài khoản đó không.
+#   Chú ý cả ngày thực hiện lẫn nội dung.
+</code></pre>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Bước 4 — Đọc kỹ dòng log của tài khoản không có phiếu
+#   Quay lại Grafana, xem nguyên văn dòng useradd.
+#   Chú ý hai giá trị UID và GID.
+
+{nguon=&quot;auth&quot;} |= &quot;new user&quot;
+
+#   Trên hệ thống Linux, định danh bằng 0 là định danh của quản trị
+#   cao nhất. Một tài khoản thường phải có định danh từ 1000 trở lên.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Kết quả mong đợi</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hai tài khoản được tạo trong kỳ: một trên server file ngày 05 tháng 9, một trên server ứng dụng ngày 03 tháng 9</td>
+<td>Cả hai đều phải được kiểm tra</td>
+</tr>
+<tr>
+<td>Tài khoản ngày 05 tháng 9 có phiếu TD-2026-083, đã được phê duyệt, do bộ phận nhân sự đề nghị</td>
+<td>Hợp lệ, không cần xử lý</td>
+</tr>
+<tr>
+<td>Tài khoản ngày 03 tháng 9 tên là svc_backup2, không có phiếu nào tương ứng</td>
+<td>Bất thường. Phải điều tra</td>
+</tr>
+<tr>
+<td>Tài khoản svc_backup2 được tạo với định danh bằng 0 và được thêm vào nhóm quản trị</td>
+<td>Đây là quyền cao nhất trên hệ thống. Không quy trình hợp lệ nào tạo tài khoản như vậy</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Một tài khoản đặc quyền không có change record tương ứng có hai khả năng: hoặc đội kỹ thuật bỏ qua quy trình, hoặc hệ thống đã bị xâm nhập. Cả hai đều phải được điều tra. Ở đây, thời điểm tạo tài khoản là 02 giờ 19 phút sáng, ngay sau lần đăng nhập trái phép ở Tình huống 2.</p>
+</blockquote>
+<section class="bm" data-bm="bm-03" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Cách đi tới câu trả lời</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Phiếu ghi nhận TH-3</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Số tài khoản được tạo trong kỳ</td><td><textarea rows="2" data-k="Số tài khoản được tạo trong kỳ · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tài khoản có phiếu thay đổi tương ứng</td><td><textarea rows="2" data-k="Tài khoản có phiếu thay đổi tương ứng · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tài khoản không có phiếu</td><td><textarea rows="2" data-k="Tài khoản không có phiếu · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Đặc điểm bất thường về quyền hạn</td><td><textarea rows="2" data-k="Đặc điểm bất thường về quyền hạn · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Liên hệ với kết quả Tình huống 2</td><td><textarea rows="2" data-k="Liên hệ với kết quả Tình huống 2 · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<h3 id="235-tinh-huong-4-hoa-don-internet-tang-dot-bien">23.5. Tình huống 4 — Hoá đơn Internet tăng đột biến<a class="neo" href="#235-tinh-huong-4-hoa-don-internet-tang-dot-bien" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>TÌNH HUỐNG</strong></p>
+<p>Đầu giờ chiều, bộ phận kế toán gửi thư hỏi vì sao hoá đơn dịch vụ Internet tháng này cao hơn hẳn các tháng trước. Họ đính kèm biểu đồ lưu lượng của nhà cung cấp, trong đó có một ngày lưu lượng đi ra cao bất thường.</p>
+<p>Kế toán không biết về sự cố. Với bạn, sau ba tình huống vừa rồi, đây có thể là mảnh ghép tiếp theo.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Câu hỏi phải trả lời</th>
+<th>Mục tiêu kỹ năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tổng khối lượng dữ liệu đi ra Internet lớn nhất là tới địa chỉ nào?</td>
+<td>Cộng dồn giá trị số trong LogQL bằng hàm unwrap</td>
+</tr>
+<tr>
+<td>Vì sao không được lấy ngay địa chỉ đứng đầu làm kết luận?</td>
+<td>Nhận ra hoạt động hợp lệ có khối lượng lớn</td>
+</tr>
+<tr>
+<td>Máy nào trong nội bộ đã gửi dữ liệu đó, vào thời điểm nào, kéo dài bao lâu?</td>
+<td>Thu hẹp phạm vi điều tra từ một địa chỉ đích</td>
+</tr>
+</tbody>
+</table>
+<h4>Cách đi tới câu trả lời</h4>
+<p>Nguồn log firewall chỉ ghi lại việc một kết nối đã xảy ra, không ghi khối lượng dữ liệu. Muốn biết khối lượng phải dùng nguồn netflow. Đây là điểm mà nhiều người mất thời gian tìm sai chỗ.</p>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-text"># Bước 1 — Cộng tổng số byte đi ra theo từng địa chỉ đích
+#   Toán tử regexp bóc hai trường từ dòng netflow.
+#   Toán tử unwrap báo cho Loki biết trường nào là số để cộng.
+
+sum by (dich) (
+  sum_over_time(
+    {nguon=&quot;netflow&quot;}
+    | regexp &quot;^[^,]*,[^,]*,[^,]*,(?P&lt;dich&gt;[^,]*),[^,]*,[^,]*,[^,]*,[^,]*,(?P&lt;byte&gt;[0-9]+),&quot;
+    | unwrap byte [14d]
+  )
+)
+
+#   Chọn kiểu hiển thị Bảng để xem kết quả dạng danh sách.
+</code></pre>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-text"># Bước 2 — Loại bỏ các đích nằm trong mạng nội bộ
+#   Thêm một bộ lọc nhãn sau khi đã bóc trường dich.
+
+sum by (dich) (
+  sum_over_time(
+    {nguon=&quot;netflow&quot;}
+    | regexp &quot;^[^,]*,[^,]*,[^,]*,(?P&lt;dich&gt;[^,]*),[^,]*,[^,]*,[^,]*,[^,]*,(?P&lt;byte&gt;[0-9]+),&quot;
+    | dich !~ &quot;192\\.168\\..*&quot;
+    | unwrap byte [14d]
+  )
+)
+</code></pre>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Bước 3 — Xem chi tiết các phiên tới địa chỉ đứng đầu
+#   Thay địa chỉ bằng địa chỉ bạn tìm được.
+
+{nguon=&quot;netflow&quot;} |= &quot;&lt;địa_chỉ_tìm_được&gt;&quot;
+
+#   Đọc cột thứ ba của mỗi dòng để biết máy nội bộ nào đã gửi.
+#   Đọc cột thứ nhất để biết thời điểm bắt đầu và kết thúc.
+</code></pre>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Bước 4 — Cách kiểm tra nhanh trên dòng lệnh, để đối chiếu
+#   Chạy trên máy Kali. Kết quả phải khớp với bước 2.
+
+cd ~/lab/dulieu
+awk -F&quot;,&quot; 'NR&gt;1 &amp;&amp; $4 !~ /^192\.168\./ {b[$4]+=$9} \
+  END {for (i in b) printf &quot;%-18s %9.2f MB\n&quot;, i, b[i]/1048576}' \
+  netflow.csv | sort -k2 -rn | head -5
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Kết quả mong đợi</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Khi chưa eradication nội bộ, đích đứng đầu là 192.168.10.25 với khoảng 135 GB</td>
+<td>Tra asset inventory thấy đây là server backup. Đó là dữ liệu backup hằng đêm, hoàn toàn hợp lệ</td>
+</tr>
+<tr>
+<td>Sau khi eradication, đích đứng đầu là 185.199.110.153 với khoảng 2.219 MB</td>
+<td>Đích đứng thứ hai chỉ có khoảng 15 MB. Chênh lệch 140 lần</td>
+</tr>
+<tr>
+<td>Nguồn gửi là 192.168.10.20, diễn ra ngày 09 tháng 9 từ 03 giờ 12 đến 03 giờ 54</td>
+<td>Server ứng dụng, chính là máy đã bị tạo tài khoản trái phép ở Tình huống 3</td>
+</tr>
+</tbody>
+</table>
+<section class="bm" data-bm="bm-04" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Cách đi tới câu trả lời</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Phiếu ghi nhận TH-4</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Đích nhận nhiều dữ liệu nhất khi chưa eradication nội bộ</td><td><textarea rows="2" data-k="Đích nhận nhiều dữ liệu nhất khi chưa eradication nội bộ · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Đích nhận nhiều nhất sau khi eradication nội bộ</td><td><textarea rows="2" data-k="Đích nhận nhiều nhất sau khi eradication nội bộ · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Máy nội bộ đã gửi dữ liệu</td><td><textarea rows="2" data-k="Máy nội bộ đã gửi dữ liệu · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Thời gian bắt đầu và kết thúc</td><td><textarea rows="2" data-k="Thời gian bắt đầu và kết thúc · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tổng khối lượng</td><td><textarea rows="2" data-k="Tổng khối lượng · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<figure class="so-do"><img src="../assets/img/hinh-07-gf-netflow.svg" alt="Kết quả TH-4. Đích có khối lượng lớn nhất lại là đích hợp lệ." loading="lazy"><figcaption>Hình 7 — Kết quả TH-4. Đích có khối lượng lớn nhất lại là đích hợp lệ.</figcaption></figure>
+
+<h3 id="236-tinh-huong-5-canh-bao-tu-ben-ngoai">23.6. Tình huống 5 — Cảnh báo từ bên ngoài<a class="neo" href="#236-tinh-huong-5-canh-bao-tu-ben-ngoai" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>TÌNH HUỐNG</strong></p>
+<p>Cuối giờ chiều, đơn vị nhận được thư từ một tổ chức chuyên trách về an ninh mạng. Nội dung ngắn: địa chỉ công cộng của quý đơn vị được ghi nhận có kết nối tới hạ tầng điều khiển malware tại địa chỉ 198.51.100.23. Đề nghị kiểm tra và phản hồi.</p>
+<p>Thư không nêu máy nào, không nêu thời điểm. Bạn chỉ có một địa chỉ và phải tự tìm phần còn lại.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Câu hỏi phải trả lời</th>
+<th>Mục tiêu kỹ năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máy nào trong nội bộ đã kết nối tới địa chỉ đó, bao nhiêu lần, từ khi nào?</td>
+<td>Điều tra xuất phát từ một chỉ dấu do bên ngoài cung cấp</td>
+</tr>
+<tr>
+<td>Các kết nối này có quy luật về thời gian không?</td>
+<td>Nhận ra dấu hiệu của kênh C2 tự động</td>
+</tr>
+<tr>
+<td>Tên miền nào đã được phân giải ra địa chỉ này? Nguồn nào cho biết điều đó?</td>
+<td>Hiểu vì sao phải có log DNS</td>
+</tr>
+<tr>
+<td>Vì sao khối lượng dữ liệu của các kết nối này rất nhỏ?</td>
+<td>Phân biệt kênh C2 với hành vi data exfiltration</td>
+</tr>
+</tbody>
+</table>
+<h4>Cách đi tới câu trả lời</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash"># Bước 1 — Tìm địa chỉ đó trong log firewall
+
+{nguon=&quot;firewall&quot;} |= &quot;198.51.100.23&quot;
+
+#   Nhìn biểu đồ phía trên. Các cột có đều nhau không?
+#   Đọc vài dòng bên dưới để xác định máy nội bộ nào đã kết nối.
+</code></pre>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-bash"># Bước 2 — Đếm số kết nối theo từng giờ
+#   Nếu con số giống nhau ở mọi giờ thì đây là hoạt động tự động.
+
+sum(count_over_time({nguon=&quot;firewall&quot;} |= &quot;198.51.100.23&quot; [1h]))
+
+#   Đếm theo từng ngày để biết bắt đầu từ ngày nào:
+
+sum(count_over_time({nguon=&quot;firewall&quot;} |= &quot;198.51.100.23&quot; [24h]))
+</code></pre>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Bước 3 — Xem khoảng cách thời gian giữa các lần kết nối
+#   Dùng nguồn netflow vì mỗi dòng là một phiên kết nối.
+
+{nguon=&quot;netflow&quot;} |= &quot;198.51.100.23&quot;
+
+#   Đọc cột thời gian của các dòng liên tiếp.
+#   Khoảng cách giữa chúng là bao nhiêu phút?
+</code></pre>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Bước 4 — Tìm tên miền đã phân giải ra địa chỉ này
+#   Log firewall và netflow chỉ có địa chỉ, không có tên miền.
+#   Phải tìm ở nguồn dns, lọc theo máy đã kết nối.
+
+{nguon=&quot;dns&quot;} |= &quot;192.168.10.20&quot;
+
+#   Trong danh sách tên miền, tìm tên miền lạ, không thuộc các
+#   dịch vụ thông thường như google, microsoft, hoặc tên miền công ty.
+#   Đếm số lần truy vấn tên miền đó và so với số kết nối ở bước 2.
+</code></pre>
+<p><strong>Bước 5</strong></p>
+<pre><code class="language-bash"># Bước 5 — So sánh khối lượng với vụ thoát dữ liệu ở Tình huống 4
+#   Chạy trên máy Kali cho nhanh.
+
+cd ~/lab/dulieu
+awk -F&quot;,&quot; 'NR&gt;1 &amp;&amp; $4==&quot;198.51.100.23&quot; {n++; b+=$9} \
+  END {printf &quot;%d phien, tong %d byte, trung binh %d byte/phien\n&quot;, \
+       n, b, b/n}' netflow.csv
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Kết quả mong đợi</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máy 192.168.10.20 kết nối 524 lần, bắt đầu từ ngày 04 tháng 9</td>
+<td>Cùng máy đã gửi dữ liệu ra ngoài ở Tình huống 4</td>
+</tr>
+<tr>
+<td>Các lần kết nối cách nhau đúng 30 phút, không đổi trong suốt mười ngày</td>
+<td>Con người không thao tác đều đặn như vậy. Đây là một chương trình chạy tự động</td>
+</tr>
+<tr>
+<td>Tên miền được truy vấn đúng 524 lần, khớp số kết nối</td>
+<td>Tên miền này chỉ xuất hiện trong log DNS, không có ở bất kỳ nguồn nào khác</td>
+</tr>
+<tr>
+<td>Tổng chỉ khoảng 0,21 MB, trung bình 418 byte mỗi phiên</td>
+<td>Khối lượng rất nhỏ. Nếu xếp hạng theo khối lượng, kênh này không bao giờ lọt vào danh sách đáng chú ý</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Bài này dạy hai điều. Thứ nhất, tên miền của server C2 chỉ tồn tại trong log DNS. Tổ chức không thu thập log DNS sẽ mất hoàn toàn manh mối này. Thứ hai, kênh C2 có khối lượng rất nhỏ nhưng tần suất rất đều. Phải xếp hạng theo số lần kết nối và kiểm tra chu kỳ, không xếp hạng theo khối lượng.</p>
+</blockquote>
+<section class="bm" data-bm="bm-05" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Cách đi tới câu trả lời</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Phiếu ghi nhận TH-5</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Máy nội bộ đã kết nối</td><td><textarea rows="2" data-k="Máy nội bộ đã kết nối · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số lần kết nối và ngày bắt đầu</td><td><textarea rows="2" data-k="Số lần kết nối và ngày bắt đầu · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Khoảng cách giữa các lần kết nối</td><td><textarea rows="2" data-k="Khoảng cách giữa các lần kết nối · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tên miền liên quan và nguồn tìm ra</td><td><textarea rows="2" data-k="Tên miền liên quan và nguồn tìm ra · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tổng khối lượng và trung bình mỗi phiên</td><td><textarea rows="2" data-k="Tổng khối lượng và trung bình mỗi phiên · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<figure class="so-do"><img src="../assets/img/hinh-08-gf-beacon.svg" alt="Kết quả TH-5. Nhịp đều tuyệt đối là chữ ký của kênh C2." loading="lazy"><figcaption>Hình 8 — Kết quả TH-5. Nhịp đều tuyệt đối là chữ ký của kênh C2.</figcaption></figure>
+
+<h3 id="237-tinh-huong-6-dung-dashboard-cho-ca-truc">23.7. Tình huống 6 — Dựng dashboard cho ca trực<a class="neo" href="#237-tinh-huong-6-dung-dashboard-cho-ca-truc" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>TÌNH HUỐNG</strong></p>
+<p>Sau khi bạn báo cáo kết quả năm tình huống trên, lãnh đạo đặt một câu hỏi: nếu chuyện này xảy ra lại vào tháng sau, bao lâu thì chúng ta biết?</p>
+<p>Câu trả lời phụ thuộc vào việc người trực ca có nhìn thấy các dấu hiệu đó ngay trên màn hình hay không. Nhiệm vụ của bạn là dựng một dashboard để người trực ca tiếp theo phát hiện được sớm hơn bạn.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Câu hỏi phải trả lời</th>
+<th>Mục tiêu kỹ năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bốn hình nào cần có trên dashboard, và mỗi hình trả lời câu hỏi gì?</td>
+<td>Thiết kế dashboard xuất phát từ quyết định cần ra, không xuất phát từ dữ liệu sẵn có</td>
+</tr>
+<tr>
+<td>Với mỗi hình, nếu người trực thấy con số tăng bất thường thì họ làm gì tiếp theo?</td>
+<td>Gắn mỗi hình với một hành động cụ thể</td>
+</tr>
+</tbody>
+</table>
+<h4>Bốn hình cần dựng</h4>
+<table>
+<thead>
+<tr>
+<th>Hình</th>
+<th>Câu hỏi nó trả lời</th>
+<th>Truy vấn đề xuất</th>
+<th>Kiểu hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Xác thực thất bại theo giờ</td>
+<td>Có ai đang brute force không</td>
+<td>sum by (dia_chi) (count_over_time({nguon="auth"} |= "Failed password" | regexp "from (?P<dia_chi>[0-9.]+) port" [1h]))</td>
+<td>Biểu đồ đường</td>
+</tr>
+<tr>
+<td>Cảnh báo mức nghiêm trọng</td>
+<td>Có việc gì cần xử lý ngay không</td>
+<td>sum(count_over_time({nguon="suricata", muc_do="1"} [1h]))</td>
+<td>Số đơn</td>
+</tr>
+<tr>
+<td>Tài khoản đặc quyền được tạo</td>
+<td>Có ai tạo tài khoản ngoài quy trình không</td>
+<td>{nguon="auth"} |~ "new user|to group 'sudo'"</td>
+<td>Danh sách log</td>
+</tr>
+<tr>
+<td>Trạng thái mười hai nguồn dữ liệu</td>
+<td>Có nguồn nào ngừng gửi dữ liệu không</td>
+<td>sum by (nguon) (count_over_time({nguon=~".+"} [1h]))</td>
+<td>Biểu đồ cột</td>
+</tr>
+</tbody>
+</table>
+<h4>Các bước dựng</h4>
+<ol>
+<li>Trong Grafana, mở menu bên trái, chọn Dashboard, chọn Dashboard mới.</li>
+<li>Chọn Thêm hình, chọn nguồn dữ liệu Loki.</li>
+<li>Chuyển ô truy vấn sang chế độ Mã, dán truy vấn của hình thứ nhất vào.</li>
+<li>Ở khung bên phải, chọn kiểu hiển thị theo bảng trên, và đặt tiêu đề cho hình.</li>
+<li>Chọn Lưu ở góc trên bên phải, đặt tên bảng là Bang truc ca, rồi chọn Lưu.</li>
+<li>Lặp lại từ bước 2 cho ba hình còn lại.</li>
+<li>Sau khi có đủ bốn hình, đặt khoảng thời gian mặc định của bảng là 2026-09-01 đến 2026-09-15, rồi lưu lại lần nữa.</li>
+</ol>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Mỗi hình trên dashboard phải trả lời được câu hỏi: người xem sẽ làm gì khác đi sau khi nhìn hình này. Nếu không trả lời được thì hình đó không cần tồn tại. Một bảng có bốn hình dùng được tốt hơn một bảng có mười hình đẹp nhưng không dẫn tới hành động nào.</p>
+</blockquote>
+<section class="bm" data-bm="bm-06" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Các bước dựng</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Phiếu ghi nhận TH-6</th><th>Hành động khi thấy bất thường</th><th>Ai thực hiện</th></tr></thead><tbody><tr><td class="bm-ma">Hình 1 — Xác thực thất bại</td><td><textarea rows="2" data-k="Hình 1 — Xác thực thất bại · Hành động khi thấy bất thường"></textarea></td><td><textarea rows="2" data-k="Hình 1 — Xác thực thất bại · Ai thực hiện"></textarea></td></tr><tr><td class="bm-ma">Hình 2 — Cảnh báo nghiêm trọng</td><td><textarea rows="2" data-k="Hình 2 — Cảnh báo nghiêm trọng · Hành động khi thấy bất thường"></textarea></td><td><textarea rows="2" data-k="Hình 2 — Cảnh báo nghiêm trọng · Ai thực hiện"></textarea></td></tr><tr><td class="bm-ma">Hình 3 — Tài khoản đặc quyền</td><td><textarea rows="2" data-k="Hình 3 — Tài khoản đặc quyền · Hành động khi thấy bất thường"></textarea></td><td><textarea rows="2" data-k="Hình 3 — Tài khoản đặc quyền · Ai thực hiện"></textarea></td></tr><tr><td class="bm-ma">Hình 4 — Trạng thái mười hai nguồn</td><td><textarea rows="2" data-k="Hình 4 — Trạng thái mười hai nguồn · Hành động khi thấy bất thường"></textarea></td><td><textarea rows="2" data-k="Hình 4 — Trạng thái mười hai nguồn · Ai thực hiện"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<p><code>PHẦN G · GRAFANA</code></p>
+<figure class="so-do"><img src="../assets/img/hinh-09-gf-dashboard.svg" alt="Dashboard trực ca bốn ô, kết quả mong đợi của TH-6." loading="lazy"><figcaption>Hình 9 — Dashboard trực ca bốn ô, kết quả mong đợi của TH-6.</figcaption></figure>
+
+<h2 id="chuong-24-tong-hop-sau-tinh-huong">Chương 24 · Tổng hợp sáu tình huống<a class="neo" href="#chuong-24-tong-hop-sau-tinh-huong" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Sáu tình huống rời rạc, khi ghép lại, là một câu chuyện duy nhất.</em></p>
+<h3 id="241-ghep-cac-manh-lai">24.1. Ghép các mảnh lại<a class="neo" href="#241-ghep-cac-manh-lai" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Mỗi tình huống bắt đầu từ một yêu cầu công việc bình thường: bàn giao ca, phiếu hỗ trợ, câu hỏi kiểm tra, thắc mắc về hoá đơn, thư từ bên ngoài. Không yêu cầu nào nói rằng có sự cố an ninh. Nhưng khi ghép lại, chúng mô tả một chuỗi sự việc liên tục.</p>
+<table>
+<thead>
+<tr>
+<th>Tình huống</th>
+<th>Phát hiện được gì</th>
+<th>Nguồn dữ liệu</th>
+<th>Giai đoạn tấn công</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TH-2</td>
+<td>Brute force rồi đăng nhập thành công vào tài khoản nhà thầu</td>
+<td>auth</td>
+<td>Truy cập ban đầu</td>
+</tr>
+<tr>
+<td>TH-3</td>
+<td>Tài khoản đặc quyền được tạo ngoài quy trình, định danh bằng 0</td>
+<td>auth, change record</td>
+<td>Persistence và privilege escalation</td>
+</tr>
+<tr>
+<td>TH-5</td>
+<td>Kênh kết nối đều đặn 30 phút ra server C2 bên ngoài</td>
+<td>firewall, netflow, dns</td>
+<td>Điều khiển</td>
+</tr>
+<tr>
+<td>TH-4</td>
+<td>2.219 MB dữ liệu được gửi ra một đích lạ trong 42 phút</td>
+<td>netflow</td>
+<td>Data exfiltration</td>
+</tr>
+</tbody>
+</table>
+<p>Cùng một máy, 192.168.10.20, xuất hiện ở cả ba tình huống cuối. Cùng một tài khoản, svc_backup2, xuất hiện ở TH-3 và các sự việc sau đó. Trình tự thời gian liên tục từ ngày 01 đến ngày 09 tháng 9.</p>
+<h3 id="242-ba-bai-hoc-rut-ra">24.2. Ba bài học rút ra<a class="neo" href="#242-ba-bai-hoc-rut-ra" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Bài học</th>
+<th>Diễn giải</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Không nguồn nào đủ một mình</td>
+<td>Tên miền điều khiển chỉ có trong log DNS. Khối lượng data exfiltration chỉ có trong netflow. Tài khoản được tạo chỉ có trong log xác thực. Tổ chức thiếu một nguồn sẽ mất hẳn một mảnh ghép</td>
+</tr>
+<tr>
+<td>Log không đủ, phải có hồ sơ quản lý</td>
+<td>Không có change record thì không biết tài khoản nào hợp lệ. Không có danh sách nhân sự thì không biết giờ đăng nhập nào là bất thường</td>
+</tr>
+<tr>
+<td>Sự cố đến qua các yêu cầu công việc bình thường</td>
+<td>Không ai gửi thư báo rằng hệ thống bị xâm nhập. Dấu hiệu đến qua phiếu hỗ trợ, thắc mắc về hoá đơn, và câu hỏi của đoàn kiểm tra</td>
+</tr>
+</tbody>
+</table>
+<h3 id="243-cau-hoi-cuoi-cung">24.3. Câu hỏi cuối cùng<a class="neo" href="#243-cau-hoi-cuoi-cung" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Cuộc xâm nhập bắt đầu tối ngày 01 tháng 9. Dữ liệu bị lấy đi ngày 09 tháng 9. Bạn đang phân tích vào ngày 15 tháng 9.</p>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Nếu dashboard bạn dựng ở Tình huống 6 đã tồn tại từ ngày 01 tháng 9, người trực ca sẽ nhìn thấy dấu hiệu đầu tiên vào lúc nào? Và nếu phát hiện ở thời điểm đó, tổ chức có mất 2.219 MB dữ liệu không? Hãy viết câu trả lời vào cuối phiếu ghi nhận TH-6.</p>
+</blockquote>
+<hr>
+<nav class="dieu-huong">
+<a class="dh truoc" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="dh sau" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+</nav>
+</main>
+
+<button id="len" aria-label="Lên đầu trang">↑</button>
+<script src="../assets/js/chi-muc.js"></script>
+<script src="../assets/js/cam-nang.js"></script>
+</body>
+</html>

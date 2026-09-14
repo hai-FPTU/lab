@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1 · Cẩm nang thực hành</title>
+<link rel="stylesheet" href="../assets/css/cam-nang.css">
+</head>
+<body>
+<div id="tien-do"></div>
+<div id="lop-phu" role="dialog" aria-label="Xem hình phóng to"></div>
+<button id="nut-canh" aria-label="Mở mục lục">☰</button>
+
+<nav id="canh">
+  <header>
+    <a href="../index.html" class="ve-dau">Cẩm nang thực hành</a>
+    <div class="phu">Dành cho học viên · An ninh mạng nâng cao</div>
+  </header>
+  <input id="o-tim" type="search" placeholder="Tìm trong cẩm nang…" autocomplete="off">
+  <div id="kq-tim"></div>
+  <div id="ml"><a class="ml-phan" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="ml-phan" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-phan" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-phan" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="ml-phan" href="05-phan-e.html">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-phan" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="ml-phan" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-phan dang-xem" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-chuong cap1" href="#phan-h-bai-thuc-hanh-chuyen-de-1" data-id="phan-h-bai-thuc-hanh-chuyen-de-1">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-chuong cap2" href="#bai-11-lam-quen-moi-truong-va-kiem-chung-duong-di-mang" data-id="bai-11-lam-quen-moi-truong-va-kiem-chung-duong-di-mang">Bài 1.1 · Làm quen môi trường và kiểm chứng đường đi mạng</a>
+<a class="ml-chuong cap3" href="#dieu-kien-tien-quyet" data-id="dieu-kien-tien-quyet">Điều kiện tiên quyết</a>
+<a class="ml-chuong cap3" href="#du-lieu-va-cong-cu" data-id="du-lieu-va-cong-cu">Dữ liệu và công cụ</a>
+<a class="ml-chuong cap3" href="#cac-buoc-thuc-hien" data-id="cac-buoc-thuc-hien">Các bước thực hiện</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-11" data-id="phieu-ghi-nhan-11">Phiếu ghi nhận 1.1</a>
+<a class="ml-chuong cap3" href="#muc-mo-rong" data-id="muc-mo-rong">Mức mở rộng</a>
+<a class="ml-chuong cap3" href="#xu-ly-su-co" data-id="xu-ly-su-co">Xử lý sự cố</a>
+<a class="ml-chuong cap2" href="#bai-12-asset-inventory" data-id="bai-12-asset-inventory">Bài 1.2 · Asset inventory</a>
+<a class="ml-chuong cap3" href="#dieu-kien-tien-quyet" data-id="dieu-kien-tien-quyet">Điều kiện tiên quyết</a>
+<a class="ml-chuong cap3" href="#du-lieu-va-cong-cu" data-id="du-lieu-va-cong-cu">Dữ liệu và công cụ</a>
+<a class="ml-chuong cap3" href="#cac-buoc-thuc-hien" data-id="cac-buoc-thuc-hien">Các bước thực hiện</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-12" data-id="phieu-ghi-nhan-12">Phiếu ghi nhận 1.2</a>
+<a class="ml-chuong cap3" href="#muc-mo-rong" data-id="muc-mo-rong">Mức mở rộng</a>
+<a class="ml-chuong cap3" href="#xu-ly-su-co" data-id="xu-ly-su-co">Xử lý sự cố</a>
+<a class="ml-chuong cap2" href="#bai-13-lap-risk-register" data-id="bai-13-lap-risk-register">Bài 1.3 · Lập risk register</a>
+<a class="ml-chuong cap3" href="#dieu-kien-tien-quyet" data-id="dieu-kien-tien-quyet">Điều kiện tiên quyết</a>
+<a class="ml-chuong cap3" href="#thang-diem-su-dung" data-id="thang-diem-su-dung">Thang điểm sử dụng</a>
+<a class="ml-chuong cap3" href="#cac-buoc-thuc-hien" data-id="cac-buoc-thuc-hien">Các bước thực hiện</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-13-risk-register" data-id="phieu-ghi-nhan-13-risk-register">Phiếu ghi nhận 1.3 — Risk register</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-13b-ba-rui-ro-uu-tien" data-id="phieu-ghi-nhan-13b-ba-rui-ro-uu-tien">Phiếu ghi nhận 1.3b — Ba rủi ro ưu tiên</a>
+<a class="ml-chuong cap3" href="#muc-mo-rong" data-id="muc-mo-rong">Mức mở rộng</a>
+<a class="ml-chuong cap2" href="#bai-14-tu-danh-gia-muc-do-truong-thanh-zero-trust" data-id="bai-14-tu-danh-gia-muc-do-truong-thanh-zero-trust">Bài 1.4 · Tự đánh giá mức độ trưởng thành Zero Trust</a>
+<a class="ml-chuong cap3" href="#cach-cham-diem" data-id="cach-cham-diem">Cách chấm điểm</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-14" data-id="phieu-ghi-nhan-14">Phiếu ghi nhận 1.4</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-14b-ba-hanh-dong-uu-tien" data-id="phieu-ghi-nhan-14b-ba-hanh-dong-uu-tien">Phiếu ghi nhận 1.4b — Ba hành động ưu tiên</a>
+<a class="ml-phan" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-phan" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="ml-phan" href="11-phan-k.html">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-phan" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a></div>
+</nav>
+
+<main id="than">
+<h1 id="phan-h-bai-thuc-hanh-chuyen-de-1">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1<a class="neo" href="#phan-h-bai-thuc-hanh-chuyen-de-1" aria-label="Liên kết tới mục này">#</a></h1>
+<p><em>Tổng quan rủi ro và tư duy bảo mật</em></p>
+<ul>
+<li>Làm quen môi trường và kiểm chứng đường đi mạng</li>
+<li>Lập bảng kiểm kê hệ thống</li>
+<li>Xếp hạng rủi ro theo thang điểm thống nhất</li>
+<li>Tự đánh giá năm trụ cột Zero Trust</li>
+</ul>
+<hr>
+<p><code>THỜI LƯỢNG 20 PHÚT</code></p>
+<h2 id="bai-11-lam-quen-moi-truong-va-kiem-chung-duong-di-mang">Bài 1.1 · Làm quen môi trường và kiểm chứng đường đi mạng<a class="neo" href="#bai-11-lam-quen-moi-truong-va-kiem-chung-duong-di-mang" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: xác nhận môi trường hoạt động đúng và hiểu được vì sao mọi lưu lượng đều đi qua firewall.</em></p>
+<h3 id="dieu-kien-tien-quyet">Điều kiện tiên quyết<a class="neo" href="#dieu-kien-tien-quyet" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Đã hoàn thành quy trình kiểm tra ở mục 2.4.</li>
+<li>Ba máy ảo đang bật.</li>
+<li>Đã tạo snapshot SACH.</li>
+</ul>
+<h3 id="du-lieu-va-cong-cu">Dữ liệu và công cụ<a class="neo" href="#du-lieu-va-cong-cu" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Chi tiết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máy sử dụng</td>
+<td>Kali (thao tác chính), pfSense (xem giao diện web)</td>
+</tr>
+<tr>
+<td>Công cụ</td>
+<td>ping, traceroute, ip route, trình duyệt web</td>
+</tr>
+<tr>
+<td>File dữ liệu</td>
+<td>pfsense_filterlog.log</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cac-buoc-thuc-hien">Các bước thực hiện<a class="neo" href="#cac-buoc-thuc-hien" aria-label="Liên kết tới mục này">#</a></h3>
+<h4>Bước 1 — Xem đường đi của gói tin</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash"># Trên Kali: xem bảng định tuyến của chính máy mình
+ip route show
+
+# Kết quả sẽ có một dòng dạng:
+#   default via 192.168.20.1 dev eth0
+# Nghĩa là mọi kết nối ra ngoài dải 192.168.20.0/24
+# đều phải đi qua firewall ở địa chỉ 192.168.20.1
+
+# Kiểm chứng bằng cách dò đường tới server Ubuntu
+traceroute -n 192.168.10.20
+</code></pre>
+<p>Kết quả của traceroute cho thấy hai chặng: chặng thứ nhất là firewall, chặng thứ hai là server đích. Đây là bằng chứng trực quan rằng hai máy nằm ở hai phân đoạn khác nhau.</p>
+<h4>Bước 2 — Mở giao diện quản trị firewall</h4>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-bash"># Trên Kali, mở trình duyệt và truy cập:
+#   https://192.168.20.1
+# Tài khoản: hocvien      Mật khẩu: LabMinhAn2026
+
+# Trình duyệt sẽ cảnh báo chứng thư số không hợp lệ.
+# Đây là chứng thư tự ký của thiết bị, chấp nhận và đi tiếp.
+# Ghi nhớ hiện tượng này — sẽ được phân tích ở Chuyên đề 2.
+</code></pre>
+<p>Vào mục Trạng thái, chọn Log hệ thống, rồi chọn thẻ Firewall. Đây là nơi hiển thị log kết nối theo thời gian thực. Quan sát khoảng một phút để thấy các dòng mới xuất hiện.</p>
+<h4>Bước 3 — Sinh một kết nối và tìm lại trong log</h4>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Trên Kali: tạo một kết nối tới cổng đóng trên máy Ubuntu
+nc -zv 192.168.10.20 4444
+
+# Ngay sau đó, trên giao diện firewall, tìm dòng tương ứng
+# Hoặc tìm trong file log đã cấp sẵn theo cấu trúc giống hệt:
+cd ~/lab/dulieu
+head -3 pfsense_filterlog.log
+</code></pre>
+<h4>Bước 4 — Hiểu cấu trúc một dòng log firewall</h4>
+<p>Mỗi dòng log firewall là một chuỗi các trường ngăn cách bởi dấu phẩy. Bảng dưới liệt kê các trường sẽ được dùng trong toàn bộ bộ lab. Học viên không cần nhớ, chỉ cần biết tra ở đâu.</p>
+<table>
+<thead>
+<tr>
+<th>Số thứ tự</th>
+<th>Tên trường</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Giao diện</td>
+<td>Cổng mạng nhận gói tin: em0 là hướng Internet, em1 là mạng nội bộ, em2 là phân đoạn Kali</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Hành động</td>
+<td>pass là cho qua, block là chặn</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Chiều</td>
+<td>in là đi vào giao diện, out là đi ra</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Giao thức</td>
+<td>tcp, udp hoặc icmp</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Độ dài</td>
+<td>Số byte của gói tin. Trường dùng để tính khối lượng dữ liệu</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Địa chỉ nguồn</td>
+<td>Nơi gói tin xuất phát</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Địa chỉ đích</td>
+<td>Nơi gói tin đi tới</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Cổng nguồn</td>
+<td>Cổng phía gửi</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Cổng đích</td>
+<td>Cổng phía nhận. Trường cho biết dịch vụ nào đang được truy cập</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Thử lấy riêng một vài trường để làm quen
+cd ~/lab/dulieu
+
+# In ra: hành động, địa chỉ nguồn, địa chỉ đích, cổng đích
+awk -F',' '{print $7, $19, $20, $22}' pfsense_filterlog.log | head -10
+
+# Đếm xem có bao nhiêu kết nối bị chặn
+awk -F',' '$7==&quot;block&quot;' pfsense_filterlog.log | wc -l
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bảng định tuyến</td>
+<td>Có dòng default via 192.168.20.1</td>
+</tr>
+<tr>
+<td>Dò đường tới server</td>
+<td>Hai chặng, chặng đầu là 192.168.20.1</td>
+</tr>
+<tr>
+<td>Giao diện firewall</td>
+<td>Mở được, thấy log cập nhật theo thời gian thực</td>
+</tr>
+<tr>
+<td>Đếm số kết nối bị chặn</td>
+<td>Khoảng 14 nghìn dòng trên tổng số 79.178 dòng</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phieu-ghi-nhan-11">Phiếu ghi nhận 1.1<a class="neo" href="#phieu-ghi-nhan-11" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-07" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 1.1</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời của học viên</th></tr></thead><tbody><tr><td class="bm-ma">Cổng mạng nào của firewall hướng ra Internet?</td><td><textarea rows="2" data-k="Cổng mạng nào của firewall hướng ra Internet? · Trả lời của học viên"></textarea></td></tr><tr><td class="bm-ma">Máy Kali và máy Ubuntu có cùng network segmentation không? Căn cứ vào đâu?</td><td><textarea rows="2" data-k="Máy Kali và máy Ubuntu có cùng network segmentation không? Căn cứ vào đâu? · Trả"></textarea></td></tr><tr><td class="bm-ma">Trường thứ mấy trong log cho biết số byte của gói tin?</td><td><textarea rows="2" data-k="Trường thứ mấy trong log cho biết số byte của gói tin? · Trả lời của học viên"></textarea></td></tr><tr><td class="bm-ma">Nếu một máy nội bộ gửi dữ liệu ra Internet, log firewall có ghi lại không? Log của máy đó có ghi không?</td><td><textarea rows="2" data-k="Nếu một máy nội bộ gửi dữ liệu ra Internet, log firewall có ghi lại không? Log c"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<h3 id="muc-mo-rong">Mức mở rộng<a class="neo" href="#muc-mo-rong" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Viết một lệnh đếm số kết nối bị chặn theo từng cổng đích, sắp xếp giảm dần. Cổng nào bị quét nhiều nhất từ bên ngoài?</li>
+<li>Tìm giờ trong ngày có nhiều kết nối bị chặn nhất. Gợi ý: trường thời gian nằm ở đầu dòng, dùng cut để lấy hai ký tự giờ.</li>
+</ul>
+<h3 id="xu-ly-su-co">Xử lý sự cố<a class="neo" href="#xu-ly-su-co" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Cách khắc phục</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ping tới 192.168.20.1 không phản hồi</td>
+<td>Máy pfSense chưa khởi động xong. Chờ thêm 2 phút. Nếu vẫn không được, kiểm tra card mạng của máy ảo Kali đã gắn đúng mạng nội bộ chưa</td>
+</tr>
+<tr>
+<td>Không mở được giao diện web firewall</td>
+<td>Kiểm tra đã gõ https chứ không phải http. Thử xoá bộ nhớ đệm trình duyệt</td>
+</tr>
+<tr>
+<td>traceroute báo lệnh không tồn tại</td>
+<td>Chạy: sudo apt install traceroute. Nếu không có mạng, dùng lệnh thay thế: ping -R 192.168.10.20</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Điểm cần nhớ của bài này: log firewall nhìn thấy những thứ mà log hệ điều hành không nhìn thấy, đặc biệt là địa chỉ đích và khối lượng dữ liệu đi ra. Điều này sẽ có ý nghĩa quyết định ở Chuyên đề 4.</p>
+</blockquote>
+<hr>
+<p><code>THỜI LƯỢNG 25 PHÚT</code></p>
+<h2 id="bai-12-asset-inventory">Bài 1.2 · Asset inventory<a class="neo" href="#bai-12-asset-inventory" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: lập được bảng asset inventory đầy đủ bằng cách kết hợp kết quả quét kỹ thuật với hồ sơ quản lý.</em></p>
+<h3 id="dieu-kien-tien-quyet">Điều kiện tiên quyết<a class="neo" href="#dieu-kien-tien-quyet" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Đã hoàn thành bài 1.1.</li>
+<li>Máy Kali và Ubuntu đang bật.</li>
+</ul>
+<h3 id="du-lieu-va-cong-cu">Dữ liệu và công cụ<a class="neo" href="#du-lieu-va-cong-cu" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Chi tiết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máy sử dụng</td>
+<td>Kali</td>
+</tr>
+<tr>
+<td>Công cụ</td>
+<td>nmap, cat, column</td>
+</tr>
+<tr>
+<td>File dữ liệu</td>
+<td>kiem_ke_tai_san.csv, danh_sach_nhan_su.csv</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cac-buoc-thuc-hien">Các bước thực hiện<a class="neo" href="#cac-buoc-thuc-hien" aria-label="Liên kết tới mục này">#</a></h3>
+<h4>Bước 1 — Quét phát hiện máy đang hoạt động</h4>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Chỉ quét trong hai dải mạng của lab. Đây là thao tác duy nhất trong bài có tác động lên hệ thống sống.</p>
+</blockquote>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash">cd ~/lab
+
+# Phát hiện máy đang hoạt động trong mạng nội bộ
+nmap -sn 192.168.10.0/24
+
+# Phát hiện dịch vụ và phiên bản trên server Ubuntu
+# Tuỳ chọn -T3 để quét chậm lại, tránh làm nghẽn máy ảo
+nmap -sV -T3 192.168.10.20
+</code></pre>
+<p>Lệnh thứ hai chạy khoảng 60 đến 90 giây. Trong lúc chờ, đọc trước Bước 2.</p>
+<h4>Bước 2 — Đọc hồ sơ kiểm kê đã có của tổ chức</h4>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-bash">cd ~/lab/dulieu
+
+# Xem bảng kiểm kê tài sản ở dạng dễ đọc
+column -s, -t kiem_ke_tai_san.csv | less -S
+# Bấm phím q để thoát
+
+# Đếm số hệ thống có chứa dữ liệu cá nhân
+grep -c &quot;Có dữ liệu cá nhân&quot; kiem_ke_tai_san.csv
+
+# Liệt kê các hệ thống ở mức quan trọng rất cao
+grep &quot;Rất cao&quot; kiem_ke_tai_san.csv | cut -d, -f2,5
+</code></pre>
+<figure class="so-do"><img src="../assets/img/hinh-10-lb-asset.svg" alt="Kết quả bài 1.2. Chênh lệch giữa hai danh sách mới là thứ cần tìm." loading="lazy"><figcaption>Hình 10 — Kết quả bài 1.2. Chênh lệch giữa hai danh sách mới là thứ cần tìm.</figcaption></figure>
+
+<h4>Bước 3 — Đối chiếu và tìm khoảng trống</h4>
+<p>So sánh danh sách máy phát hiện được ở Bước 1 với hồ sơ kiểm kê ở Bước 2. Trong thực tế, hai danh sách này gần như không bao giờ trùng khớp hoàn toàn. Chênh lệch chính là thứ cần tìm.</p>
+<table>
+<thead>
+<tr>
+<th>Tình huống chênh lệch</th>
+<th>Ý nghĩa và việc cần làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Có trong hồ sơ, không thấy khi quét</td>
+<td>Hệ thống đã ngừng hoạt động nhưng chưa cập nhật hồ sơ, hoặc đang tắt. Cần xác minh và cập nhật</td>
+</tr>
+<tr>
+<td>Thấy khi quét, không có trong hồ sơ</td>
+<td>Hệ thống nằm ngoài tầm quản lý. Đây là rủi ro cao nhất vì không ai chịu trách nhiệm vá lỗi và giám sát</td>
+</tr>
+<tr>
+<td>Có ở cả hai nhưng thông tin khác nhau</td>
+<td>Hồ sơ đã lạc hậu. Cần rà soát lại toàn bộ hồ sơ theo chu kỳ</td>
+</tr>
+</tbody>
+</table>
+<h4>Bước 4 — Đánh giá tính cần thiết của từng dịch vụ</h4>
+<p>Với mỗi dịch vụ phát hiện được ở Bước 1, trả lời một câu hỏi duy nhất: dịch vụ này phục vụ nghiệp vụ nào? Dịch vụ không trả lời được câu hỏi này là dịch vụ nên tắt. Đây là biện pháp giảm rủi ro có chi phí bằng không.</p>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Quét dải 192.168.10.0/24 phát hiện được server Ubuntu và cổng LAN của firewall.</li>
+<li>Hồ sơ kiểm kê có tám hệ thống, trong đó sáu hệ thống chứa dữ liệu cá nhân.</li>
+<li>Ba hệ thống ở mức quan trọng rất cao: cơ sở dữ liệu kế toán, server backup và firewall biên.</li>
+<li>Trên server Ubuntu có ít nhất một dịch vụ không có lý do nghiệp vụ rõ ràng.</li>
+</ul>
+<h3 id="phieu-ghi-nhan-12">Phiếu ghi nhận 1.2<a class="neo" href="#phieu-ghi-nhan-12" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Điền bảng dưới đây cho từng dịch vụ phát hiện được trên server Ubuntu. Dòng đầu là ví dụ mẫu.</p>
+<section class="bm" data-bm="bm-08" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 1.2</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th class="stt">#</th><th>Cổng</th><th>Dịch vụ</th><th>Phiên bản</th><th>Phục vụ nghiệp vụ nào</th><th>Cần thiết?</th></tr></thead><tbody><tr><td class="stt">1</td><td class="bm-ma">22</td><td class="bm-ma">OpenSSH</td><td class="bm-ma">8.9p1</td><td class="bm-ma">Quản trị hệ thống từ xa</td><td class="bm-ma">Có, nhưng nên giới hạn nguồn</td></tr><tr><td class="stt">2</td><td><textarea rows="2" data-k="Cổng"></textarea></td><td><textarea rows="2" data-k="Dịch vụ"></textarea></td><td><textarea rows="2" data-k="Phiên bản"></textarea></td><td><textarea rows="2" data-k="Phục vụ nghiệp vụ nào"></textarea></td><td><textarea rows="2" data-k="Cần thiết?"></textarea></td></tr><tr><td class="stt">3</td><td><textarea rows="2" data-k="Cổng"></textarea></td><td><textarea rows="2" data-k="Dịch vụ"></textarea></td><td><textarea rows="2" data-k="Phiên bản"></textarea></td><td><textarea rows="2" data-k="Phục vụ nghiệp vụ nào"></textarea></td><td><textarea rows="2" data-k="Cần thiết?"></textarea></td></tr><tr><td class="stt">4</td><td><textarea rows="2" data-k="Cổng"></textarea></td><td><textarea rows="2" data-k="Dịch vụ"></textarea></td><td><textarea rows="2" data-k="Phiên bản"></textarea></td><td><textarea rows="2" data-k="Phục vụ nghiệp vụ nào"></textarea></td><td><textarea rows="2" data-k="Cần thiết?"></textarea></td></tr><tr><td class="stt">5</td><td><textarea rows="2" data-k="Cổng"></textarea></td><td><textarea rows="2" data-k="Dịch vụ"></textarea></td><td><textarea rows="2" data-k="Phiên bản"></textarea></td><td><textarea rows="2" data-k="Phục vụ nghiệp vụ nào"></textarea></td><td><textarea rows="2" data-k="Cần thiết?"></textarea></td></tr></tbody></table></div><button type="button" class="bm-them">+ Thêm dòng</button><div class="bm-tong"></div></section>
+<h3 id="muc-mo-rong">Mức mở rộng<a class="neo" href="#muc-mo-rong" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Trong hồ sơ nhân sự có một tài khoản thuộc diện đã nghỉ việc. Tài khoản đó là gì, và vì sao đây là rủi ro cần đưa vào sổ đăng ký ở bài 1.3?</li>
+<li>Trong hồ sơ nhân sự có hai service account. Giờ làm việc ghi nhận của chúng khác gì so với tài khoản người dùng, và điều đó có ích gì khi viết detection use case?</li>
+</ul>
+<h3 id="xu-ly-su-co">Xử lý sự cố<a class="neo" href="#xu-ly-su-co" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Cách khắc phục</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nmap chạy rất lâu hoặc treo</td>
+<td>Bấm Ctrl và C để dừng, chạy lại với tuỳ chọn -T3 và giới hạn cổng: nmap -sV -T3 -p 1-1000 192.168.10.20</td>
+</tr>
+<tr>
+<td>column hiển thị lệch cột</td>
+<td>Do một ô có chứa dấu phẩy. Xem bằng lệnh cat kiem_ke_tai_san.csv thay thế</td>
+</tr>
+<tr>
+<td>Không quét thấy máy nào</td>
+<td>Kiểm tra lại kết quả bài 1.1. Nếu ping không thông thì quét cũng không thấy</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><code>THỜI LƯỢNG 30 PHÚT</code></p>
+<h2 id="bai-13-lap-risk-register">Bài 1.3 · Lập risk register<a class="neo" href="#bai-13-lap-risk-register" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: chuyển kết quả kỹ thuật của hai bài trước thành một danh sách rủi ro có điểm số và thứ tự xử lý.</em></p>
+<h3 id="dieu-kien-tien-quyet">Điều kiện tiên quyết<a class="neo" href="#dieu-kien-tien-quyet" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Đã hoàn thành bài 1.1 và 1.2.</li>
+</ul>
+<figure class="so-do"><img src="../assets/img/hinh-11-lb-matran.svg" alt="Ma trận rủi ro và ba nhóm xử lý, dùng ở bài 1.3." loading="lazy"><figcaption>Hình 11 — Ma trận rủi ro và ba nhóm xử lý, dùng ở bài 1.3.</figcaption></figure>
+
+<h3 id="thang-diem-su-dung">Thang điểm sử dụng<a class="neo" href="#thang-diem-su-dung" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Điểm rủi ro bằng tích của điểm khả năng và điểm tác động. Hai bảng dưới đây là thang điểm thống nhất cho toàn bộ nhóm. Không được tự đổi thang điểm giữa chừng.</p>
+<table>
+<thead>
+<tr>
+<th>Điểm</th>
+<th>Khả năng xảy ra</th>
+<th>Mức tác động</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Đã xảy ra, hoặc đang bị khai thác tự động trên diện rộng</td>
+<td>Ngừng nghiệp vụ chính trên một ngày, hoặc lộ dữ liệu cá nhân quy mô lớn</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Rất có khả năng xảy ra trong mười hai tháng tới</td>
+<td>Ngừng nghiệp vụ chính dưới một ngày, hoặc lộ dữ liệu nội bộ nhạy cảm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Có khả năng xảy ra, đã ghi nhận ở tổ chức tương tự</td>
+<td>Gián đoạn cục bộ, khắc phục trong giờ làm việc</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ít khả năng, cần điều kiện đặc thù mới xảy ra</td>
+<td>Ảnh hưởng một bộ phận, không ảnh hưởng khách hàng</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Rất khó xảy ra trên thực tế</td>
+<td>Ảnh hưởng không đáng kể</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Điểm rủi ro</th>
+<th>Nhóm</th>
+<th>Cách xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Từ 15 trở lên</strong></td>
+<td><strong>Xử lý bắt buộc</strong></td>
+<td>Đưa vào kế hoạch có thời hạn và người chịu trách nhiệm. Báo cáo lãnh đạo hằng tháng đến khi đóng</td>
+</tr>
+<tr>
+<td><strong>Từ 8 đến 14</strong></td>
+<td>Xử lý có kế hoạch</td>
+<td>Đưa vào kế hoạch quý. Nếu chưa xử lý được thì phải có biện pháp bù trừ tạm thời</td>
+</tr>
+<tr>
+<td><strong>Từ 1 đến 7</strong></td>
+<td>Chấp nhận có ghi nhận</td>
+<td>Ghi vào sổ, xem xét lại định kỳ. Việc chấp nhận phải có người ký xác nhận</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cac-buoc-thuc-hien">Các bước thực hiện<a class="neo" href="#cac-buoc-thuc-hien" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Lấy danh sách tài sản từ bài 1.2. Với mỗi tài sản, xác định một đến hai mối đe dọa có thể áp dụng được.</li>
+<li>Với mỗi cặp tài sản và mối đe dọa, xác định điểm yếu cụ thể. Điểm yếu phải là một khiếm khuyết nêu tên được, không phải là một nhận định chung chung.</li>
+<li>Cho điểm khả năng và điểm tác động theo hai thang ở trên. Nếu có người cho điểm khác, ghi lại lý do.</li>
+<li>Nhân hai điểm số, xếp thứ tự giảm dần, xác định nhóm xử lý.</li>
+<li>Với ba rủi ro đứng đầu, đề xuất biện pháp kiểm soát cụ thể kèm người chịu trách nhiệm và thời hạn.</li>
+</ol>
+<blockquote>
+<p><strong>TIÊU CHÍ CHẤM</strong></p>
+<p>Biện pháp kiểm soát phải là việc làm được, đo được. Ghi "tăng cường bảo mật" là không đạt. Ghi "bật MFA cho tài khoản nhathau_vt trước ngày 30 tháng 9, người thực hiện là quản trị hệ thống" là đạt.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-13-risk-register">Phiếu ghi nhận 1.3 — Risk register<a class="neo" href="#phieu-ghi-nhan-13-risk-register" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Điền tối thiểu tám dòng. Dòng đầu là ví dụ mẫu đã điền sẵn.</p>
+<section class="bm" data-bm="risk-register" data-kieu="">
+<div class="bm-dau"><h4>Làm bài ngay tại đây · Risk register</h4>
+<div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div>
+<p class="bm-mota">Điền tối thiểu tám dòng. Cột Điểm và Nhóm tự tính khi bạn nhập hai cột KN và TĐ.</p>
+<div class="bm-cuon"><table class="bm-bang"><thead><tr>
+<th class="stt">#</th>
+<th style="width:5%">Mã</th>
+<th style="width:16%">Tài sản</th>
+<th style="width:16%">Mối đe dọa</th>
+<th style="width:20%">Điểm yếu cụ thể</th>
+<th style="width:6%">KN</th>
+<th style="width:6%">TĐ</th>
+<th style="width:6%">Điểm</th>
+<th style="width:12%">Nhóm xử lý</th>
+<th style="width:13%">Biện pháp · người · thời hạn</th>
+</tr></thead><tbody>
+<tr><td class="stt">1</td><td class="bm-ma">R-01</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+<tr><td class="stt">2</td><td class="bm-ma">R-02</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+<tr><td class="stt">3</td><td class="bm-ma">R-03</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+<tr><td class="stt">4</td><td class="bm-ma">R-04</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+<tr><td class="stt">5</td><td class="bm-ma">R-05</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+<tr><td class="stt">6</td><td class="bm-ma">R-06</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+<tr><td class="stt">7</td><td class="bm-ma">R-07</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+<tr><td class="stt">8</td><td class="bm-ma">R-08</td><td><textarea rows="2" data-k="Tài sản"></textarea></td><td><textarea rows="2" data-k="Mối đe dọa"></textarea></td><td><textarea rows="2" data-k="Điểm yếu cụ thể"></textarea></td><td><input type="number" data-k="Khả năng" min="1" max="5"></td><td><input type="number" data-k="Tác động" min="1" max="5"></td><td class="bm-tinh" data-k="Điểm rủi ro" data-ct="nhan"></td><td class="bm-tinh" data-k="Nhóm" data-ct="nhom"></td><td><textarea rows="2" data-k="Biện pháp · người · thời hạn"></textarea></td></tr>
+</tbody></table></div>
+<button type="button" class="bm-them">+ Thêm dòng</button>
+<div class="bm-tong"></div>
+</section>
+<h3 id="phieu-ghi-nhan-13b-ba-rui-ro-uu-tien">Phiếu ghi nhận 1.3b — Ba rủi ro ưu tiên<a class="neo" href="#phieu-ghi-nhan-13b-ba-rui-ro-uu-tien" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-09" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 1.3b — Ba rủi ro ưu tiên</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th class="stt">#</th><th>Mã</th><th>Biện pháp kiểm soát cụ thể</th><th>Người chịu trách nhiệm</th><th>Thời hạn</th></tr></thead><tbody><tr><td class="stt">1</td><td><textarea rows="2" data-k="Mã"></textarea></td><td><textarea rows="2" data-k="Biện pháp kiểm soát cụ thể"></textarea></td><td><textarea rows="2" data-k="Người chịu trách nhiệm"></textarea></td><td><textarea rows="2" data-k="Thời hạn"></textarea></td></tr><tr><td class="stt">2</td><td><textarea rows="2" data-k="Mã"></textarea></td><td><textarea rows="2" data-k="Biện pháp kiểm soát cụ thể"></textarea></td><td><textarea rows="2" data-k="Người chịu trách nhiệm"></textarea></td><td><textarea rows="2" data-k="Thời hạn"></textarea></td></tr><tr><td class="stt">3</td><td><textarea rows="2" data-k="Mã"></textarea></td><td><textarea rows="2" data-k="Biện pháp kiểm soát cụ thể"></textarea></td><td><textarea rows="2" data-k="Người chịu trách nhiệm"></textarea></td><td><textarea rows="2" data-k="Thời hạn"></textarea></td></tr></tbody></table></div><button type="button" class="bm-them">+ Thêm dòng</button><div class="bm-tong"></div></section>
+<h3 id="muc-mo-rong">Mức mở rộng<a class="neo" href="#muc-mo-rong" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Với mỗi rủi ro ưu tiên, ước tính mức rủi ro còn lại sau khi áp dụng biện pháp. Biện pháp nào làm giảm điểm khả năng, biện pháp nào làm giảm điểm tác động?</li>
+<li>Trình bày ba rủi ro ưu tiên bằng ngôn ngữ nghiệp vụ trong đúng ba câu, không dùng thuật ngữ kỹ thuật nào.</li>
+</ul>
+<hr>
+<p><code>THỜI LƯỢNG 15 PHÚT</code></p>
+<h2 id="bai-14-tu-danh-gia-muc-do-truong-thanh-zero-trust">Bài 1.4 · Tự đánh giá mức độ trưởng thành Zero Trust<a class="neo" href="#bai-14-tu-danh-gia-muc-do-truong-thanh-zero-trust" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: chấm điểm hệ thống lab trên năm trụ cột và xác định trụ cột yếu nhất.</em></p>
+<figure class="so-do"><img src="../assets/img/hinh-12-lb-zerotrust.svg" alt="Kết quả bài 1.4. Ví dụ một phiếu tự đánh giá đã điền." loading="lazy"><figcaption>Hình 12 — Kết quả bài 1.4. Ví dụ một phiếu tự đánh giá đã điền.</figcaption></figure>
+
+<h3 id="cach-cham-diem">Cách chấm điểm<a class="neo" href="#cach-cham-diem" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Mỗi trụ cột được chấm ở một trong bốn mức. Điểm số phải kèm bằng chứng quan sát được từ bài 1.1 và 1.2, không chấm theo cảm nhận.</p>
+<table>
+<thead>
+<tr>
+<th>Mức</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Truyền thống</td>
+<td>Kiểm soát thủ công, cấp quyền một lần rồi giữ nguyên, không giám sát</td>
+</tr>
+<tr>
+<td>Khởi đầu</td>
+<td>Đã có một số kiểm soát tự động nhưng áp dụng rời rạc, chưa có chính sách chung</td>
+</tr>
+<tr>
+<td>Nâng cao</td>
+<td>Kiểm soát áp dụng nhất quán, có giám sát, có rà soát định kỳ</td>
+</tr>
+<tr>
+<td>Tối ưu</td>
+<td>Kiểm soát tự động theo ngữ cảnh và mức rủi ro của từng phiên làm việc</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phieu-ghi-nhan-14">Phiếu ghi nhận 1.4<a class="neo" href="#phieu-ghi-nhan-14" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm bm-luoi" data-bm="zero-trust" data-kieu="luoi">
+<div class="bm-dau"><h4>Làm bài ngay tại đây · Tự đánh giá Zero Trust</h4>
+<div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div>
+<p class="bm-mota">Chọn một mức cho mỗi trụ cột, rồi ghi bằng chứng quan sát được từ bài 1.1 và 1.2.</p>
+<div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Trụ cột</th>
+<th class="mucs">Truyền thống</th>
+<th class="mucs">Khởi đầu</th>
+<th class="mucs">Nâng cao</th>
+<th class="mucs">Tối ưu</th>
+<th>Bằng chứng quan sát được</th></tr></thead><tbody>
+<tr><td class="ten-hang"><b>Identity</b><span>MFA, tài khoản đặc quyền, vòng đời tài khoản</span></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Identity" data-k="Identity" value="Truyền thống"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Identity" data-k="Identity" value="Khởi đầu"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Identity" data-k="Identity" value="Nâng cao"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Identity" data-k="Identity" value="Tối ưu"></label></td>
+<td><textarea rows="2" data-k="Identity · bằng chứng"></textarea></td></tr>
+<tr><td class="ten-hang"><b>Device</b><span>Kiểm kê thiết bị, kiểm tra trạng thái trước khi cho truy cập</span></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Device" data-k="Device" value="Truyền thống"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Device" data-k="Device" value="Khởi đầu"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Device" data-k="Device" value="Nâng cao"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Device" data-k="Device" value="Tối ưu"></label></td>
+<td><textarea rows="2" data-k="Device · bằng chứng"></textarea></td></tr>
+<tr><td class="ten-hang"><b>Network</b><span>Phân đoạn, kiểm soát lưu lượng nội bộ</span></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Network" data-k="Network" value="Truyền thống"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Network" data-k="Network" value="Khởi đầu"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Network" data-k="Network" value="Nâng cao"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Network" data-k="Network" value="Tối ưu"></label></td>
+<td><textarea rows="2" data-k="Network · bằng chứng"></textarea></td></tr>
+<tr><td class="ten-hang"><b>Application</b><span>Quyền của service account, kiểm thử bảo mật định kỳ</span></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Application" data-k="Application" value="Truyền thống"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Application" data-k="Application" value="Khởi đầu"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Application" data-k="Application" value="Nâng cao"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Application" data-k="Application" value="Tối ưu"></label></td>
+<td><textarea rows="2" data-k="Application · bằng chứng"></textarea></td></tr>
+<tr><td class="ten-hang"><b>Data</b><span>Data classification, mã hoá, log truy cập</span></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Data" data-k="Data" value="Truyền thống"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Data" data-k="Data" value="Khởi đầu"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Data" data-k="Data" value="Nâng cao"></label></td>
+<td class="mucs"><label><input type="radio" name="zero-trust-Data" data-k="Data" value="Tối ưu"></label></td>
+<td><textarea rows="2" data-k="Data · bằng chứng"></textarea></td></tr>
+</tbody></table></div><div class="bm-tong"></div></section>
+<h3 id="phieu-ghi-nhan-14b-ba-hanh-dong-uu-tien">Phiếu ghi nhận 1.4b — Ba hành động ưu tiên<a class="neo" href="#phieu-ghi-nhan-14b-ba-hanh-dong-uu-tien" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Chọn trụ cột yếu nhất và đề xuất ba hành động thực hiện được trong sáu tháng với nguồn lực của một tổ chức 180 nhân viên.</p>
+<section class="bm" data-bm="bm-10" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 1.4b — Ba hành động ưu tiên</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>#</th><th>Hành động</th><th>Trụ cột</th><th>Nguồn lực cần</th></tr></thead><tbody><tr><td class="bm-ma">1</td><td><textarea rows="2" data-k="1 · Hành động"></textarea></td><td><textarea rows="2" data-k="1 · Trụ cột"></textarea></td><td><textarea rows="2" data-k="1 · Nguồn lực cần"></textarea></td></tr><tr><td class="bm-ma">2</td><td><textarea rows="2" data-k="2 · Hành động"></textarea></td><td><textarea rows="2" data-k="2 · Trụ cột"></textarea></td><td><textarea rows="2" data-k="2 · Nguồn lực cần"></textarea></td></tr><tr><td class="bm-ma">3</td><td><textarea rows="2" data-k="3 · Hành động"></textarea></td><td><textarea rows="2" data-k="3 · Trụ cột"></textarea></td><td><textarea rows="2" data-k="3 · Nguồn lực cần"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Ba sản phẩm của Chuyên đề 1 — bảng asset inventory, risk register và phiếu tự đánh giá — sẽ được dùng lại ở cả năm chuyên đề còn lại. Giữ lại bản điện tử, đừng chỉ điền trên giấy.</p>
+</blockquote>
+<hr>
+<nav class="dieu-huong">
+<a class="dh truoc" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="dh sau" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+</nav>
+</main>
+
+<button id="len" aria-label="Lên đầu trang">↑</button>
+<script src="../assets/js/chi-muc.js"></script>
+<script src="../assets/js/cam-nang.js"></script>
+</body>
+</html>
