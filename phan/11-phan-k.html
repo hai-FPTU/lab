@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO · Cẩm nang thực hành</title>
+<link rel="stylesheet" href="../assets/css/cam-nang.css">
+</head>
+<body>
+<div id="tien-do"></div>
+<div id="lop-phu" role="dialog" aria-label="Xem hình phóng to"></div>
+<button id="nut-canh" aria-label="Mở mục lục">☰</button>
+
+<nav id="canh">
+  <header>
+    <a href="../index.html" class="ve-dau">Cẩm nang thực hành</a>
+    <div class="phu">Dành cho học viên · An ninh mạng nâng cao</div>
+  </header>
+  <input id="o-tim" type="search" placeholder="Tìm trong cẩm nang…" autocomplete="off">
+  <div id="kq-tim"></div>
+  <div id="ml"><a class="ml-phan" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="ml-phan" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-phan" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-phan" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="ml-phan" href="05-phan-e.html">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-phan" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="ml-phan" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-phan" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-phan" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-phan" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="ml-phan dang-xem" href="11-phan-k.html">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-chuong cap1" href="#phan-k-muoi-bai-tinh-huong-tiep-theo" data-id="phan-k-muoi-bai-tinh-huong-tiep-theo">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-chuong cap2" href="#nhom-1-bon-bai-khai-thac-du-lieu-da-co" data-id="nhom-1-bon-bai-khai-thac-du-lieu-da-co">Nhóm 1 — Bốn bài khai thác dữ liệu đã có</a>
+<a class="ml-chuong cap2" href="#th-7-ke-toan-bao-may-tinh-chay-cham" data-id="th-7-ke-toan-bao-may-tinh-chay-cham">TH-7 · Kế toán báo máy tính chạy chậm</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-7" data-id="phieu-ghi-nhan-th-7">Phiếu ghi nhận TH-7</a>
+<a class="ml-chuong cap2" href="#th-8-nhan-su-hoi-ve-mot-nhan-vien-sap-nghi" data-id="th-8-nhan-su-hoi-ve-mot-nhan-vien-sap-nghi">TH-8 · Nhân sự hỏi về một nhân viên sắp nghỉ</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-8" data-id="phieu-ghi-nhan-th-8">Phiếu ghi nhận TH-8</a>
+<a class="ml-chuong cap2" href="#th-9-ra-soat-quy-tac-firewall-quy-3" data-id="th-9-ra-soat-quy-tac-firewall-quy-3">TH-9 · Rà soát quy tắc firewall quý 3</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-9" data-id="phieu-ghi-nhan-th-9">Phiếu ghi nhận TH-9</a>
+<a class="ml-chuong cap2" href="#th-10-bao-cao-backup-that-bai" data-id="th-10-bao-cao-backup-that-bai">TH-10 · Báo cáo backup thất bại</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-10" data-id="phieu-ghi-nhan-th-10">Phiếu ghi nhận TH-10</a>
+<a class="ml-chuong cap2" href="#nhom-2-sau-bai-tren-du-lieu-moi" data-id="nhom-2-sau-bai-tren-du-lieu-moi">Nhóm 2 — Sáu bài trên dữ liệu mới</a>
+<a class="ml-chuong cap2" href="#th-11-cung-mot-tai-khoan-hai-noi-cach-nhau-nua-vong-trai-dat" data-id="th-11-cung-mot-tai-khoan-hai-noi-cach-nhau-nua-vong-trai-dat">TH-11 · Cùng một tài khoản, hai nơi cách nhau nửa vòng Trái Đất</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-11" data-id="phieu-ghi-nhan-th-11">Phiếu ghi nhận TH-11</a>
+<a class="ml-chuong cap2" href="#th-12-nhan-vien-ke-toan-mat-ngu-vi-dien-thoai" data-id="th-12-nhan-vien-ke-toan-mat-ngu-vi-dien-thoai">TH-12 · Nhân viên kế toán mất ngủ vì điện thoại</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-12" data-id="phieu-ghi-nhan-th-12">Phiếu ghi nhận TH-12</a>
+<a class="ml-chuong cap2" href="#th-13-sang-thu-hai-khong-ai-mo-duoc-file" data-id="th-13-sang-thu-hai-khong-ai-mo-duoc-file">TH-13 · Sáng thứ Hai, không ai mở được file</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-13" data-id="phieu-ghi-nhan-th-13">Phiếu ghi nhận TH-13</a>
+<a class="ml-chuong cap2" href="#th-14-khach-hang-gui-thu-hoi-vi-sao-du-lieu-cua-ho-o-tren-mang" data-id="th-14-khach-hang-gui-thu-hoi-vi-sao-du-lieu-cua-ho-o-tren-mang">TH-14 · Khách hàng gửi thư hỏi vì sao dữ liệu của họ ở trên mạng</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-14" data-id="phieu-ghi-nhan-th-14">Phiếu ghi nhận TH-14</a>
+<a class="ml-chuong cap2" href="#th-15-cong-dich-vu-bao-loi-tu-nua-dem" data-id="th-15-cong-dich-vu-bao-loi-tu-nua-dem">TH-15 · Cổng dịch vụ báo lỗi từ nửa đêm</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-15" data-id="phieu-ghi-nhan-th-15">Phiếu ghi nhận TH-15</a>
+<a class="ml-chuong cap2" href="#th-16-service-account-dang-nhap-nhu-nguoi-dung" data-id="th-16-service-account-dang-nhap-nhu-nguoi-dung">TH-16 · Service account đăng nhập như người dùng</a>
+<a class="ml-chuong cap3" href="#tinh-huong" data-id="tinh-huong">Tình huống</a>
+<a class="ml-chuong cap3" href="#cau-hoi-phai-tra-loi" data-id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời</a>
+<a class="ml-chuong cap3" href="#muc-tieu-ky-nang" data-id="muc-tieu-ky-nang">Mục tiêu kỹ năng</a>
+<a class="ml-chuong cap3" href="#cach-di-toi-cau-tra-loi" data-id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-th-16" data-id="phieu-ghi-nhan-th-16">Phiếu ghi nhận TH-16</a>
+<a class="ml-chuong cap2" href="#bang-tong-hop-muoi-sau-tinh-huong" data-id="bang-tong-hop-muoi-sau-tinh-huong">Bảng tổng hợp mười sáu tình huống</a>
+<a class="ml-chuong cap2" href="#cau-hoi-tong-hop-cuoi-tap" data-id="cau-hoi-tong-hop-cuoi-tap">Câu hỏi tổng hợp cuối tập</a>
+<a class="ml-phan" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a></div>
+</nav>
+
+<main id="than">
+<h1 id="phan-k-muoi-bai-tinh-huong-tiep-theo">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO<a class="neo" href="#phan-k-muoi-bai-tinh-huong-tiep-theo" aria-label="Liên kết tới mục này">#</a></h1>
+<h2 id="nhom-1-bon-bai-khai-thac-du-lieu-da-co">Nhóm 1 — Bốn bài khai thác dữ liệu đã có<a class="neo" href="#nhom-1-bon-bai-khai-thac-du-lieu-da-co" aria-label="Liên kết tới mục này">#</a></h2>
+<h2 id="th-7-ke-toan-bao-may-tinh-chay-cham">TH-7 · Kế toán báo máy tính chạy chậm<a class="neo" href="#th-7-ke-toan-bao-may-tinh-chay-cham" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Sáng thứ Sáu ngày 11 tháng 9, chị Trần Thị Bình ở bộ phận kế toán gọi cho bộ phận hỗ trợ. Chị nói máy tính chạy chậm từ vài hôm nay, và hôm thứ Ba có mở một file hoá đơn gửi qua email nhưng file không mở được.</p>
+<p>Phiếu hỗ trợ được chuyển sang bạn vì bộ phận hỗ trợ thấy tên file lạ.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Email đó đến từ đâu, vào lúc nào, và có dấu hiệu giả mạo nào không?</li>
+<li>Sau khi file được mở, process nào đã chạy? Mất bao lâu kể từ lúc thư tới?</li>
+<li>Process đó đã làm những gì trên máy?</li>
+<li>Sự việc này có liên quan gì tới các máy khác không?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Lần theo một chuỗi sự việc từ email sang process sang kết nối mạng, sử dụng ba nguồn log khác nhau.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Tìm email đáng ngờ</strong></p>
+<pre><code class="language-bash">cd ~/lab/dulieu
+
+# Thư có xác thực người gửi thất bại
+grep &quot;spf=fail&quot; mail.log | head -3
+</code></pre>
+<p>Chú ý ba điểm trong mỗi dòng: địa chỉ server gửi, tên miền người gửi, và tên file đính kèm.</p>
+<pre><code class="language-bash"># So sánh tên miền người gửi với tên miền thật của công ty
+grep &quot;spf=fail&quot; mail.log | grep -oP 'from=&lt;\K[^&gt;]+' | sort -u
+grep -v &quot;spf=fail&quot; mail.log | head -1
+</code></pre>
+<p><strong>Bước 2 — Tìm process chạy sau khi file được mở</strong></p>
+<pre><code class="language-bash"># Process do phần mềm văn phòng sinh ra
+jq -r 'select(.EventID==1 and (.ParentImage|test(&quot;WINWORD|EXCEL&quot;)))
+       | &quot;\(.TimeCreated)  \(.Computer)  \(.User)&quot;' sysmon.ndjson
+</code></pre>
+<p>Nếu không dùng được <code>jq</code>:</p>
+<pre><code class="language-bash">python3 ~/lab/congcu/logq.py sysmon.ndjson --loc EventID=1 \
+        --lay TimeCreated,Computer,ParentImage | grep WINWORD
+</code></pre>
+<p><strong>Bước 3 — Xem process đó đã làm gì</strong></p>
+<pre><code class="language-bash"># Toàn bộ sự kiện trên máy PC-KT-07 trong khung giờ đó
+jq -r 'select(.Computer==&quot;PC-KT-07&quot; and (.TimeCreated|startswith(&quot;2026-09-08T09:4&quot;)))
+       | &quot;\(.TimeCreated)  ID=\(.EventID)  \(.Image // .TargetFilename // .TargetObject)&quot;' \
+   sysmon.ndjson
+</code></pre>
+<p>Chú ý ba loại sự kiện: mã số 3 là kết nối mạng, mã số 11 là tạo file, mã số 13 là ghi vào sổ đăng ký.</p>
+<p><strong>Bước 4 — Kiểm tra máy khác có bị ảnh hưởng không</strong></p>
+<pre><code class="language-bash"># Dịch vụ bảo vệ đầu cuối bị dừng trên máy nào
+jq -r 'select(.EventID==7045) | &quot;\(.TimeCreated)  \(.Computer)&quot;' \
+   windows_security.ndjson
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phishing</td>
+<td>6 thư lúc 08/09 09:41, từ <code>45.146.164.88</code>, tên miền người gửi là <code>minhan-vn.com</code> chứ không phải <code>minhan.vn</code>, đính kèm file <code>HoaDon_092026.docm</code></td>
+</tr>
+<tr>
+<td>Process sinh ra</td>
+<td><code>powershell.exe</code> với tham số bỏ qua chính sách thực thi và ẩn cửa sổ, lúc 09:45:12, tức <strong>4 phút sau khi thư tới</strong></td>
+</tr>
+<tr>
+<td>Hành vi</td>
+<td>Kết nối ra <code>198.51.100.23</code>, tạo file <code>svchost_helper.exe</code> trong folder người dùng, ghi khoá khởi động tự động vào sổ đăng ký</td>
+</tr>
+<tr>
+<td>Lan rộng</td>
+<td>Ngày 12/09 dịch vụ EDR bị dừng trên ba máy: PC-KT-07, PC-KD-12, SRV-FILE-01</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Khoảng cách từ lúc thư tới đến lúc malware chạy là bốn phút. Mọi biện pháp phát hiện dựa vào việc người dùng báo cáo đều quá muộn. Ở đây người dùng báo sau ba ngày.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-7">Phiếu ghi nhận TH-7<a class="neo" href="#phieu-ghi-nhan-th-7" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-33" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-7</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Tên miền người gửi và tên miền thật của công ty</td><td><textarea rows="2" data-k="Tên miền người gửi và tên miền thật của công ty · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Kết quả xác thực người gửi</td><td><textarea rows="2" data-k="Kết quả xác thực người gửi · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Thời điểm thư tới và thời điểm malware chạy</td><td><textarea rows="2" data-k="Thời điểm thư tới và thời điểm malware chạy · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Khoảng cách giữa hai mốc</td><td><textarea rows="2" data-k="Khoảng cách giữa hai mốc · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Ba hành vi của process</td><td><textarea rows="2" data-k="Ba hành vi của process · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Các máy bị ảnh hưởng về sau</td><td><textarea rows="2" data-k="Các máy bị ảnh hưởng về sau · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<figure class="so-do"><img src="../assets/img/hinh-18-th-phish.svg" alt="Kết quả TH-7. Từ lúc email tới đến lúc malware chạy chỉ bốn phút." loading="lazy"><figcaption>Hình 18 — Kết quả TH-7. Từ lúc email tới đến lúc malware chạy chỉ bốn phút.</figcaption></figure>
+
+<h2 id="th-8-nhan-su-hoi-ve-mot-nhan-vien-sap-nghi">TH-8 · Nhân sự hỏi về một nhân viên sắp nghỉ<a class="neo" href="#th-8-nhan-su-hoi-ve-mot-nhan-vien-sap-nghi" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Bộ phận nhân sự gửi thư cho bạn. Anh Hoàng Văn Hải ở bộ phận kinh doanh sẽ nghỉ việc từ ngày 15 tháng 9. Theo quy trình, bộ phận nhân sự đề nghị kỹ thuật rà soát quyền truy cập trước khi thu hồi tài khoản.</p>
+<p>Đây là một yêu cầu hành chính thông thường. Nhưng khi rà soát, bạn nên xem cả hoạt động gần đây, không chỉ xem danh sách quyền.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Tài khoản này có hoạt động bất thường nào trong hai tuần qua không?</li>
+<li>Hoạt động đó diễn ra vào thời điểm nào so với giờ làm việc theo hồ sơ?</li>
+<li>Khối lượng dữ liệu liên quan là bao nhiêu?</li>
+<li>Hành vi này có vi phạm quy định nào không, và bạn đề xuất xử lý thế nào?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Phát hiện hành vi rủi ro thực hiện hoàn toàn bằng quyền hợp lệ, không có lỗ hổng nào bị khai thác và không có malware nào.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Tra hồ sơ trước khi xem log</strong></p>
+<pre><code class="language-bash">grep &quot;hoangvanh&quot; danh_sach_nhan_su.csv
+</code></pre>
+<p>Ghi lại ba thông tin: bộ phận, trạng thái, giờ làm việc.</p>
+<p><strong>Bước 2 — Tìm hoạt động truy cập file chia sẻ</strong></p>
+<pre><code class="language-bash"># Mã sự kiện 5145 là kiểm tra quyền truy cập file trên folder chia sẻ
+jq -r 'select(.EventID==5145 and .TargetUserName==&quot;hoangvanh&quot;)
+       | .TimeCreated[0:13]' windows_security.ndjson \
+  | sort | uniq -c | sort -rn | head -5
+</code></pre>
+<p><strong>Bước 3 — Đối chiếu với giờ làm việc</strong></p>
+<p>Đọc cột giờ trong kết quả bước 2. So với khung giờ ghi trong hồ sơ nhân sự.</p>
+<pre><code class="language-bash"># Xem chi tiết vài dòng để biết file nào bị truy cập
+jq -r 'select(.EventID==5145 and .TargetUserName==&quot;hoangvanh&quot;)
+       | &quot;\(.TimeCreated)  \(.ShareName)  \(.RelativeTargetName)&quot;' \
+   windows_security.ndjson | head -5
+</code></pre>
+<p><strong>Bước 4 — Tính khối lượng dữ liệu thật sự đã tải về</strong></p>
+<p>Log Windows chỉ ghi việc kiểm tra quyền, không ghi khối lượng. Phải dùng <code>netflow.csv</code>. Workstation của người này là <code>192.168.10.35</code>, server file là <code>192.168.10.21</code>.</p>
+<pre><code class="language-bash">awk -F',' 'NR&gt;1 &amp;&amp; $3==&quot;192.168.10.35&quot; &amp;&amp; $4==&quot;192.168.10.21&quot; \
+  {n++; b+=$10} END {printf &quot;%d phien, %.2f GB tai ve\n&quot;, n, b/1073741824}' \
+  netflow.csv
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hồ sơ nhân sự</td>
+<td>Bộ phận Kinh doanh, nghỉ việc từ 15/09/2026, giờ làm việc 08–17</td>
+</tr>
+<tr>
+<td>Hoạt động bất thường</td>
+<td>310 lần truy cập file chia sẻ trong ngày 10/09, bắt đầu từ 18:35</td>
+</tr>
+<tr>
+<td>So với giờ làm việc</td>
+<td>Toàn bộ diễn ra sau 18 giờ, nằm ngoài khung giờ làm việc</td>
+</tr>
+<tr>
+<td>Khối lượng</td>
+<td>46 phiên kết nối, khoảng 5,4 GB tải về từ server file</td>
+</tr>
+<tr>
+<td>File bị truy cập</td>
+<td>Folder <code>KinhDoanh</code>, các file báo giá và hợp đồng</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Không có lỗ hổng nào bị khai thác, không có malware nào, không có lần đăng nhập trái phép nào. Toàn bộ thực hiện bằng quyền hợp lệ. Chỉ phát hiện được bằng cách đối chiếu ba yếu tố: khối lượng bất thường, thời điểm ngoài giờ, và trạng thái nhân sự sắp nghỉ việc.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-8">Phiếu ghi nhận TH-8<a class="neo" href="#phieu-ghi-nhan-th-8" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-34" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-8</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Giờ làm việc theo hồ sơ</td><td><textarea rows="2" data-k="Giờ làm việc theo hồ sơ · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số lần truy cập file và ngày</td><td><textarea rows="2" data-k="Số lần truy cập file và ngày · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Khung giờ thực tế</td><td><textarea rows="2" data-k="Khung giờ thực tế · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số phiên và khối lượng tải về</td><td><textarea rows="2" data-k="Số phiên và khối lượng tải về · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Có vi phạm quy định nào không</td><td><textarea rows="2" data-k="Có vi phạm quy định nào không · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Ba việc đề xuất xử lý</td><td><textarea rows="2" data-k="Ba việc đề xuất xử lý · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<figure class="so-do"><img src="../assets/img/hinh-19-th-insider.svg" alt="Kết quả TH-8. Toàn bộ hoạt động nằm ngoài khung giờ làm việc." loading="lazy"><figcaption>Hình 19 — Kết quả TH-8. Toàn bộ hoạt động nằm ngoài khung giờ làm việc.</figcaption></figure>
+
+<h2 id="th-9-ra-soat-quy-tac-firewall-quy-3">TH-9 · Rà soát quy tắc firewall quý 3<a class="neo" href="#th-9-ra-soat-quy-tac-firewall-quy-3" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Theo lịch, quý 3 phải rà soát toàn bộ quy tắc firewall. Phiếu thay đổi TD-2026-086 đã được lập ngày 13 tháng 9 nhưng đang chờ duyệt.</p>
+<p>Trưởng bộ phận giao bạn chuẩn bị số liệu cho buổi rà soát: liệt kê các cổng dịch vụ hiện đang mở ra Internet, và đối chiếu từng cổng với phiếu thay đổi đã phê duyệt.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Những cổng dịch vụ nào đang nhận kết nối từ Internet?</li>
+<li>Cổng nào có phiếu thay đổi tương ứng, cổng nào không?</li>
+<li>Với cổng không có phiếu, kết nối đầu tiên xuất hiện khi nào?</li>
+<li>Có dấu vết nào cho thấy ai đã thực hiện thay đổi đó không?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Đối chiếu trạng thái kỹ thuật thực tế với hồ sơ quản lý, và truy ngược thời điểm một thay đổi không được ghi nhận.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Liệt kê các cổng đang nhận kết nối từ Internet</strong></p>
+<p>Giao diện <code>em0</code> là hướng Internet. Trường 7 là hành động, trường 22 là cổng đích.</p>
+<pre><code class="language-bash">awk -F',' '$5==&quot;em0&quot; &amp;&amp; $7==&quot;pass&quot; {print $22}' pfsense_filterlog.log \
+  | sort -n | uniq -c | sort -rn
+</code></pre>
+<p><strong>Bước 2 — Đối chiếu với change record</strong></p>
+<pre><code class="language-bash">column -s, -t ho_so_thay_doi.csv
+</code></pre>
+<p>Đọc kỹ cột nội dung. Phiếu nào nhắc tới việc mở cổng?</p>
+<p><strong>Bước 3 — Tìm kết nối đầu tiên tới cổng không có phiếu</strong></p>
+<pre><code class="language-bash">awk -F',' '$22==&quot;8443&quot; {print $1, $2, $3; exit}' pfsense_filterlog.log
+awk -F',' '$22==&quot;8443&quot; {n++} END {print &quot;Tong so ket noi:&quot;, n}' pfsense_filterlog.log
+</code></pre>
+<p><strong>Bước 4 — Tìm dấu vết thao tác sửa quy tắc</strong></p>
+<pre><code class="language-bash">grep &quot;thaydoi_tuonglua&quot; audit.log
+</code></pre>
+<p>Chú ý trường <code>auid</code>, đó là định danh của người thực hiện.</p>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cổng đang mở ra Internet</td>
+<td>Ba cổng: 443 với khoảng 46.640 kết nối, 8443 với 739 kết nối, và 22 với 300 kết nối</td>
+</tr>
+<tr>
+<td>Cổng 22</td>
+<td>300 kết nối dồn vào tối 01/09. Đây chính là đợt brute force ở bài TH-2. Cổng truy cập từ xa không nên mở trực tiếp ra Internet</td>
+</tr>
+<tr>
+<td>Phiếu thay đổi</td>
+<td>Sáu phiếu trong kỳ, không phiếu nào nhắc tới việc mở cổng 8443</td>
+</tr>
+<tr>
+<td>Kết nối đầu tiên tới cổng 8443</td>
+<td>Ngày 07/09 lúc 16:12</td>
+</tr>
+<tr>
+<td>Dấu vết sửa quy tắc</td>
+<td>Một bản ghi trong log kiểm toán, cùng ngày 07/09 lúc 16:12, do định danh 1002 thực hiện</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Một configuration drift không có change record tương ứng có hai khả năng: hoặc đội kỹ thuật bỏ qua quy trình, hoặc hệ thống đã bị xâm nhập. Cả hai đều phải điều tra. Không được mặc định là khả năng thứ nhất.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-9">Phiếu ghi nhận TH-9<a class="neo" href="#phieu-ghi-nhan-th-9" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-35" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-9</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th class="stt">#</th><th>Cổng</th><th>Số kết nối</th><th>Có phiếu thay đổi</th><th>Kết nối đầu tiên</th><th>Kết luận</th></tr></thead><tbody><tr><td class="stt">1</td><td><textarea rows="2" data-k="Cổng"></textarea></td><td><textarea rows="2" data-k="Số kết nối"></textarea></td><td><textarea rows="2" data-k="Có phiếu thay đổi"></textarea></td><td><textarea rows="2" data-k="Kết nối đầu tiên"></textarea></td><td><textarea rows="2" data-k="Kết luận"></textarea></td></tr><tr><td class="stt">2</td><td><textarea rows="2" data-k="Cổng"></textarea></td><td><textarea rows="2" data-k="Số kết nối"></textarea></td><td><textarea rows="2" data-k="Có phiếu thay đổi"></textarea></td><td><textarea rows="2" data-k="Kết nối đầu tiên"></textarea></td><td><textarea rows="2" data-k="Kết luận"></textarea></td></tr></tbody></table></div><button type="button" class="bm-them">+ Thêm dòng</button><div class="bm-tong"></div></section>
+<hr>
+<h2 id="th-10-bao-cao-backup-that-bai">TH-10 · Báo cáo backup thất bại<a class="neo" href="#th-10-bao-cao-backup-that-bai" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Sáng thứ Hai ngày 14 tháng 9, hệ thống backup gửi báo cáo tự động. Trong báo cáo có chín công việc backup thất bại vào đêm 13 tháng 9, tất cả cùng một lý do là storage bị khoá.</p>
+<p>Quản trị viên hệ thống định mở phiếu sự cố kỹ thuật thông thường. Bạn được đề nghị xem qua trước.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Backup thất bại vào lúc nào, bao nhiêu công việc?</li>
+<li>Trước thời điểm đó có sự việc nào trên server file không?</li>
+<li>Nếu có, sự việc đó có ý nghĩa gì đối với khả năng khôi phục của tổ chức?</li>
+<li>Bạn xếp sự việc này ở mức ưu tiên nào? Vì sao?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Nhận ra dấu hiệu chuẩn bị cho một cuộc tấn công ransomware, trước khi việc mã hoá xảy ra.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Xác định thời điểm backup thất bại</strong></p>
+<pre><code class="language-bash">grep &quot;JOB FAILED&quot; auth.log
+</code></pre>
+<p><strong>Bước 2 — Tìm sự việc trên server file trước thời điểm đó</strong></p>
+<pre><code class="language-bash"># Các process được tạo trên server file trong đêm 13/09
+jq -r 'select(.EventID==4688 and .Computer==&quot;SRV-FILE-01&quot;)
+       | &quot;\(.TimeCreated)  \(.TargetUserName)  \(.CommandLine)&quot;' \
+   windows_security.ndjson
+</code></pre>
+<p><strong>Bước 3 — Tra ý nghĩa của lệnh tìm được</strong></p>
+<p>Lệnh <code>vssadmin delete shadows /all /quiet</code> xoá toàn bộ shadow copy của hệ điều hành. Shadow copy là cơ chế cho phép khôi phục phiên bản trước của file mà không cần dùng tới bản backup.</p>
+<p><strong>Bước 4 — Kiểm tra tài khoản thực hiện</strong></p>
+<pre><code class="language-bash">grep &quot;svc_backup2&quot; danh_sach_nhan_su.csv
+grep -E &quot;new user|to group&quot; auth.log
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backup thất bại</td>
+<td>9 công việc, bắt đầu từ 02:44 ngày 13/09</td>
+</tr>
+<tr>
+<td>Sự việc trước đó</td>
+<td>Lúc 02:44 cùng ngày, lệnh <code>vssadmin.exe delete shadows /all /quiet</code> được chạy trên SRV-FILE-01</td>
+</tr>
+<tr>
+<td>Tài khoản thực hiện</td>
+<td><code>svc_backup2</code>, không có trong danh sách nhân sự, chính là tài khoản được tạo ngoài quy trình ngày 03/09</td>
+</tr>
+<tr>
+<td>Ý nghĩa</td>
+<td>Kẻ tấn công đang xoá khả năng khôi phục của tổ chức. Đây là bước chuẩn bị, không phải sự cố kỹ thuật</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Đây là dấu hiệu chuẩn bị cho tấn công ransomware. Kẻ tấn công xoá khả năng khôi phục trước khi mã hoá. Nếu phát hiện được ở thời điểm này thì còn kịp ngăn chặn. Xếp sự việc này ở mức nghiêm trọng nhất, không xếp ở mức sự cố kỹ thuật thông thường.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-10">Phiếu ghi nhận TH-10<a class="neo" href="#phieu-ghi-nhan-th-10" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-36" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-10</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Số công việc backup thất bại và thời điểm</td><td><textarea rows="2" data-k="Số công việc backup thất bại và thời điểm · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Lệnh được chạy trước đó và thời điểm</td><td><textarea rows="2" data-k="Lệnh được chạy trước đó và thời điểm · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tài khoản thực hiện</td><td><textarea rows="2" data-k="Tài khoản thực hiện · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tài khoản này có trong hồ sơ nhân sự không</td><td><textarea rows="2" data-k="Tài khoản này có trong hồ sơ nhân sự không · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Mức ưu tiên bạn xếp và lý do</td><td><textarea rows="2" data-k="Mức ưu tiên bạn xếp và lý do · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Ba việc cần làm ngay</td><td><textarea rows="2" data-k="Ba việc cần làm ngay · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<h2 id="nhom-2-sau-bai-tren-du-lieu-moi">Nhóm 2 — Sáu bài trên dữ liệu mới<a class="neo" href="#nhom-2-sau-bai-tren-du-lieu-moi" aria-label="Liên kết tới mục này">#</a></h2>
+<h2 id="th-11-cung-mot-tai-khoan-hai-noi-cach-nhau-nua-vong-trai-dat">TH-11 · Cùng một tài khoản, hai nơi cách nhau nửa vòng Trái Đất<a class="neo" href="#th-11-cung-mot-tai-khoan-hai-noi-cach-nhau-nua-vong-trai-dat" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Hệ thống không có cảnh báo nào. Bạn đang làm công việc rà soát định kỳ hằng tuần: xem lại các lần đăng nhập từ bên ngoài mạng công ty trong tuần qua.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Tài khoản nào đăng nhập từ hai địa chỉ khác nhau trong cùng một ngày?</li>
+<li>Hai địa chỉ đó thuộc quốc gia nào? Cách nhau bao nhiêu thời gian?</li>
+<li>Việc này có thể là bình thường không? Nếu không, vì sao?</li>
+<li>Sau lần đăng nhập thứ hai, tài khoản đó đã làm gì?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Làm giàu dữ liệu log bằng bảng tra bên ngoài, và nhận ra loại bất thường chỉ thấy được khi kết hợp hai bản ghi với nhau.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Liệt kê các lần đăng nhập thành công theo tài khoản và địa chỉ</strong></p>
+<pre><code class="language-bash">grep &quot;Accepted&quot; auth.log \
+  | grep -oP 'for \K\w+(?= from [0-9.]+)|from \K[0-9.]+' \
+  | paste - - | sort | uniq -c | sort -rn | head -20
+</code></pre>
+<p>Cách đơn giản hơn, xem theo từng ngày:</p>
+<pre><code class="language-bash">grep &quot;Accepted&quot; auth.log | awk '{
+  for(i=1;i&lt;=NF;i++){ if($i==&quot;for&quot;) u=$(i+1); if($i==&quot;from&quot;) ip=$(i+1) }
+  print $1&quot; &quot;$2&quot;  &quot;u&quot;  &quot;ip }' | sort | uniq | awk '{print $1&quot; &quot;$2&quot;  &quot;$3}' \
+  | sort | uniq -c | awk '$1&gt;1'
+</code></pre>
+<p><strong>Bước 2 — Xem chi tiết tài khoản có hai địa chỉ</strong></p>
+<pre><code class="language-bash">grep &quot;Accepted&quot; auth.log | grep &quot;phamthid&quot;
+</code></pre>
+<p><strong>Bước 3 — Tra quốc gia của hai địa chỉ</strong></p>
+<pre><code class="language-bash">column -s, -t dia_chi_quoc_gia.csv
+</code></pre>
+<p>Đối chiếu hai địa chỉ tìm được với cột dải địa chỉ.</p>
+<p><strong>Bước 4 — Xem hoạt động sau lần đăng nhập thứ hai</strong></p>
+<pre><code class="language-bash">jq -r 'select(.TargetUserName==&quot;phamthid&quot; and .EventID==5145)
+       | &quot;\(.TimeCreated)  \(.IpAddress)  \(.RelativeTargetName)&quot;' \
+   windows_security.ndjson
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tài khoản</td>
+<td><code>phamthid</code>, ngày 11/09</td>
+</tr>
+<tr>
+<td>Địa chỉ thứ nhất</td>
+<td><code>113.161.44.12</code> lúc 08:12:40 — Việt Nam, Hà Nội, văn phòng công ty</td>
+</tr>
+<tr>
+<td>Địa chỉ thứ hai</td>
+<td><code>91.203.145.77</code> lúc 08:31:15 — Ukraina, Kyiv, nhà cung cấp server ảo</td>
+</tr>
+<tr>
+<td>Khoảng cách</td>
+<td>18 phút 35 giây</td>
+</tr>
+<tr>
+<td>Hoạt động sau đó</td>
+<td>7 lần truy cập file danh sách khách hàng từ địa chỉ ở Ukraina</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Không ai di chuyển từ Hà Nội sang Kyiv trong 18 phút. Một trong hai lần đăng nhập không phải do chủ tài khoản thực hiện. Phương thức xác thực cũng khác nhau: lần thứ nhất dùng khoá, lần thứ hai dùng mật khẩu. Đây là detection use case phổ biến nhất trên hệ thống cloud, và chỉ phát hiện được khi ghép hai bản ghi cùng tài khoản lại với nhau.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-11">Phiếu ghi nhận TH-11<a class="neo" href="#phieu-ghi-nhan-th-11" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-37" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-11</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Tài khoản và ngày</td><td><textarea rows="2" data-k="Tài khoản và ngày · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Địa chỉ, thời điểm, quốc gia của lần thứ nhất</td><td><textarea rows="2" data-k="Địa chỉ, thời điểm, quốc gia của lần thứ nhất · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Địa chỉ, thời điểm, quốc gia của lần thứ hai</td><td><textarea rows="2" data-k="Địa chỉ, thời điểm, quốc gia của lần thứ hai · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Khoảng cách thời gian</td><td><textarea rows="2" data-k="Khoảng cách thời gian · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Phương thức xác thực của mỗi lần</td><td><textarea rows="2" data-k="Phương thức xác thực của mỗi lần · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Hoạt động sau lần đăng nhập thứ hai</td><td><textarea rows="2" data-k="Hoạt động sau lần đăng nhập thứ hai · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<figure class="so-do"><img src="../assets/img/hinh-20-th-travel.svg" alt="Kết quả TH-11. Impossible travel: Hà Nội và Kyiv cách nhau 18 phút." loading="lazy"><figcaption>Hình 20 — Kết quả TH-11. Impossible travel: Hà Nội và Kyiv cách nhau 18 phút.</figcaption></figure>
+
+<h2 id="th-12-nhan-vien-ke-toan-mat-ngu-vi-dien-thoai">TH-12 · Nhân viên kế toán mất ngủ vì điện thoại<a class="neo" href="#th-12-nhan-vien-ke-toan-mat-ngu-vi-dien-thoai" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Sáng ngày 11 tháng 9, chị Bùi Thị Kim ở bộ phận kế toán phàn nàn với đồng nghiệp rằng đêm qua điện thoại rung liên tục vì ứng dụng xác thực, chị bực quá nên bấm chấp nhận cho nó im.</p>
+<p>Câu chuyện này đến tai bạn qua một đồng nghiệp, không qua kênh báo cáo chính thức.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Tài khoản này nhận bao nhiêu yêu cầu xác thực bị từ chối trong hai tuần qua?</li>
+<li>Nếu xếp hạng theo cả kỳ, tài khoản này có nổi bật không?</li>
+<li>Đếm theo cửa sổ mười lăm phút thì kết quả khác thế nào?</li>
+<li>Yêu cầu xác thực đến từ địa chỉ nào, thuộc quốc gia nào?</li>
+<li>Sau khi chị bấm chấp nhận, chuyện gì xảy ra?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Nhận ra rằng đếm trên toàn kỳ che mất hành vi dồn dập, và làm quen với nguồn log MFA.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Xem cấu trúc file log xác thực</strong></p>
+<pre><code class="language-bash">head -3 mfa.log
+</code></pre>
+<p>Sáu cột: thời điểm, tài khoản, địa chỉ nguồn, phương thức, kết quả, ứng dụng.</p>
+<p><strong>Bước 2 — Cách làm thường gặp: đếm từ chối trên cả kỳ</strong></p>
+<pre><code class="language-bash">awk -F',' 'NR&gt;1 &amp;&amp; $5==&quot;Tu choi&quot; {n[$2]++} \
+  END {for (i in n) printf &quot;  %-12s %3d\n&quot;, i, n[i]}' mfa.log \
+  | sort -k2 -rn | head -5
+</code></pre>
+<p><strong>Bước 3 — Cách làm đúng: đếm theo cửa sổ mười lăm phút</strong></p>
+<pre><code class="language-bash">awk -F',' 'NR&gt;1 &amp;&amp; $5==&quot;Tu choi&quot; \
+  { cua_so = substr($1,1,15)&quot;0&quot;; n[$2&quot;  &quot;cua_so]++ } \
+  END {for (i in n) printf &quot;  %3d  %s\n&quot;, n[i], i}' mfa.log \
+  | sort -rn | head -5
+</code></pre>
+<p><strong>Bước 4 — Tra địa chỉ nguồn</strong></p>
+<pre><code class="language-bash">awk -F',' '$2==&quot;buithik&quot; &amp;&amp; $5==&quot;Tu choi&quot; {print $3}' mfa.log | sort -u
+grep &quot;91.203.145&quot; dia_chi_quoc_gia.csv
+</code></pre>
+<p><strong>Bước 5 — Tìm việc xảy ra sau lần chấp nhận</strong></p>
+<pre><code class="language-bash">awk -F',' '$2==&quot;buithik&quot; &amp;&amp; $5==&quot;Chap nhan&quot; &amp;&amp; $3==&quot;91.203.145.77&quot;' mfa.log
+grep &quot;buithik&quot; auth.log | grep Accepted
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cách làm</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Đếm cả kỳ</strong></td>
+<td><code>buithik</code> có 80 lần từ chối, tài khoản kế tiếp có 31 lần. Có nhỉnh hơn nhưng không đủ rõ để kết luận</td>
+</tr>
+<tr>
+<td><strong>Đếm theo 15 phút</strong></td>
+<td>33 lần từ chối trong một cửa sổ duy nhất lúc 23:20 ngày 10/09. Cửa sổ đứng thứ hai chỉ có 2 lần. Chênh lệch 16 lần</td>
+</tr>
+<tr>
+<td>Địa chỉ nguồn</td>
+<td><code>91.203.145.77</code> — Ukraina, Kyiv</td>
+</tr>
+<tr>
+<td>Khung thời gian</td>
+<td>23:18 đến 23:28 ngày 10/09, tổng 43 yêu cầu trong khoảng 11 phút</td>
+</tr>
+<tr>
+<td>Sau khi chấp nhận</td>
+<td>Có một lần đăng nhập thành công vào cổng truy cập từ xa, cùng địa chỉ đó</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Kỹ thuật này dựa vào việc người dùng mệt mỏi và bấm chấp nhận để dừng thông báo. Biện pháp đối ứng không nằm ở chỗ đào tạo người dùng kiên nhẫn hơn, mà nằm ở chỗ đổi phương thức xác thực sang cách yêu cầu người dùng nhập một mã số hiển thị trên màn hình, và giới hạn số lần gửi yêu cầu trong một khoảng thời gian.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-12">Phiếu ghi nhận TH-12<a class="neo" href="#phieu-ghi-nhan-th-12" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-38" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-12</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Số từ chối khi đếm cả kỳ, và thứ hạng</td><td><textarea rows="2" data-k="Số từ chối khi đếm cả kỳ, và thứ hạng · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số từ chối trong cửa sổ 15 phút cao nhất</td><td><textarea rows="2" data-k="Số từ chối trong cửa sổ 15 phút cao nhất · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Chênh lệch giữa hai cách đếm</td><td><textarea rows="2" data-k="Chênh lệch giữa hai cách đếm · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Địa chỉ nguồn và quốc gia</td><td><textarea rows="2" data-k="Địa chỉ nguồn và quốc gia · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tổng số yêu cầu và khoảng thời gian</td><td><textarea rows="2" data-k="Tổng số yêu cầu và khoảng thời gian · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Việc xảy ra sau lần chấp nhận</td><td><textarea rows="2" data-k="Việc xảy ra sau lần chấp nhận · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<figure class="so-do"><img src="../assets/img/hinh-21-gf-mfa.svg" alt="Kết quả TH-12. MFA fatigue: 42 lần từ chối dồn trong 15 phút." loading="lazy"><figcaption>Hình 21 — Kết quả TH-12. MFA fatigue: 42 lần từ chối dồn trong 15 phút.</figcaption></figure>
+
+<h2 id="th-13-sang-thu-hai-khong-ai-mo-duoc-file">TH-13 · Sáng thứ Hai, không ai mở được file<a class="neo" href="#th-13-sang-thu-hai-khong-ai-mo-duoc-file" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>07:50 sáng ngày 13 tháng 9. Bộ phận kế toán gọi liên tục: không mở được file nào trên folder chia sẻ. Bộ phận kinh doanh cũng vậy. Trên folder xuất hiện một file tên <code>DOC_DE_KHOI_PHUC.txt</code> mà không ai tạo ra.</p>
+<p>Đây là sự cố đang diễn ra. Mọi việc bạn làm trong ba mươi phút tới sẽ quyết định phạm vi thiệt hại.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Việc mã hoá bắt đầu lúc nào, kết thúc lúc nào, bao nhiêu file bị ảnh hưởng?</li>
+<li>Process nào thực hiện? Tài khoản nào chạy nó?</li>
+<li>Trước đó có dấu hiệu chuẩn bị nào không? Cách bao lâu?</li>
+<li>Nếu tổ chức phát hiện được ở thời điểm có dấu hiệu chuẩn bị, thiệt hại có xảy ra không?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Dựng timeline của một sự cố đang diễn ra, và đánh giá cửa sổ thời gian mà tổ chức đã bỏ lỡ.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Xác định phạm vi mã hoá</strong></p>
+<pre><code class="language-bash"># Đếm số file bị đổi đuôi
+grep -c &quot;\.locked&quot; sysmon.ndjson
+
+# Thời điểm đầu tiên và cuối cùng
+jq -r 'select(.EventID==11 and (.TargetFilename|test(&quot;\\.locked&quot;)))
+       | .TimeCreated' sysmon.ndjson | sort | sed -n '1p;$p'
+</code></pre>
+<p><strong>Bước 2 — Tìm process thực hiện</strong></p>
+<pre><code class="language-bash">jq -r 'select(.EventID==4688 and (.CommandLine|test(&quot;enc|locked&quot;)))
+       | &quot;\(.TimeCreated)  \(.Computer)  \(.TargetUserName)\n  \(.CommandLine)&quot;' \
+   windows_security.ndjson
+</code></pre>
+<p><strong>Bước 3 — Tìm dấu hiệu chuẩn bị trước đó</strong></p>
+<pre><code class="language-bash"># Xem toàn bộ process chạy trên server file đêm 13/09
+jq -r 'select(.EventID==4688 and .Computer==&quot;SRV-FILE-01&quot;)
+       | &quot;\(.TimeCreated)  \(.TargetUserName)  \(.CommandLine)&quot;' \
+   windows_security.ndjson | sort
+</code></pre>
+<p><strong>Bước 4 — Tính khoảng cách giữa dấu hiệu chuẩn bị và việc mã hoá</strong></p>
+<p>So sánh hai mốc thời gian tìm được ở bước 2 và bước 3.</p>
+<p><strong>Bước 5 — Xác nhận file thông báo đòi tiền chuộc</strong></p>
+<pre><code class="language-bash">jq -r 'select(.EventID==11 and (.TargetFilename|test(&quot;KHOI_PHUC&quot;)))
+       | &quot;\(.TimeCreated)  \(.TargetFilename)&quot;' sysmon.ndjson
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bắt đầu mã hoá</td>
+<td>13/09 lúc 03:10:20</td>
+</tr>
+<tr>
+<td>Số file bị mã hoá</td>
+<td>820 file, cộng một file thông báo đòi tiền chuộc</td>
+</tr>
+<tr>
+<td>Thời gian mã hoá</td>
+<td>Khoảng 24 phút</td>
+</tr>
+<tr>
+<td>Process</td>
+<td><code>C:\Users\Public\svchost_upd.exe</code> với tham số <code>-enc -path D:\DuLieuChung -ext .locked</code></td>
+</tr>
+<tr>
+<td>Tài khoản</td>
+<td><code>svc_backup2</code></td>
+</tr>
+<tr>
+<td>Dấu hiệu chuẩn bị</td>
+<td>02:44 cùng đêm, lệnh <code>vssadmin delete shadows /all /quiet</code></td>
+</tr>
+<tr>
+<td>Khoảng cách</td>
+<td><strong>26 phút</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Tổ chức có 26 phút giữa lúc kẻ tấn công xoá khả năng khôi phục và lúc bắt đầu mã hoá. Nếu có một detection use case cho lệnh <code>vssadmin delete shadows</code>, cảnh báo sẽ nổ lúc 02:44 và 820 file có thể đã được cứu. Đây là lý do bài TH-10 phải xếp sự việc đó ở mức nghiêm trọng nhất chứ không phải mức sự cố kỹ thuật.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-13">Phiếu ghi nhận TH-13<a class="neo" href="#phieu-ghi-nhan-th-13" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-39" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-13</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Thời điểm bắt đầu và kết thúc mã hoá</td><td><textarea rows="2" data-k="Thời điểm bắt đầu và kết thúc mã hoá · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số file bị ảnh hưởng</td><td><textarea rows="2" data-k="Số file bị ảnh hưởng · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Process và tham số</td><td><textarea rows="2" data-k="Process và tham số · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tài khoản thực hiện</td><td><textarea rows="2" data-k="Tài khoản thực hiện · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Dấu hiệu chuẩn bị và thời điểm</td><td><textarea rows="2" data-k="Dấu hiệu chuẩn bị và thời điểm · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Khoảng cách giữa hai mốc</td><td><textarea rows="2" data-k="Khoảng cách giữa hai mốc · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Ba việc phải làm ngay trong 30 phút đầu</td><td><textarea rows="2" data-k="Ba việc phải làm ngay trong 30 phút đầu · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<figure class="so-do"><img src="../assets/img/hinh-22-gf-ransom.svg" alt="Kết quả TH-13. Tốc độ tạo file .locked trong 24 phút." loading="lazy"><figcaption>Hình 22 — Kết quả TH-13. Tốc độ tạo file .locked trong 24 phút.</figcaption></figure>
+
+<h2 id="th-14-khach-hang-gui-thu-hoi-vi-sao-du-lieu-cua-ho-o-tren-mang">TH-14 · Khách hàng gửi thư hỏi vì sao dữ liệu của họ ở trên mạng<a class="neo" href="#th-14-khach-hang-gui-thu-hoi-vi-sao-du-lieu-cua-ho-o-tren-mang" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Một khách hàng doanh nghiệp gửi thư cho ban giám đốc. Họ nói tìm thấy một file danh sách khách hàng có tên công ty họ, tải được công khai từ đường dẫn lưu trữ của Công ty Minh An, không cần đăng nhập.</p>
+<p>Ban giám đốc chuyển thư sang bạn với một câu hỏi duy nhất: chuyện này có thật không, và từ bao giờ.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Storage nào bị đặt ở chế độ công khai? Từ thời điểm nào?</li>
+<li>Ai thực hiện thay đổi đó? Có phiếu thay đổi tương ứng không?</li>
+<li>Bao nhiêu lần tải file từ bên ngoài đã diễn ra kể từ đó?</li>
+<li>Nghĩa vụ pháp lý nào phát sinh?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Đọc log thao tác quản trị trên dịch vụ cloud, và nối kết quả kỹ thuật với nghĩa vụ pháp lý.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Xem cấu trúc log cloud</strong></p>
+<pre><code class="language-bash">head -1 cloud_audit.ndjson | jq .
+</code></pre>
+<p><strong>Bước 2 — Tìm thao tác đổi quyền truy cập</strong></p>
+<pre><code class="language-bash">jq -r 'select(.hanh_dong==&quot;DoiQuyenTruyCap&quot;)
+       | &quot;\(.thoi_diem)  \(.tai_khoan)  \(.doi_tuong)\n  quyen: \(.quyen_cu) -&gt; \(.quyen_moi)&quot;' \
+   cloud_audit.ndjson
+</code></pre>
+<p><strong>Bước 3 — Đối chiếu với change record</strong></p>
+<pre><code class="language-bash">grep &quot;2026-09-07&quot; ho_so_thay_doi.csv
+</code></pre>
+<p><strong>Bước 4 — Đếm số lần tải file bởi người không đăng nhập</strong></p>
+<pre><code class="language-bash">jq -r 'select(.tai_khoan==&quot;an-danh&quot;) | .dia_chi_nguon' cloud_audit.ndjson \
+  | sort | uniq -c | sort -rn
+
+jq -r 'select(.tai_khoan==&quot;an-danh&quot;) | .thoi_diem' cloud_audit.ndjson \
+  | sort | sed -n '1p;$p'
+</code></pre>
+<p><strong>Bước 5 — Xác định loại dữ liệu bị lộ</strong></p>
+<pre><code class="language-bash">jq -r 'select(.tai_khoan==&quot;an-danh&quot;) | .doi_tuong' cloud_audit.ndjson | head -3
+grep -i &quot;khach&quot; kiem_ke_tai_san.csv
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage</td>
+<td><code>kho-luutru-minhan/KhachHang</code></td>
+</tr>
+<tr>
+<td>Thời điểm đổi quyền</td>
+<td>07/09 lúc 15:40:12, từ riêng tư sang công khai đọc</td>
+</tr>
+<tr>
+<td>Người thực hiện</td>
+<td>Service account <code>svc_deploy</code>, từ địa chỉ văn phòng</td>
+</tr>
+<tr>
+<td>Phiếu thay đổi ngày 07/09</td>
+<td>Không có</td>
+</tr>
+<tr>
+<td>Số lần tải từ bên ngoài</td>
+<td>109 lần, từ hai địa chỉ thuộc mạng phân phối nội dung tại Hoa Kỳ</td>
+</tr>
+<tr>
+<td>Loại dữ liệu</td>
+<td>Danh sách khách hàng, thuộc nhóm dữ liệu cá nhân</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Đây là sự cố lộ dữ liệu cá nhân. Nghĩa vụ thông báo phát sinh kể từ <strong>thời điểm phát hiện</strong>, không phải từ thời điểm hoàn thành điều tra. Với dữ liệu thuộc nhóm nhạy cảm, thời hạn thông báo cho chủ thể dữ liệu là 72 giờ. Nội dung chi tiết về nghĩa vụ pháp lý được trình bày ở Chuyên đề 5.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-14">Phiếu ghi nhận TH-14<a class="neo" href="#phieu-ghi-nhan-th-14" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-40" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-14</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Storage và thời điểm đổi quyền</td><td><textarea rows="2" data-k="Storage và thời điểm đổi quyền · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Tài khoản thực hiện</td><td><textarea rows="2" data-k="Tài khoản thực hiện · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Có phiếu thay đổi không</td><td><textarea rows="2" data-k="Có phiếu thay đổi không · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số lần tải và khoảng thời gian</td><td><textarea rows="2" data-k="Số lần tải và khoảng thời gian · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Loại dữ liệu bị lộ</td><td><textarea rows="2" data-k="Loại dữ liệu bị lộ · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Nghĩa vụ pháp lý phát sinh</td><td><textarea rows="2" data-k="Nghĩa vụ pháp lý phát sinh · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Thời hạn phải thông báo</td><td><textarea rows="2" data-k="Thời hạn phải thông báo · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<h2 id="th-15-cong-dich-vu-bao-loi-tu-nua-dem">TH-15 · Cổng dịch vụ báo lỗi từ nửa đêm<a class="neo" href="#th-15-cong-dich-vu-bao-loi-tu-nua-dem" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Bộ phận kinh doanh báo rằng từ sáng ngày 12 tháng 9 khách hàng không đặt hàng được, trình duyệt báo lỗi kết nối. Bộ phận hỗ trợ đã thử khởi động lại server ứng dụng nhưng không hết.</p>
+<p>Đây không phải sự cố an ninh, nhưng nó là sự cố vận hành hay gặp nhất và bạn phải xử lý được.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Lỗi bắt đầu từ thời điểm chính xác nào? Mã lỗi là gì?</li>
+<li>Nguyên nhân là gì?</li>
+<li>Hệ thống có cảnh báo trước không? Trước bao nhiêu ngày?</li>
+<li>Vì sao cảnh báo có mà sự cố vẫn xảy ra?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Phân biệt sự cố an ninh với sự cố vận hành, và nhận ra rằng có cảnh báo không đồng nghĩa với có người xử lý.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Tìm mã lỗi và thời điểm bắt đầu</strong></p>
+<pre><code class="language-bash">awk '{print $9}' web_access.log | sort | uniq -c | sort -rn
+</code></pre>
+<p>Mã lỗi lạ xuất hiện trong danh sách là mã nào?</p>
+<pre><code class="language-bash">awk '$9==525 {print $4; exit}' web_access.log
+awk '$9==525 {n++} END {print &quot;Tong so loi:&quot;, n}' web_access.log
+</code></pre>
+<p><strong>Bước 2 — Tìm nguyên nhân trong log giám sát chứng thư</strong></p>
+<pre><code class="language-bash">cat tls_monitor.log | head -4
+grep &quot;congdichvu&quot; tls_monitor.log
+</code></pre>
+<p><strong>Bước 3 — Xem hệ thống cảnh báo từ khi nào</strong></p>
+<pre><code class="language-bash">grep &quot;congdichvu&quot; tls_monitor.log | grep -E &quot;CANH BAO|HET HAN&quot;
+</code></pre>
+<p><strong>Bước 4 — So sánh thời điểm cảnh báo đầu tiên với thời điểm sự cố</strong></p>
+<p>Đếm số ngày giữa dòng cảnh báo đầu tiên và ngày lỗi bắt đầu.</p>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mã lỗi</td>
+<td>525, khoảng 2.836 lần</td>
+</tr>
+<tr>
+<td>Thời điểm bắt đầu</td>
+<td>12/09 lúc 00:00</td>
+</tr>
+<tr>
+<td>Nguyên nhân</td>
+<td>Certificate của <code>congdichvu.minhan.vn</code> hết hạn ngày 12/09</td>
+</tr>
+<tr>
+<td>Cảnh báo đầu tiên</td>
+<td>Ngày 05/09, khi còn 7 ngày, trạng thái chuyển từ OK sang CẢNH BÁO</td>
+</tr>
+<tr>
+<td>Số ngày được cảnh báo trước</td>
+<td><strong>7 ngày</strong>, mỗi ngày một lần lúc 06:00</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Hệ thống giám sát đã làm đúng việc của nó: cảnh báo bảy ngày liên tiếp. Sự cố vẫn xảy ra vì cảnh báo không gắn với một người chịu trách nhiệm cụ thể và một quy trình xử lý. Một cảnh báo không dẫn tới hành động thì không khác gì không có cảnh báo. Đây chính là nội dung mà bài TH-6 yêu cầu điền ở cột hành động của từng hình trên dashboard.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-15">Phiếu ghi nhận TH-15<a class="neo" href="#phieu-ghi-nhan-th-15" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-41" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-15</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Mã lỗi và số lần</td><td><textarea rows="2" data-k="Mã lỗi và số lần · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Thời điểm bắt đầu</td><td><textarea rows="2" data-k="Thời điểm bắt đầu · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Nguyên nhân gốc</td><td><textarea rows="2" data-k="Nguyên nhân gốc · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Ngày cảnh báo đầu tiên</td><td><textarea rows="2" data-k="Ngày cảnh báo đầu tiên · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Số ngày được cảnh báo trước</td><td><textarea rows="2" data-k="Số ngày được cảnh báo trước · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Vì sao cảnh báo có mà sự cố vẫn xảy ra</td><td><textarea rows="2" data-k="Vì sao cảnh báo có mà sự cố vẫn xảy ra · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Đề xuất để không lặp lại</td><td><textarea rows="2" data-k="Đề xuất để không lặp lại · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<h2 id="th-16-service-account-dang-nhap-nhu-nguoi-dung">TH-16 · Service account đăng nhập như người dùng<a class="neo" href="#th-16-service-account-dang-nhap-nhu-nguoi-dung" aria-label="Liên kết tới mục này">#</a></h2>
+<h3 id="tinh-huong">Tình huống<a class="neo" href="#tinh-huong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Bạn đang xây dựng detection use case cho nhóm service account, theo nội dung đã học ở Chuyên đề 2. Bước đầu tiên là xem các service account hiện đang hoạt động thế nào, để biết hành vi nào là bình thường.</p>
+<h3 id="cau-hoi-phai-tra-loi">Câu hỏi phải trả lời<a class="neo" href="#cau-hoi-phai-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Có bao nhiêu service account? Chúng thường đăng nhập theo kiểu nào?</li>
+<li>Có lần đăng nhập nào theo kiểu khác thường không?</li>
+<li>Sau lần đăng nhập đó, tài khoản làm gì?</li>
+<li>Vì sao hành vi này đáng ngờ, dù tài khoản có quyền hợp lệ?</li>
+</ol>
+<h3 id="muc-tieu-ky-nang">Mục tiêu kỹ năng<a class="neo" href="#muc-tieu-ky-nang" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Xây dựng khái niệm hành vi bình thường cho một nhóm tài khoản, rồi tìm điểm lệch khỏi khái niệm đó.</p>
+<h3 id="cach-di-toi-cau-tra-loi">Cách đi tới câu trả lời<a class="neo" href="#cach-di-toi-cau-tra-loi" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Bước 1 — Liệt kê service account theo hồ sơ</strong></p>
+<pre><code class="language-bash">grep &quot;svc_&quot; danh_sach_nhan_su.csv
+</code></pre>
+<p><strong>Bước 2 — Xem kiểu đăng nhập của service account</strong></p>
+<p>Mã sự kiện 4624 có trường <code>LogonType</code>. Giá trị 2 là đăng nhập tương tác tại bàn phím, giá trị 3 là đăng nhập qua mạng, giá trị 5 là dịch vụ.</p>
+<pre><code class="language-bash">jq -r 'select(.EventID==4624 and (.TargetUserName|startswith(&quot;svc_&quot;)))
+       | &quot;\(.TargetUserName)  LogonType=\(.LogonType)&quot;' \
+   windows_security.ndjson | sort | uniq -c
+</code></pre>
+<p><strong>Bước 3 — Xem chi tiết lần đăng nhập khác thường</strong></p>
+<pre><code class="language-bash">jq -r 'select(.EventID==4624 and .LogonType==2 and (.TargetUserName|startswith(&quot;svc_&quot;)))
+       | &quot;\(.TimeCreated)  \(.Computer)  \(.TargetUserName)  \(.IpAddress)&quot;' \
+   windows_security.ndjson
+</code></pre>
+<p><strong>Bước 4 — Xem hoạt động sau đó</strong></p>
+<pre><code class="language-bash">jq -r 'select(.User==&quot;svc_deploy&quot;) | &quot;\(.TimeCreated)  \(.Computer)\n  \(.CommandLine)&quot;' \
+   sysmon.ndjson
+
+jq -r 'select(.tai_khoan==&quot;svc_deploy&quot; and (.thoi_diem|startswith(&quot;2026-09-10T22&quot;)))
+       | &quot;\(.thoi_diem)  \(.hanh_dong)  \(.doi_tuong)&quot;' cloud_audit.ndjson
+</code></pre>
+<p><strong>Bước 5 — Đối chiếu workstation với hồ sơ nhân sự</strong></p>
+<pre><code class="language-bash">grep &quot;192.168.10.35&quot; kiem_ke_tai_san.csv
+grep &quot;PC-KD-18&quot; danh_sach_nhan_su.csv
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Kết quả đúng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Số service account</td>
+<td>Ba: <code>svc_backup</code>, <code>svc_monitor</code>, <code>svc_deploy</code></td>
+</tr>
+<tr>
+<td>Kiểu đăng nhập bình thường</td>
+<td><code>svc_backup</code> và <code>svc_monitor</code> luôn dùng kiểu 5 là đăng nhập dịch vụ, lần lượt 900 và 1.400 lần. <code>svc_deploy</code> luôn dùng kiểu 3 là đăng nhập qua mạng, 430 lần</td>
+</tr>
+<tr>
+<td>Lần khác thường</td>
+<td>Đúng <strong>một</strong> lần duy nhất: <code>svc_deploy</code> đăng nhập kiểu 2 lúc 22:15:30 ngày 10/09 trên máy PC-KD-18</td>
+</tr>
+<tr>
+<td>Tỷ lệ</td>
+<td>1 trên 2.731 lần đăng nhập của nhóm service account. Đây là lý do detection use case này gần như không có false positive</td>
+</tr>
+<tr>
+<td>Hoạt động sau đó</td>
+<td>Chạy lệnh liệt kê toàn bộ tài khoản và nhóm trong miền, rồi xem cấu hình storage khách hàng</td>
+</tr>
+<tr>
+<td>Workstation</td>
+<td>PC-KD-18 là máy của bộ phận kinh doanh, không phải máy quản trị</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Điểm cần nhớ.</strong> Service account đăng nhập tương tác tại bàn phím là hành vi không bao giờ hợp lệ. Service account được tạo ra để chương trình dùng, không phải để người dùng. Thêm vào đó, việc này xảy ra lúc 22 giờ trên một workstation kinh doanh, và sau đó là hành vi dò tìm thông tin về tài khoản trong miền. Ba yếu tố cộng lại tạo thành một detection use case rất rõ ràng và gần như không có false positive.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-th-16">Phiếu ghi nhận TH-16<a class="neo" href="#phieu-ghi-nhan-th-16" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-42" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận TH-16</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời</th></tr></thead><tbody><tr><td class="bm-ma">Danh sách service account</td><td><textarea rows="2" data-k="Danh sách service account · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Kiểu đăng nhập bình thường của chúng</td><td><textarea rows="2" data-k="Kiểu đăng nhập bình thường của chúng · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Lần đăng nhập khác thường: tài khoản, thời điểm, máy</td><td><textarea rows="2" data-k="Lần đăng nhập khác thường: tài khoản, thời điểm, máy · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Kiểu đăng nhập của lần đó</td><td><textarea rows="2" data-k="Kiểu đăng nhập của lần đó · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Hai hành vi sau khi đăng nhập</td><td><textarea rows="2" data-k="Hai hành vi sau khi đăng nhập · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Ba yếu tố khiến hành vi này đáng ngờ</td><td><textarea rows="2" data-k="Ba yếu tố khiến hành vi này đáng ngờ · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Viết detection use case cho trường hợp này</td><td><textarea rows="2" data-k="Viết detection use case cho trường hợp này · Trả lời"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<hr>
+<h2 id="bang-tong-hop-muoi-sau-tinh-huong">Bảng tổng hợp mười sáu tình huống<a class="neo" href="#bang-tong-hop-muoi-sau-tinh-huong" aria-label="Liên kết tới mục này">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Tên</th>
+<th>Nguồn dữ liệu chính</th>
+<th>Kỹ năng trọng tâm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TH-1</td>
+<td>Ca trực sáng thứ Hai</td>
+<td>tất cả</td>
+<td>Đọc hình dạng phân bố</td>
+</tr>
+<tr>
+<td>TH-2</td>
+<td>Nhà thầu không đăng nhập được</td>
+<td>auth</td>
+<td>Đếm theo cửa sổ thời gian</td>
+</tr>
+<tr>
+<td>TH-3</td>
+<td>Câu hỏi của đoàn kiểm tra</td>
+<td>auth, windows, hồ sơ</td>
+<td>Đối chiếu log với hồ sơ</td>
+</tr>
+<tr>
+<td>TH-4</td>
+<td>Hoá đơn Internet tăng</td>
+<td>netflow</td>
+<td>Eradication hoạt động hợp lệ</td>
+</tr>
+<tr>
+<td>TH-5</td>
+<td>Cảnh báo từ bên ngoài</td>
+<td>firewall, netflow, dns</td>
+<td>Điều tra từ một chỉ dấu</td>
+</tr>
+<tr>
+<td>TH-6</td>
+<td>Dựng dashboard</td>
+<td>tất cả</td>
+<td>Thiết kế theo quyết định cần ra</td>
+</tr>
+<tr>
+<td><strong>TH-7</strong></td>
+<td>Kế toán báo máy chạy chậm</td>
+<td>mail, sysmon, windows</td>
+<td>Lần theo chuỗi sự việc</td>
+</tr>
+<tr>
+<td><strong>TH-8</strong></td>
+<td>Nhân viên sắp nghỉ việc</td>
+<td>windows, netflow, hồ sơ</td>
+<td>Phát hiện lạm dụng quyền hợp lệ</td>
+</tr>
+<tr>
+<td><strong>TH-9</strong></td>
+<td>Rà soát quy tắc firewall</td>
+<td>firewall, audit, hồ sơ</td>
+<td>Đối chiếu cấu hình với quy trình</td>
+</tr>
+<tr>
+<td><strong>TH-10</strong></td>
+<td>Báo cáo backup thất bại</td>
+<td>windows, auth</td>
+<td>Nhận ra dấu hiệu chuẩn bị</td>
+</tr>
+<tr>
+<td><strong>TH-11</strong></td>
+<td>Hai nơi cách nửa vòng Trái Đất</td>
+<td>auth, windows, bảng quốc gia</td>
+<td>Làm giàu dữ liệu</td>
+</tr>
+<tr>
+<td><strong>TH-12</strong></td>
+<td>Điện thoại rung cả đêm</td>
+<td>mfa</td>
+<td>Cửa sổ thời gian che tín hiệu</td>
+</tr>
+<tr>
+<td><strong>TH-13</strong></td>
+<td>Không ai mở được file</td>
+<td>sysmon, windows</td>
+<td>Dựng timeline sự cố</td>
+</tr>
+<tr>
+<td><strong>TH-14</strong></td>
+<td>Dữ liệu khách hàng trên mạng</td>
+<td>cloud_audit, hồ sơ</td>
+<td>Log cloud và nghĩa vụ pháp lý</td>
+</tr>
+<tr>
+<td><strong>TH-15</strong></td>
+<td>Cổng dịch vụ báo lỗi</td>
+<td>web, tls_monitor</td>
+<td>Phân biệt sự cố vận hành</td>
+</tr>
+<tr>
+<td><strong>TH-16</strong></td>
+<td>Service account bất thường</td>
+<td>windows, sysmon, cloud_audit</td>
+<td>Xây dựng khái niệm hành vi bình thường</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="cau-hoi-tong-hop-cuoi-tap">Câu hỏi tổng hợp cuối tập<a class="neo" href="#cau-hoi-tong-hop-cuoi-tap" aria-label="Liên kết tới mục này">#</a></h2>
+<p>Mười sáu tình huống trên mô tả mấy sự việc khác nhau? Hãy nhóm chúng lại và vẽ một timeline duy nhất từ ngày 01 đến ngày 14 tháng 9.</p>
+<p>Gợi ý: chú ý các điểm giao nhau sau.</p>
+<ul>
+<li>Địa chỉ <code>91.203.145.77</code> xuất hiện ở hai tình huống nào?</li>
+<li>Tài khoản <code>svc_backup2</code> xuất hiện ở mấy tình huống?</li>
+<li>Máy <code>SRV-FILE-01</code> xuất hiện ở mấy tình huống?</li>
+<li>Tài khoản <code>svc_deploy</code> liên quan tới hai tình huống nào, và hai tình huống đó có phải cùng một sự việc không?</li>
+</ul>
+<p>Viết câu trả lời ra một trang, nộp lại cùng các phiếu ghi nhận.</p>
+<hr>
+<nav class="dieu-huong">
+<a class="dh truoc" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="dh sau" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a>
+</nav>
+</main>
+
+<button id="len" aria-label="Lên đầu trang">↑</button>
+<script src="../assets/js/chi-muc.js"></script>
+<script src="../assets/js/cam-nang.js"></script>
+</body>
+</html>

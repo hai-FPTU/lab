@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHẦN E · NỀN TẢNG GIÁM SÁT · Cẩm nang thực hành</title>
+<link rel="stylesheet" href="../assets/css/cam-nang.css">
+</head>
+<body>
+<div id="tien-do"></div>
+<div id="lop-phu" role="dialog" aria-label="Xem hình phóng to"></div>
+<button id="nut-canh" aria-label="Mở mục lục">☰</button>
+
+<nav id="canh">
+  <header>
+    <a href="../index.html" class="ve-dau">Cẩm nang thực hành</a>
+    <div class="phu">Dành cho học viên · An ninh mạng nâng cao</div>
+  </header>
+  <input id="o-tim" type="search" placeholder="Tìm trong cẩm nang…" autocomplete="off">
+  <div id="kq-tim"></div>
+  <div id="ml"><a class="ml-phan" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="ml-phan" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-phan" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-phan" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="ml-phan dang-xem" href="05-phan-e.html">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-chuong cap1" href="#phan-e-nen-tang-giam-sat" data-id="phan-e-nen-tang-giam-sat">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-chuong cap2" href="#chuong-13-loki-va-grafana-hoat-dong-the-nao" data-id="chuong-13-loki-va-grafana-hoat-dong-the-nao">Chương 13 · Loki và Grafana hoạt động thế nào</a>
+<a class="ml-chuong cap3" href="#131-ba-thanh-phan" data-id="131-ba-thanh-phan">13.1. Ba thành phần</a>
+<a class="ml-chuong cap3" href="#132-nhan-la-gi-va-vi-sao-quan-trong" data-id="132-nhan-la-gi-va-vi-sao-quan-trong">13.2. Nhãn là gì và vì sao quan trọng</a>
+<a class="ml-chuong cap2" href="#chuong-14-nap-bo-du-lieu-va-kiem-chung" data-id="chuong-14-nap-bo-du-lieu-va-kiem-chung">Chương 14 · Nạp bộ dữ liệu và kiểm chứng</a>
+<a class="ml-chuong cap3" href="#141-hai-cai-bay-da-duoc-xu-ly-san" data-id="141-hai-cai-bay-da-duoc-xu-ly-san">14.1. Hai cái bẫy đã được xử lý sẵn</a>
+<a class="ml-chuong cap3" href="#142-nap-lai-du-lieu" data-id="142-nap-lai-du-lieu">14.2. Nạp lại dữ liệu</a>
+<a class="ml-chuong cap3" href="#143-kiem-chung-du-lieu-da-nap-dung" data-id="143-kiem-chung-du-lieu-da-nap-dung">14.3. Kiểm chứng dữ liệu đã nạp đúng</a>
+<a class="ml-chuong cap2" href="#chuong-15-ngon-ngu-truy-van-logql" data-id="chuong-15-ngon-ngu-truy-van-logql">Chương 15 · Ngôn ngữ truy vấn LogQL</a>
+<a class="ml-chuong cap3" href="#151-cau-truc-mot-truy-van" data-id="151-cau-truc-mot-truy-van">15.1. Cấu trúc một truy vấn</a>
+<a class="ml-chuong cap3" href="#152-nam-cau-truc-can-thuoc" data-id="152-nam-cau-truc-can-thuoc">15.2. Năm cấu trúc cần thuộc</a>
+<a class="ml-chuong cap3" href="#153-muoi-truy-van-mau" data-id="153-muoi-truy-van-mau">15.3. Mười truy vấn mẫu</a>
+<a class="ml-chuong cap2" href="#chuong-16-dung-dashboard" data-id="chuong-16-dung-dashboard">Chương 16 · Dựng dashboard</a>
+<a class="ml-chuong cap3" href="#161-cac-buoc-tao-mot-dashboard" data-id="161-cac-buoc-tao-mot-dashboard">16.1. Các bước tạo một dashboard</a>
+<a class="ml-chuong cap3" href="#162-chon-kieu-hien-thi-nao-cho-cau-hoi-nao" data-id="162-chon-kieu-hien-thi-nao-cho-cau-hoi-nao">16.2. Chọn kiểu hiển thị nào cho câu hỏi nào</a>
+<a class="ml-chuong cap3" href="#163-bon-thanh-phan-cua-dashboard-truc-ca" data-id="163-bon-thanh-phan-cua-dashboard-truc-ca">16.3. Bốn thành phần của dashboard trực ca</a>
+<a class="ml-phan" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="ml-phan" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-phan" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-phan" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-phan" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="ml-phan" href="11-phan-k.html">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-phan" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a></div>
+</nav>
+
+<main id="than">
+<h1 id="phan-e-nen-tang-giam-sat">PHẦN E · NỀN TẢNG GIÁM SÁT<a class="neo" href="#phan-e-nen-tang-giam-sat" aria-label="Liên kết tới mục này">#</a></h1>
+<p><em>Nạp dữ liệu, truy vấn và dựng dashboard</em></p>
+<ul>
+<li>Loki và Grafana hoạt động thế nào</li>
+<li>Nạp bộ dữ liệu và kiểm chứng</li>
+<li>Ngôn ngữ truy vấn LogQL</li>
+<li>Dựng dashboard</li>
+</ul>
+<hr>
+<p><code>PHẦN E · GIÁM SÁT</code></p>
+<h2 id="chuong-13-loki-va-grafana-hoat-dong-the-nao">Chương 13 · Loki và Grafana hoạt động thế nào<a class="neo" href="#chuong-13-loki-va-grafana-hoat-dong-the-nao" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Ba thành phần, mỗi thành phần làm một việc. Hiểu phân vai giúp bạn tự xử lý khi có sự cố.</em></p>
+<h3 id="131-ba-thanh-phan">13.1. Ba thành phần<a class="neo" href="#131-ba-thanh-phan" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Cổng</th>
+<th>Việc nó làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Promtail</td>
+<td>không</td>
+<td>Đọc từng dòng trong các file log, bóc mốc thời gian và gắn nhãn, rồi đẩy sang Loki</td>
+</tr>
+<tr>
+<td>Loki</td>
+<td>3100</td>
+<td>Nhận dữ liệu từ Promtail, lưu trữ, lập chỉ mục theo nhãn, và trả lời truy vấn</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>3000</td>
+<td>Giao diện để gõ truy vấn, xem kết quả, và dựng dashboard</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-text">  File log trong /var/lab/dulieu
+        ↓
+  Promtail đọc, bóc thời gian, gắn nhãn nguồn
+        ↓
+  Loki lưu trữ và lập chỉ mục
+        ↓
+  Grafana truy vấn và hiển thị
+</code></pre>
+<h3 id="132-nhan-la-gi-va-vi-sao-quan-trong">13.2. Nhãn là gì và vì sao quan trọng<a class="neo" href="#132-nhan-la-gi-va-vi-sao-quan-trong" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Khi Promtail đẩy một dòng log sang Loki, nó gắn kèm một số nhãn. Nhãn là cách bạn chọn nguồn dữ liệu khi truy vấn. Trong bộ lab này, các nhãn đã được cấu hình sẵn như sau.</p>
+<table>
+<thead>
+<tr>
+<th>Nhãn</th>
+<th>Giá trị có thể có</th>
+<th>Ví dụ truy vấn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nguon</td>
+<td>auth, firewall, dns, mail, windows, sysmon, suricata, web</td>
+<td>{nguon="auth"}</td>
+</tr>
+<tr>
+<td>may</td>
+<td>Tên máy sinh ra dòng log</td>
+<td>{nguon="auth", may="vpn-gw-01"}</td>
+</tr>
+<tr>
+<td>ma_su_kien</td>
+<td>Mã sự kiện Windows, chỉ có ở nguồn windows và sysmon</td>
+<td>{nguon="windows", ma_su_kien="1102"}</td>
+</tr>
+<tr>
+<td>muc_do</td>
+<td>Mức nghiêm trọng, chỉ có ở nguồn suricata</td>
+<td>{nguon="suricata", muc_do="1"}</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>LƯU Ý</strong></p>
+<p>Mọi truy vấn LogQL đều phải bắt đầu bằng ít nhất một nhãn đặt trong dấu ngoặc nhọn. Không có nhãn thì Loki không biết tìm ở đâu và sẽ báo lỗi.</p>
+</blockquote>
+<hr>
+<p><code>PHẦN E · GIÁM SÁT</code></p>
+<h2 id="chuong-14-nap-bo-du-lieu-va-kiem-chung">Chương 14 · Nạp bộ dữ liệu và kiểm chứng<a class="neo" href="#chuong-14-nap-bo-du-lieu-va-kiem-chung" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Trong phần lớn trường hợp, dữ liệu đã được nạp sẵn trong ảnh máy ảo. Chương này dùng khi cần nạp lại.</em></p>
+<h3 id="141-hai-cai-bay-da-duoc-xu-ly-san">14.1. Hai cái bẫy đã được xử lý sẵn<a class="neo" href="#141-hai-cai-bay-da-duoc-xu-ly-san" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Hai vấn đề sau là nguyên nhân phổ biến nhất khiến việc nạp dữ liệu thất bại. Cả hai đã được xử lý trong file cấu hình kèm theo, nhưng bạn nên biết để tự chẩn đoán.</p>
+<table>
+<thead>
+<tr>
+<th>Vấn đề</th>
+<th>Giải thích và cách xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loki từ chối dữ liệu cũ</td>
+<td>Mặc định Loki từ chối mọi bản ghi có mốc thời gian cũ hơn bảy ngày. Dữ liệu của bộ lab có mốc từ tháng 9 năm 2026, nên toàn bộ sẽ bị từ chối. File loki-config.yaml đã đặt reject_old_samples thành false để tắt cơ chế này</td>
+</tr>
+<tr>
+<td>Mốc thời gian bị ghi sai</td>
+<td>Nếu Promtail không bóc mốc thời gian từ trong dòng log, mọi bản ghi sẽ mang thời điểm nạp thay vì thời điểm sự việc xảy ra. Khi đó attack timeline trở nên vô nghĩa. File promtail-config.yaml đã có phần pipeline_stages để bóc đúng mốc thời gian cho từng định dạng</td>
+</tr>
+</tbody>
+</table>
+<h3 id="142-nap-lai-du-lieu">14.2. Nạp lại dữ liệu<a class="neo" href="#142-nap-lai-du-lieu" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Nạp lại toàn bộ</strong></p>
+<pre><code class="language-bash"># Trên máy Ubuntu
+cd /var/lab/giamsat
+
+# Script tự dừng dịch vụ, xoá dữ liệu cũ, khởi động lại và nạp từ đầu
+sudo bash nap_dulieu.sh
+
+# Quá trình nạp mất từ 3 đến 6 phút.
+# Script in ra số dòng đã nạp mỗi 15 giây.
+# Khi con số không tăng nữa thì việc nạp đã xong, bấm Ctrl và C để dừng.
+</code></pre>
+<h3 id="143-kiem-chung-du-lieu-da-nap-dung">14.3. Kiểm chứng dữ liệu đã nạp đúng<a class="neo" href="#143-kiem-chung-du-lieu-da-nap-dung" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Ba lệnh kiểm chứng</strong></p>
+<pre><code class="language-bash"># Kiểm tra Loki đã sẵn sàng
+curl -s http://localhost:3100/ready
+# Kết quả đúng: ready
+
+# Liệt kê các nhãn nguồn đã có
+curl -s &quot;http://localhost:3100/loki/api/v1/label/nguon/values&quot; | jq -r &quot;.data[]&quot;
+# Kết quả đúng: 8 giá trị gồm auth, firewall, dns, mail,
+#               windows, sysmon, suricata, web
+</code></pre>
+<p>Sau đó mở Grafana ở địa chỉ http://192.168.10.20:3000, đăng nhập, vào mục Khám phá, chọn nguồn dữ liệu Loki, và làm bước quan trọng nhất.</p>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Đặt khoảng thời gian là 2026-09-01 00:00:00 đến 2026-09-15 00:00:00. Mặc định Grafana hiển thị sáu giờ gần nhất, nên nếu không đổi khoảng thời gian, bạn sẽ thấy màn hình trống và tưởng rằng việc nạp dữ liệu đã thất bại. Đây là lỗi phổ biến nhất khi mới bắt đầu.</p>
+</blockquote>
+<p><strong>Truy vấn đầu tiên</strong></p>
+<pre><code class="language-bash"># Gõ truy vấn đầu tiên vào ô truy vấn của Grafana:
+
+{nguon=&quot;auth&quot;}
+
+# Kết quả đúng: hiện ra các dòng log xác thực,
+#               dòng mới nhất có mốc ngày 14 tháng 9 năm 2026.
+</code></pre>
+<hr>
+<p><code>PHẦN E · GIÁM SÁT</code></p>
+<h2 id="chuong-15-ngon-ngu-truy-van-logql">Chương 15 · Ngôn ngữ truy vấn LogQL<a class="neo" href="#chuong-15-ngon-ngu-truy-van-logql" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>LogQL có cấu trúc gần giống việc ghép lệnh grep. Chương này nêu năm cấu trúc đủ dùng cho bộ lab.</em></p>
+<h3 id="151-cau-truc-mot-truy-van">15.1. Cấu trúc một truy vấn<a class="neo" href="#151-cau-truc-mot-truy-van" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Ba phần của một truy vấn</strong></p>
+<pre><code class="language-text">{nguon=&quot;auth&quot;} |= &quot;Failed password&quot; | regexp &quot;from (?P&lt;dia_chi&gt;[0-9.]+) port&quot;
+ |------------|  |-------------------|  |----------------------------------|
+   chọn nguồn        lọc theo chuỗi           bóc tách trường từ dòng
+
+# Tương đương với lệnh trên dòng lệnh:
+#   cat auth.log | grep &quot;Failed password&quot; | grep -oP &quot;from \K[0-9.]+&quot;
+</code></pre>
+<h3 id="152-nam-cau-truc-can-thuoc">15.2. Năm cấu trúc cần thuộc<a class="neo" href="#152-nam-cau-truc-can-thuoc" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cấu trúc</th>
+<th>Ý nghĩa và ví dụ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{nhãn="giá trị"}</td>
+<td nguon="windows">Chọn nguồn dữ liệu. Bắt buộc phải có. Ví dụ:</td>
+</tr>
+<tr>
+<td>|= "chuỗi"</td>
+<td>Giữ lại các dòng có chứa chuỗi. Ví dụ: {nguon="auth"} |= "Accepted"</td>
+</tr>
+<tr>
+<td>!= "chuỗi"</td>
+<td>Loại bỏ các dòng có chứa chuỗi. Ví dụ: |= "Failed" != "192.168."</td>
+</tr>
+<tr>
+<td>|~ "biểu thức"</td>
+<td>Giữ lại các dòng khớp regex. Ví dụ: |~ "new user|to group"</td>
+</tr>
+<tr>
+<td>count_over_time(... [5m])</td>
+<td>Đếm số dòng trong mỗi cửa sổ năm phút. Dùng để phát hiện hành vi dồn dập</td>
+</tr>
+</tbody>
+</table>
+<h3 id="153-muoi-truy-van-mau">15.3. Mười truy vấn mẫu<a class="neo" href="#153-muoi-truy-van-mau" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Mười truy vấn dưới đây trả lời mười câu hỏi thường gặp. Bạn sẽ dùng lại chúng ở bài 4.2 và 4.3.</p>
+<p><strong>Mười truy vấn mẫu</strong></p>
+<pre><code class="language-text"># 1. Xem toàn bộ log xác thực
+{nguon=&quot;auth&quot;}
+
+# 2. Chỉ xem các lần xác thực thất bại
+{nguon=&quot;auth&quot;} |= &quot;Failed password&quot;
+
+# 3. Đếm số lần thất bại theo cửa sổ năm phút
+sum(count_over_time({nguon=&quot;auth&quot;} |= &quot;Failed password&quot; [5m]))
+
+# 4. Đếm theo từng địa chỉ nguồn, chỉ giữ nhóm vượt ngưỡng 20 lần
+sum by (dia_chi) (
+  count_over_time(
+    {nguon=&quot;auth&quot;} |= &quot;Failed password&quot;
+    | regexp &quot;from (?P&lt;dia_chi&gt;[0-9.]+) port&quot; [5m]
+  )
+) &gt; 20
+
+# 5. Tài khoản đặc quyền được tạo hoặc thêm vào nhóm quản trị
+{nguon=&quot;auth&quot;} |~ &quot;new user|to group 'sudo'&quot;
+
+# 6. Log bảo mật Windows bị xoá
+{nguon=&quot;windows&quot;, ma_su_kien=&quot;1102&quot;}
+
+# 7. Dịch vụ bảo vệ đầu cuối bị dừng
+{nguon=&quot;windows&quot;, ma_su_kien=&quot;7045&quot;} |= &quot;SecurityAgentSvc&quot;
+
+# 8. Process văn phòng sinh trình thông dịch lệnh
+{nguon=&quot;sysmon&quot;, ma_su_kien=&quot;1&quot;} |= &quot;WINWORD&quot; |= &quot;powershell&quot;
+
+# 9. Cảnh báo phát hiện xâm nhập ở mức nghiêm trọng nhất
+{nguon=&quot;suricata&quot;, muc_do=&quot;1&quot;}
+
+# 10. Năm nguồn sinh nhiều lỗi 404 nhất theo từng phút
+topk(5, sum by (ip) (
+  count_over_time({nguon=&quot;web&quot;, ma=&quot;404&quot;} | regexp &quot;^(?P&lt;ip&gt;\\S+) &quot; [1m])
+))
+</code></pre>
+<hr>
+<p><code>PHẦN E · GIÁM SÁT</code></p>
+<h2 id="chuong-16-dung-dashboard">Chương 16 · Dựng dashboard<a class="neo" href="#chuong-16-dung-dashboard" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Dashboard là sản phẩm của bài 4.3. Chương này hướng dẫn thao tác trên giao diện.</em></p>
+<h3 id="161-cac-buoc-tao-mot-dashboard">16.1. Các bước tạo một dashboard<a class="neo" href="#161-cac-buoc-tao-mot-dashboard" aria-label="Liên kết tới mục này">#</a></h3>
+<ol>
+<li>Trong Grafana, mở menu bên trái, chọn Dashboard, chọn Tạo mới.</li>
+<li>Chọn Thêm hình, chọn nguồn dữ liệu Loki.</li>
+<li>Dán một truy vấn vào ô truy vấn. Chọn kiểu hiển thị ở góc trên bên phải.</li>
+<li>Đặt tiêu đề cho hình ở khung Tuỳ chọn bên phải.</li>
+<li>Chọn Lưu, đặt tên dashboard, rồi lặp lại từ bước 2 cho hình tiếp theo.</li>
+<li>Ở góc trên bên phải, đặt khoảng thời gian mặc định của bảng là 2026-09-01 đến 2026-09-15, rồi lưu lại.</li>
+</ol>
+<h3 id="162-chon-kieu-hien-thi-nao-cho-cau-hoi-nao">16.2. Chọn kiểu hiển thị nào cho câu hỏi nào<a class="neo" href="#162-chon-kieu-hien-thi-nao-cho-cau-hoi-nao" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Kiểu hiển thị</th>
+<th>Dùng khi nào</th>
+<th>Ví dụ truy vấn phù hợp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Biểu đồ đường</td>
+<td>Xem diễn biến theo thời gian</td>
+<td>sum(count_over_time({nguon="suricata"} [1h]))</td>
+</tr>
+<tr>
+<td>Biểu đồ cột</td>
+<td>So sánh giữa các nhóm</td>
+<td>sum by (nguon) (count_over_time({nguon=~".+"} [24h]))</td>
+</tr>
+<tr>
+<td>Bảng</td>
+<td>Xem danh sách chi tiết có nhiều cột</td>
+<td>topk(10, sum by (dia_chi) (...))</td>
+</tr>
+<tr>
+<td>Số đơn</td>
+<td>Hiển thị một con số tổng hợp</td>
+<td>sum(count_over_time({nguon="windows", ma_su_kien="4625"} [24h]))</td>
+</tr>
+<tr>
+<td>Danh sách log</td>
+<td>Xem nguyên văn các dòng log</td>
+<td>{nguon="windows", ma_su_kien="1102"}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="163-bon-thanh-phan-cua-dashboard-truc-ca">16.3. Bốn thành phần của dashboard trực ca<a class="neo" href="#163-bon-thanh-phan-cua-dashboard-truc-ca" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Đây là bốn thành phần bạn cần dựng ở bài 4.3. Mỗi thành phần phải trả lời được một câu hỏi mà người trực ca cần biết.</p>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Câu hỏi nó trả lời</th>
+<th>Kiểu hiển thị đề xuất</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cảnh báo theo mức nghiêm trọng</td>
+<td>Hiện có bao nhiêu việc cần xử lý ngay</td>
+<td>Số đơn hoặc biểu đồ cột</td>
+</tr>
+<tr>
+<td>Diễn biến cảnh báo theo thời gian</td>
+<td>Có gì bất thường đang diễn ra không</td>
+<td>Biểu đồ đường</td>
+</tr>
+<tr>
+<td>Các nguồn xuất hiện nhiều nhất</td>
+<td>Nên bắt đầu điều tra từ đâu</td>
+<td>Bảng</td>
+</tr>
+<tr>
+<td>Trạng thái các nguồn dữ liệu</td>
+<td>Có nguồn nào ngừng gửi dữ liệu không</td>
+<td>Bảng hoặc biểu đồ cột</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Mỗi hình trên dashboard phải trả lời được câu hỏi: người xem sẽ làm gì khác đi sau khi nhìn hình này. Nếu không trả lời được, hình đó không cần tồn tại. Dashboard có mười hình đẹp nhưng không phục vụ quyết định nào thì kém hơn bảng có bốn hình dùng được.</p>
+</blockquote>
+<hr>
+<nav class="dieu-huong">
+<a class="dh truoc" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="dh sau" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+</nav>
+</main>
+
+<button id="len" aria-label="Lên đầu trang">↑</button>
+<script src="../assets/js/chi-muc.js"></script>
+<script src="../assets/js/cam-nang.js"></script>
+</body>
+</html>

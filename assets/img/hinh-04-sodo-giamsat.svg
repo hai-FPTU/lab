@@ -1,0 +1,39 @@
+<svg viewBox="0 0 820 250" xmlns="http://www.w3.org/2000/svg" role="img"
+  aria-label="Luồng dữ liệu từ file log tới Grafana">
+  <defs>
+    <marker id="m2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A31621"/>
+    </marker>
+  </defs>
+  <rect width="820" height="250" fill="#fff"/>
+
+  <rect x="20" y="70" width="160" height="96" rx="8" fill="#EEF1F4" stroke="#CFD7DE"/>
+  <text x="100" y="100" font-family="'Segoe UI',system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#16202A" text-anchor="middle">17 file log</text>
+  <text x="100" y="122" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#39444F" text-anchor="middle">/var/lab/dulieu</text>
+  <text x="100" y="142" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#6E7A87" text-anchor="middle">747.194 dòng</text>
+
+  <line x1="184" y1="118" x2="216" y2="118" stroke="#A31621" stroke-width="2" marker-end="url(#m2)"/>
+
+  <rect x="220" y="70" width="160" height="96" rx="8" fill="#fff" stroke="#16202A" stroke-width="2"/>
+  <text x="300" y="100" font-family="'Segoe UI',system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#16202A" text-anchor="middle">Promtail</text>
+  <text x="300" y="122" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#39444F" text-anchor="middle">Bóc mốc thời gian</text>
+  <text x="300" y="142" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#39444F" text-anchor="middle">Gắn nhãn nguồn</text>
+
+  <line x1="384" y1="118" x2="416" y2="118" stroke="#A31621" stroke-width="2" marker-end="url(#m2)"/>
+
+  <rect x="420" y="70" width="160" height="96" rx="8" fill="#16202A"/>
+  <text x="500" y="100" font-family="'Segoe UI',system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#fff" text-anchor="middle">Loki · cổng 3100</text>
+  <text x="500" y="122" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#9FB0C0" text-anchor="middle">Lưu trữ và lập chỉ mục</text>
+  <text x="500" y="142" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#9FB0C0" text-anchor="middle">Trả lời truy vấn</text>
+
+  <line x1="584" y1="118" x2="616" y2="118" stroke="#A31621" stroke-width="2" marker-end="url(#m2)"/>
+
+  <rect x="620" y="70" width="160" height="96" rx="8" fill="#fff" stroke="#15604E" stroke-width="2"/>
+  <text x="700" y="100" font-family="'Segoe UI',system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#15604E" text-anchor="middle">Grafana · 3000</text>
+  <text x="700" y="122" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#39444F" text-anchor="middle">Truy vấn và hiển thị</text>
+  <text x="700" y="142" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#39444F" text-anchor="middle">Bảng theo dõi</text>
+
+  <rect x="20" y="190" width="760" height="44" rx="6" fill="#F5E9E9"/>
+  <text x="36" y="209" font-family="'Segoe UI',system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#A31621">Grafana không lưu trữ dữ liệu.</text>
+  <text x="36" y="227" font-family="'Segoe UI',system-ui,sans-serif" font-size="12.5" fill="#39444F">Dữ liệu nằm trong Loki. Màn hình trống thì lỗi ở Loki hoặc ở khoảng thời gian, hầu như không bao giờ ở Grafana.</text>
+</svg>
