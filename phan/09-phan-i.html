@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2 · Cẩm nang thực hành</title>
+<link rel="stylesheet" href="../assets/css/cam-nang.css">
+</head>
+<body>
+<div id="tien-do"></div>
+<div id="lop-phu" role="dialog" aria-label="Xem hình phóng to"></div>
+<button id="nut-canh" aria-label="Mở mục lục">☰</button>
+
+<nav id="canh">
+  <header>
+    <a href="../index.html" class="ve-dau">Cẩm nang thực hành</a>
+    <div class="phu">Dành cho học viên · An ninh mạng nâng cao</div>
+  </header>
+  <input id="o-tim" type="search" placeholder="Tìm trong cẩm nang…" autocomplete="off">
+  <div id="kq-tim"></div>
+  <div id="ml"><a class="ml-phan" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="ml-phan" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-phan" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-phan" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="ml-phan" href="05-phan-e.html">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-phan" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="ml-phan" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-phan" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-phan dang-xem" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-chuong cap1" href="#phan-i-bai-thuc-hanh-chuyen-de-2" data-id="phan-i-bai-thuc-hanh-chuyen-de-2">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-chuong cap2" href="#bai-21-data-classification-va-quet-du-lieu-ca-nhan" data-id="bai-21-data-classification-va-quet-du-lieu-ca-nhan">Bài 2.1 · Data classification và quét dữ liệu cá nhân</a>
+<a class="ml-chuong cap3" href="#dieu-kien-tien-quyet" data-id="dieu-kien-tien-quyet">Điều kiện tiên quyết</a>
+<a class="ml-chuong cap3" href="#du-lieu-va-cong-cu" data-id="du-lieu-va-cong-cu">Dữ liệu và công cụ</a>
+<a class="ml-chuong cap3" href="#bon-muc-phan-loai-su-dung-trong-bai" data-id="bon-muc-phan-loai-su-dung-trong-bai">Bốn mức phân loại sử dụng trong bài</a>
+<a class="ml-chuong cap3" href="#cac-buoc-thuc-hien" data-id="cac-buoc-thuc-hien">Các bước thực hiện</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-21" data-id="phieu-ghi-nhan-21">Phiếu ghi nhận 2.1</a>
+<a class="ml-chuong cap3" href="#muc-mo-rong" data-id="muc-mo-rong">Mức mở rộng</a>
+<a class="ml-chuong cap3" href="#xu-ly-su-co" data-id="xu-ly-su-co">Xử lý sự cố</a>
+<a class="ml-chuong cap2" href="#bai-22-ra-soat-va-khac-phuc-phan-quyen" data-id="bai-22-ra-soat-va-khac-phuc-phan-quyen">Bài 2.2 · Rà soát và khắc phục phân quyền</a>
+<a class="ml-chuong cap3" href="#dieu-kien-tien-quyet" data-id="dieu-kien-tien-quyet">Điều kiện tiên quyết</a>
+<a class="ml-chuong cap3" href="#bon-nhom-vi-pham-can-tim" data-id="bon-nhom-vi-pham-can-tim">Bốn nhóm vi phạm cần tìm</a>
+<a class="ml-chuong cap3" href="#cac-buoc-thuc-hien" data-id="cac-buoc-thuc-hien">Các bước thực hiện</a>
+<a class="ml-chuong cap3" href="#ket-qua-mong-doi" data-id="ket-qua-mong-doi">Kết quả mong đợi</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-22-bao-cao-ra-soat-phan-quyen" data-id="phieu-ghi-nhan-22-bao-cao-ra-soat-phan-quyen">Phiếu ghi nhận 2.2 — Báo cáo rà soát phân quyền</a>
+<a class="ml-chuong cap3" href="#muc-mo-rong" data-id="muc-mo-rong">Mức mở rộng</a>
+<a class="ml-chuong cap3" href="#xu-ly-su-co" data-id="xu-ly-su-co">Xử lý sự cố</a>
+<a class="ml-chuong cap2" href="#bai-23-ma-hoa-du-lieu-khi-luu-va-khi-truyen" data-id="bai-23-ma-hoa-du-lieu-khi-luu-va-khi-truyen">Bài 2.3 · Mã hoá dữ liệu khi lưu và khi truyền</a>
+<a class="ml-chuong cap3" href="#dieu-kien-tien-quyet" data-id="dieu-kien-tien-quyet">Điều kiện tiên quyết</a>
+<a class="ml-chuong cap3" href="#cac-buoc-thuc-hien" data-id="cac-buoc-thuc-hien">Các bước thực hiện</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-23" data-id="phieu-ghi-nhan-23">Phiếu ghi nhận 2.3</a>
+<a class="ml-chuong cap3" href="#muc-mo-rong" data-id="muc-mo-rong">Mức mở rộng</a>
+<a class="ml-chuong cap2" href="#bai-24-backup-khoi-phuc-va-do-thoi-gian" data-id="bai-24-backup-khoi-phuc-va-do-thoi-gian">Bài 2.4 · Backup, khôi phục và đo thời gian</a>
+<a class="ml-chuong cap3" href="#dieu-kien-tien-quyet" data-id="dieu-kien-tien-quyet">Điều kiện tiên quyết</a>
+<a class="ml-chuong cap3" href="#hai-con-so-can-do" data-id="hai-con-so-can-do">Hai con số cần đo</a>
+<a class="ml-chuong cap3" href="#cac-buoc-thuc-hien" data-id="cac-buoc-thuc-hien">Các bước thực hiện</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-24" data-id="phieu-ghi-nhan-24">Phiếu ghi nhận 2.4</a>
+<a class="ml-chuong cap3" href="#phieu-ghi-nhan-24b-suy-luan-ve-he-thong-that" data-id="phieu-ghi-nhan-24b-suy-luan-ve-he-thong-that">Phiếu ghi nhận 2.4b — Suy luận về hệ thống thật</a>
+<a class="ml-chuong cap3" href="#muc-mo-rong" data-id="muc-mo-rong">Mức mở rộng</a>
+<a class="ml-chuong cap3" href="#xu-ly-su-co" data-id="xu-ly-su-co">Xử lý sự cố</a>
+<a class="ml-phan" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="ml-phan" href="11-phan-k.html">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-phan" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a></div>
+</nav>
+
+<main id="than">
+<h1 id="phan-i-bai-thuc-hanh-chuyen-de-2">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2<a class="neo" href="#phan-i-bai-thuc-hanh-chuyen-de-2" aria-label="Liên kết tới mục này">#</a></h1>
+<p><em>Bảo vệ dữ liệu trong vận hành hằng ngày</em></p>
+<ul>
+<li>Tìm dữ liệu cá nhân đang nằm rải rác trong hệ thống file</li>
+<li>Phát hiện và sửa vi phạm least privilege</li>
+<li>Ba cách mã hoá và câu hỏi khoá nằm ở đâu</li>
+<li>Khôi phục sau sự cố và đo hai con số RTO, RPO</li>
+</ul>
+<hr>
+<p><code>THỜI LƯỢNG 30 PHÚT</code></p>
+<h2 id="bai-21-data-classification-va-quet-du-lieu-ca-nhan">Bài 2.1 · Data classification và quét dữ liệu cá nhân<a class="neo" href="#bai-21-data-classification-va-quet-du-lieu-ca-nhan" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: tìm được dữ liệu cá nhân đang nằm rải rác trong hệ thống file và xếp mỗi file vào đúng mức phân loại.</em></p>
+<h3 id="dieu-kien-tien-quyet">Điều kiện tiên quyết<a class="neo" href="#dieu-kien-tien-quyet" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Đã hoàn thành bài 1.2 và có bảng asset inventory.</li>
+<li>Máy Kali đang bật.</li>
+</ul>
+<h3 id="du-lieu-va-cong-cu">Dữ liệu và công cụ<a class="neo" href="#du-lieu-va-cong-cu" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Chi tiết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máy sử dụng</td>
+<td>Kali</td>
+</tr>
+<tr>
+<td>Công cụ</td>
+<td>grep, find, wc</td>
+</tr>
+<tr>
+<td>Folder dữ liệu</td>
+<td>~/lab/dulieu/hosokinhdoanh/ — 49 file mô phỏng folder chia sẻ của công ty</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Chỉ quét trong folder ~/lab/dulieu. Không chạy lệnh quét lên toàn bộ ổ đĩa của máy ảo, và tuyệt đối không chạy lên máy tính cá nhân hoặc hệ thống của đơn vị.</p>
+</blockquote>
+<figure class="so-do"><img src="../assets/img/hinh-13-lb-pii.svg" alt="Kết quả bài 2.1. Dữ liệu cá nhân nằm rải rác trong 49 file." loading="lazy"><figcaption>Hình 13 — Kết quả bài 2.1. Dữ liệu cá nhân nằm rải rác trong 49 file.</figcaption></figure>
+
+<h3 id="bon-muc-phan-loai-su-dung-trong-bai">Bốn mức phân loại sử dụng trong bài<a class="neo" href="#bon-muc-phan-loai-su-dung-trong-bai" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mức</th>
+<th>Định nghĩa</th>
+<th>Biện pháp bắt buộc tối thiểu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Công khai</td>
+<td>Được phép công bố, lộ ra không gây thiệt hại</td>
+<td>Bảo vệ tính toàn vẹn, chống sửa đổi trái phép</td>
+</tr>
+<tr>
+<td>Nội bộ</td>
+<td>Dùng trong tổ chức, lộ ra gây bất lợi nhưng không nghiêm trọng</td>
+<td>Chỉ chia sẻ trong miền tài khoản của đơn vị</td>
+</tr>
+<tr>
+<td>Bảo mật</td>
+<td>Lộ ra gây thiệt hại đáng kể về tài chính, pháp lý hoặc uy tín</td>
+<td>Mã hoá khi lưu và khi truyền, RBAC, ghi log truy cập</td>
+</tr>
+<tr>
+<td>Tuyệt mật</td>
+<td>Lộ ra gây thiệt hại nghiêm trọng hoặc vi phạm pháp luật</td>
+<td>Danh sách truy cập phê duyệt từng người, giám sát mọi lần truy cập, cấm sao chép ra ngoài</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cac-buoc-thuc-hien">Các bước thực hiện<a class="neo" href="#cac-buoc-thuc-hien" aria-label="Liên kết tới mục này">#</a></h3>
+<h4>Bước 1 — Xem qua folder cần quét</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash">cd ~/lab/dulieu/hosokinhdoanh
+
+# Đếm số file và xem cấu trúc folder
+find . -type f | wc -l
+ls -R | head -40
+</code></pre>
+<h4>Bước 2 — Quét tìm số định danh cá nhân</h4>
+<p>Số căn cước công dân Việt Nam có 12 chữ số và bắt đầu bằng chữ số 0. Biểu thức dưới đây tìm các chuỗi khớp hình thức đó.</p>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-text"># Quét tìm số định danh cá nhân 12 chữ số
+grep -rnP '\b0\d{11}\b' . --include=&quot;*.txt&quot; --include=&quot;*.csv&quot; \
+  | head -20
+
+# Chỉ đếm số file có chứa, không in nội dung
+grep -rlP '\b0\d{11}\b' . --include=&quot;*.txt&quot; --include=&quot;*.csv&quot; \
+  | wc -l
+
+# Giải thích tuỳ chọn:
+#   -r  quét đệ quy trong folder con
+#   -n  in kèm số dòng
+#   -l  chỉ in tên file, không in nội dung dòng
+#   -P  dùng biểu thức chính quy kiểu Perl
+#   \b  ranh giới từ, tránh khớp vào giữa một chuỗi số dài hơn
+</code></pre>
+<h4>Bước 3 — Quét ba loại dữ liệu còn lại</h4>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Số điện thoại di động Việt Nam
+grep -rlP '\b(\+84|0)(3|5|7|8|9)\d{8}\b' . --include=&quot;*.txt&quot; --include=&quot;*.csv&quot;
+
+# Địa chỉ thư điện tử
+grep -rlP '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' . \
+  --include=&quot;*.txt&quot; --include=&quot;*.csv&quot;
+
+# Số thẻ thanh toán
+grep -rlP '\b(?:4\d{12}(?:\d{3})?|5[1-5]\d{14}|3[47]\d{13})\b' .
+</code></pre>
+<h4>Bước 4 — Loại bớt kết quả sai</h4>
+<p>Regex chỉ khớp theo hình thức, không xác minh dữ liệu có thật hay không. Mã đơn hàng, mã sản phẩm và số tài khoản nội bộ cũng có dạng chuỗi số tương tự. Mở thử ba file và tự đánh giá.</p>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Xem ngữ cảnh quanh dòng khớp để đánh giá đúng sai
+grep -rnP '\b0\d{11}\b' . --include=&quot;*.csv&quot; -B1 -A1 | head -30
+
+# Với số thẻ thanh toán, kiểm tra thêm bằng thuật toán Luhn
+python3 ~/lab/congcu/kiem_luhn.py &lt; ketqua_the.txt
+</code></pre>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Loại dữ liệu</th>
+<th>Số file chứa</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Số định danh cá nhân</td>
+<td>6</td>
+<td>Tập trung ở folder nhân sự, kế toán và xuất báo cáo</td>
+</tr>
+<tr>
+<td>Số điện thoại</td>
+<td>8</td>
+<td>Có cả trong file danh bạ nội bộ, thuộc mức Nội bộ</td>
+</tr>
+<tr>
+<td>Địa chỉ email</td>
+<td>10</td>
+<td>Phần lớn là địa chỉ nội bộ, mức thấp hơn</td>
+</tr>
+<tr>
+<td>Số thẻ thanh toán</td>
+<td>2</td>
+<td>Một ở folder xuất báo cáo, một ở folder tạm. Cả hai đều không nên tồn tại ở đó</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>LƯU Ý</strong></p>
+<p>Con số cụ thể có thể lệch một hai file tuỳ cách đặt tuỳ chọn --include. Điều quan trọng không phải là con số chính xác mà là nhận ra dữ liệu nhạy cảm đang nằm ở những nơi không ai kiểm kê.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-21">Phiếu ghi nhận 2.1<a class="neo" href="#phieu-ghi-nhan-21" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-11" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 2.1</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th class="stt">#</th><th>Đường dẫn file</th><th>Loại dữ liệu</th><th>Mức phân loại</th><th>Hành động đề xuất</th></tr></thead><tbody><tr><td class="stt">1</td><td class="bm-ma">./nhansu/hopdong_2026.csv</td><td class="bm-ma">Số định danh</td><td class="bm-ma">Tuyệt mật</td><td class="bm-ma">Chuyển vào folder có kiểm soát truy cập, mã hoá khi lưu</td></tr><tr><td class="stt">2</td><td><textarea rows="2" data-k="Đường dẫn file"></textarea></td><td><textarea rows="2" data-k="Loại dữ liệu"></textarea></td><td><textarea rows="2" data-k="Mức phân loại"></textarea></td><td><textarea rows="2" data-k="Hành động đề xuất"></textarea></td></tr><tr><td class="stt">3</td><td><textarea rows="2" data-k="Đường dẫn file"></textarea></td><td><textarea rows="2" data-k="Loại dữ liệu"></textarea></td><td><textarea rows="2" data-k="Mức phân loại"></textarea></td><td><textarea rows="2" data-k="Hành động đề xuất"></textarea></td></tr><tr><td class="stt">4</td><td><textarea rows="2" data-k="Đường dẫn file"></textarea></td><td><textarea rows="2" data-k="Loại dữ liệu"></textarea></td><td><textarea rows="2" data-k="Mức phân loại"></textarea></td><td><textarea rows="2" data-k="Hành động đề xuất"></textarea></td></tr><tr><td class="stt">5</td><td><textarea rows="2" data-k="Đường dẫn file"></textarea></td><td><textarea rows="2" data-k="Loại dữ liệu"></textarea></td><td><textarea rows="2" data-k="Mức phân loại"></textarea></td><td><textarea rows="2" data-k="Hành động đề xuất"></textarea></td></tr><tr><td class="stt">6</td><td><textarea rows="2" data-k="Đường dẫn file"></textarea></td><td><textarea rows="2" data-k="Loại dữ liệu"></textarea></td><td><textarea rows="2" data-k="Mức phân loại"></textarea></td><td><textarea rows="2" data-k="Hành động đề xuất"></textarea></td></tr></tbody></table></div><button type="button" class="bm-them">+ Thêm dòng</button><div class="bm-tong"></div></section>
+<h3 id="muc-mo-rong">Mức mở rộng<a class="neo" href="#muc-mo-rong" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Viết một lệnh duy nhất sinh ra báo cáo dạng bảng: mỗi dòng gồm tên file và số lượng kết quả khớp của từng loại dữ liệu.</li>
+<li>Kết quả quét của chính bài này là dữ liệu nhạy cảm. Nếu lưu lại, phải xếp vào mức phân loại nào và bảo vệ ra sao?</li>
+</ul>
+<h3 id="xu-ly-su-co">Xử lý sự cố<a class="neo" href="#xu-ly-su-co" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Cách khắc phục</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grep báo lỗi tuỳ chọn -P không hỗ trợ</td>
+<td>Bản grep đang dùng không có hỗ trợ biểu thức Perl. Thay bằng: grep -rlE với cú pháp mở rộng, hoặc dùng file thay thế trong ~/lab/congcu</td>
+</tr>
+<tr>
+<td>Kết quả quá nhiều, không đọc được</td>
+<td>Dùng tuỳ chọn -l để chỉ liệt kê tên file thay vì in toàn bộ dòng khớp</td>
+</tr>
+<tr>
+<td>Không tìm thấy file nào</td>
+<td>Kiểm tra đang đứng đúng folder bằng lệnh pwd. Kiểm tra tuỳ chọn --include có đúng phần mở rộng của file không</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><code>THỜI LƯỢNG 40 PHÚT</code></p>
+<h2 id="bai-22-ra-soat-va-khac-phuc-phan-quyen">Bài 2.2 · Rà soát và khắc phục phân quyền<a class="neo" href="#bai-22-ra-soat-va-khac-phuc-phan-quyen" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: phát hiện và sửa các vi phạm nguyên tắc least privilege đã được cấy sẵn trên server Ubuntu.</em></p>
+<h3 id="dieu-kien-tien-quyet">Điều kiện tiên quyết<a class="neo" href="#dieu-kien-tien-quyet" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Máy Ubuntu đang bật và đăng nhập được.</li>
+<li>Trợ giảng đã chạy kịch bản cấy lỗi. Nếu chưa, báo trước khi bắt đầu.</li>
+<li>Đã tạo snapshot trước khi vào bài, để rollback nếu thao tác sai.</li>
+</ul>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Đây là bài duy nhất của Chuyên đề 2 có thao tác sửa đổi hệ thống thật. Chỉ thao tác trên máy Ubuntu của lab. Sai một lệnh chmod trên folder hệ thống có thể làm máy không khởi động lại được — đó là lý do bắt buộc chụp trạng thái trước.</p>
+</blockquote>
+<figure class="so-do"><img src="../assets/img/hinh-14-lb-phanquyen.svg" alt="Kết quả bài 2.2. Bảy vi phạm chia theo bốn nhóm." loading="lazy"><figcaption>Hình 14 — Kết quả bài 2.2. Bảy vi phạm chia theo bốn nhóm.</figcaption></figure>
+
+<h3 id="bon-nhom-vi-pham-can-tim">Bốn nhóm vi phạm cần tìm<a class="neo" href="#bon-nhom-vi-pham-can-tim" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Vì sao nguy hiểm</th>
+<th>Lệnh phát hiện</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File có bit đặc quyền bất thường</td>
+<td>File chạy với quyền của chủ sở hữu chứ không phải của người gọi. Nếu chủ sở hữu là root thì bất kỳ ai chạy được file đó đều có quyền root</td>
+<td>find với tuỳ chọn -perm /6000</td>
+</tr>
+<tr>
+<td>Tài khoản thừa quyền nâng đặc quyền</td>
+<td>Tài khoản không cần quyền quản trị nhưng vẫn nâng được quyền, mở rộng thiệt hại khi bị chiếm</td>
+<td>sudo -l -U và grep trong file cấu hình</td>
+</tr>
+<tr>
+<td>File và folder ai cũng ghi được</td>
+<td>Kẻ tấn công có thể thay thế nội dung file cấu hình hoặc kịch bản đang chạy</td>
+<td>find với tuỳ chọn -perm -0002</td>
+</tr>
+<tr>
+<td>Danh sách kiểm soát truy cập mở rộng sai</td>
+<td>Quyền cấp thêm ngoài quyền cơ bản, không nhìn thấy bằng lệnh ls thông thường</td>
+<td>getfacl</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cac-buoc-thuc-hien">Các bước thực hiện<a class="neo" href="#cac-buoc-thuc-hien" aria-label="Liên kết tới mục này">#</a></h3>
+<h4>Bước 1 — Phát hiện file có bit đặc quyền bất thường</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-text"># Liệt kê toàn bộ file có bit đặc quyền
+find / -perm /6000 -type f 2&gt;/dev/null | grep -v &quot;snap\|proc&quot; \
+  | sort &gt; /tmp/suid_hientai.txt
+
+# So sánh với danh sách chuẩn của bản phân phối đã cấp sẵn
+diff /tmp/suid_hientai.txt /var/lab/chuan/suid_chuan.txt
+
+# Những dòng có dấu &lt; ở đầu là file có thêm so với chuẩn.
+# Đây chính là các file cần điều tra.
+</code></pre>
+<p>Với mỗi file lệch so với chuẩn, xem thời điểm tạo và chủ sở hữu để đánh giá.</p>
+<p><strong>Xem chi tiết</strong></p>
+<pre><code class="language-bash"># Xem chi tiết một file nghi vấn
+ls -la &lt;đường_dẫn_file&gt;
+stat &lt;đường_dẫn_file&gt;
+</code></pre>
+<h4>Bước 2 — Phát hiện tài khoản thừa quyền</h4>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-bash"># Liệt kê thành viên các nhóm có quyền nâng đặc quyền
+grep -E '^(sudo|adm|wheel):' /etc/group
+
+# Xem quyền cụ thể của một tài khoản
+sudo -l -U &lt;tên_tài_khoản&gt;
+
+# Tìm các dòng cấu hình cho phép nâng quyền không cần mật khẩu
+sudo grep -rn &quot;NOPASSWD&quot; /etc/sudoers /etc/sudoers.d/ 2&gt;/dev/null
+
+# Tìm tài khoản có định danh bằng 0 nhưng không phải root
+awk -F: '($3==0){print $1}' /etc/passwd
+</code></pre>
+<p>Đối chiếu danh sách tài khoản tìm được với file danh_sach_nhan_su.csv. Tài khoản nào có quyền nâng đặc quyền nhưng không thuộc bộ phận công nghệ thông tin hoặc vận hành hệ thống là điểm cần xử lý.</p>
+<h4>Bước 3 — Phát hiện file ai cũng ghi được</h4>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Tìm file và folder ai cũng ghi được, loại trừ các folder tạm hợp lệ
+find / -xdev -perm -0002 -not -path &quot;*/proc/*&quot; -not -path &quot;*/tmp/*&quot; \
+     -not -path &quot;*/var/tmp/*&quot; 2&gt;/dev/null | head -20
+
+# Riêng với folder, kiểm tra có bit dính hay không
+# Folder dùng chung mà thiếu bit dính thì người này xoá được file của người kia
+find / -xdev -type d -perm -0002 ! -perm -1000 2&gt;/dev/null
+</code></pre>
+<h4>Bước 4 — Kiểm tra ACL mở rộng</h4>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Xem quyền mở rộng của các file quan trọng
+getfacl /etc/passwd /etc/shadow /var/www/html 2&gt;/dev/null
+
+# Tìm mọi file có quyền mở rộng trong folder ứng dụng
+getfacl -R /var/www 2&gt;/dev/null | grep -B3 &quot;^user:[a-z]&quot;
+</code></pre>
+<h4>Bước 5 — Khắc phục</h4>
+<p><strong>Bước 5</strong></p>
+<pre><code class="language-bash"># Gỡ bit đặc quyền khỏi file không cần
+sudo chmod u-s &lt;đường_dẫn_file&gt;
+
+# Sửa quyền folder về đúng chuẩn
+sudo chmod 750 &lt;đường_dẫn_folder&gt;
+
+# Gỡ tài khoản khỏi nhóm có quyền nâng đặc quyền
+sudo gpasswd -d &lt;tên_tài_khoản&gt; sudo
+
+# Sửa quyền mở rộng
+sudo setfacl -m u:webuser:r-- /var/www/html/config.php
+
+# Xác minh lại sau khi sửa
+sudo -l -U &lt;tên_tài_khoản&gt;
+ls -la &lt;đường_dẫn_file&gt;
+</code></pre>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Không dùng lệnh usermod với tuỳ chọn -G để gỡ tài khoản khỏi một nhóm. Lệnh đó thay thế toàn bộ danh sách nhóm phụ, nên sẽ vô tình gỡ luôn các nhóm cần giữ.</p>
+<p>Dùng gpasswd -d như trong ví dụ trên. Lệnh này chỉ gỡ đúng một nhóm được chỉ định.</p>
+</blockquote>
+<h3 id="ket-qua-mong-doi">Kết quả mong đợi<a class="neo" href="#ket-qua-mong-doi" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Kịch bản cấy lỗi đặt vào máy Ubuntu đúng bảy vi phạm. Học viên mức Cơ bản cần tìm được ít nhất năm, mức Mở rộng cần tìm đủ bảy.</p>
+<table>
+<thead>
+<tr>
+<th>Nhóm vi phạm</th>
+<th>Số lượng đã cấy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File có bit đặc quyền bất thường</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Tài khoản thừa quyền nâng đặc quyền</td>
+<td>2</td>
+</tr>
+<tr>
+<td>File hoặc folder ai cũng ghi được</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Danh sách kiểm soát truy cập mở rộng sai</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phieu-ghi-nhan-22-bao-cao-ra-soat-phan-quyen">Phiếu ghi nhận 2.2 — Báo cáo rà soát phân quyền<a class="neo" href="#phieu-ghi-nhan-22-bao-cao-ra-soat-phan-quyen" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-12" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 2.2 — Báo cáo rà soát phân quyền</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th class="stt">#</th><th>Đối tượng</th><th>Quyền hiện tại</th><th>Quyền nên có</th><th>Mức rủi ro</th><th>Hành động đã làm</th><th>Kết quả xác minh</th></tr></thead><tbody><tr><td class="stt">1</td><td class="bm-ma">/usr/local/bin/backup.sh</td><td class="bm-ma">-rwsr-xr-x root</td><td class="bm-ma">-rwxr-x--- root</td><td class="bm-ma">Cao</td><td class="bm-ma">chmod u-s và chmod 750</td><td class="bm-ma">Đã xác minh bằng ls -la</td></tr><tr><td class="stt">2</td><td><textarea rows="2" data-k="Đối tượng"></textarea></td><td><textarea rows="2" data-k="Quyền hiện tại"></textarea></td><td><textarea rows="2" data-k="Quyền nên có"></textarea></td><td><textarea rows="2" data-k="Mức rủi ro"></textarea></td><td><textarea rows="2" data-k="Hành động đã làm"></textarea></td><td><textarea rows="2" data-k="Kết quả xác minh"></textarea></td></tr><tr><td class="stt">3</td><td><textarea rows="2" data-k="Đối tượng"></textarea></td><td><textarea rows="2" data-k="Quyền hiện tại"></textarea></td><td><textarea rows="2" data-k="Quyền nên có"></textarea></td><td><textarea rows="2" data-k="Mức rủi ro"></textarea></td><td><textarea rows="2" data-k="Hành động đã làm"></textarea></td><td><textarea rows="2" data-k="Kết quả xác minh"></textarea></td></tr><tr><td class="stt">4</td><td><textarea rows="2" data-k="Đối tượng"></textarea></td><td><textarea rows="2" data-k="Quyền hiện tại"></textarea></td><td><textarea rows="2" data-k="Quyền nên có"></textarea></td><td><textarea rows="2" data-k="Mức rủi ro"></textarea></td><td><textarea rows="2" data-k="Hành động đã làm"></textarea></td><td><textarea rows="2" data-k="Kết quả xác minh"></textarea></td></tr><tr><td class="stt">5</td><td><textarea rows="2" data-k="Đối tượng"></textarea></td><td><textarea rows="2" data-k="Quyền hiện tại"></textarea></td><td><textarea rows="2" data-k="Quyền nên có"></textarea></td><td><textarea rows="2" data-k="Mức rủi ro"></textarea></td><td><textarea rows="2" data-k="Hành động đã làm"></textarea></td><td><textarea rows="2" data-k="Kết quả xác minh"></textarea></td></tr><tr><td class="stt">6</td><td><textarea rows="2" data-k="Đối tượng"></textarea></td><td><textarea rows="2" data-k="Quyền hiện tại"></textarea></td><td><textarea rows="2" data-k="Quyền nên có"></textarea></td><td><textarea rows="2" data-k="Mức rủi ro"></textarea></td><td><textarea rows="2" data-k="Hành động đã làm"></textarea></td><td><textarea rows="2" data-k="Kết quả xác minh"></textarea></td></tr><tr><td class="stt">7</td><td><textarea rows="2" data-k="Đối tượng"></textarea></td><td><textarea rows="2" data-k="Quyền hiện tại"></textarea></td><td><textarea rows="2" data-k="Quyền nên có"></textarea></td><td><textarea rows="2" data-k="Mức rủi ro"></textarea></td><td><textarea rows="2" data-k="Hành động đã làm"></textarea></td><td><textarea rows="2" data-k="Kết quả xác minh"></textarea></td></tr></tbody></table></div><button type="button" class="bm-them">+ Thêm dòng</button><div class="bm-tong"></div></section>
+<h3 id="muc-mo-rong">Mức mở rộng<a class="neo" href="#muc-mo-rong" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Trong bốn nhóm vi phạm, nhóm nào có thể phát hiện tự động theo chu kỳ mà không cần người? Viết một lệnh chạy được trong scheduled task.</li>
+<li>Một trong hai tài khoản thừa quyền thuộc về người đã nghỉ việc theo hồ sơ nhân sự. Ngoài việc gỡ quyền, quy trình nào của tổ chức đã thất bại?</li>
+</ul>
+<h3 id="xu-ly-su-co">Xử lý sự cố<a class="neo" href="#xu-ly-su-co" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Cách khắc phục</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find in ra rất nhiều lỗi Permission denied</td>
+<td>Đây là hiện tượng bình thường. Phần 2&gt;/dev/null ở cuối lệnh đã ẩn các lỗi này. Nếu vẫn thấy, kiểm tra đã gõ đủ phần đó chưa</td>
+</tr>
+<tr>
+<td>Lỡ chạy chmod sai lên folder hệ thống</td>
+<td>Dừng lại ngay, không sửa tiếp. Tắt máy ảo và khôi phục snapshot. Mất 2 phút</td>
+</tr>
+<tr>
+<td>getfacl báo lệnh không tồn tại</td>
+<td>Chạy: sudo apt install acl. Nếu không có mạng, báo trợ giảng</td>
+</tr>
+<tr>
+<td>Không tìm thấy file suid_chuan.txt</td>
+<td>Kịch bản cấy lỗi chưa chạy. Báo trợ giảng trước khi làm tiếp</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><code>THỜI LƯỢNG 20 PHÚT</code></p>
+<h2 id="bai-23-ma-hoa-du-lieu-khi-luu-va-khi-truyen">Bài 2.3 · Mã hoá dữ liệu khi lưu và khi truyền<a class="neo" href="#bai-23-ma-hoa-du-lieu-khi-luu-va-khi-truyen" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: thực hiện ba cách mã hoá và trả lời được câu hỏi khoá đang nằm ở đâu, ai truy cập được.</em></p>
+<h3 id="dieu-kien-tien-quyet">Điều kiện tiên quyết<a class="neo" href="#dieu-kien-tien-quyet" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Máy Ubuntu đang bật.</li>
+<li>Đã hoàn thành bài 2.1 để biết file nào cần mã hoá.</li>
+</ul>
+<h3 id="cac-buoc-thuc-hien">Các bước thực hiện<a class="neo" href="#cac-buoc-thuc-hien" aria-label="Liên kết tới mục này">#</a></h3>
+<h4>Bước 1 — Mã hoá một file bằng cặp khoá</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash">cd ~/lab/thuchanh
+
+# Tạo cặp khoá. Khi được hỏi, chọn loại mặc định,
+# đặt tên là Hoc Vien, thư điện tử là hocvien@minhan.local
+gpg --gen-key
+
+# Xem khoá vừa tạo
+gpg --list-keys
+
+# Mã hoá một file
+gpg -e -r &quot;hocvien@minhan.local&quot; baocao_ketoan.pdf
+
+# Kiểm tra: file gốc và file đã mã hoá cùng tồn tại
+ls -la baocao_ketoan.pdf*
+
+# Giải mã để xác minh
+gpg -d baocao_ketoan.pdf.gpg &gt; kiemtra.pdf
+cmp baocao_ketoan.pdf kiemtra.pdf &amp;&amp; echo &quot;Hai file giống hệt nhau&quot;
+</code></pre>
+<blockquote>
+<p><strong>LƯU Ý</strong></p>
+<p>Lệnh mã hoá không tự xoá file gốc. Trong thực tế, mã hoá mà vẫn để file gốc nằm cạnh là không có tác dụng bảo vệ. Đây là lỗi rất thường gặp.</p>
+</blockquote>
+<h4>Bước 2 — Mã hoá bằng mật khẩu chung</h4>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-bash"># Mã hoá bằng thuật toán đối xứng, dùng mật khẩu
+openssl enc -aes-256-cbc -pbkdf2 -iter 100000 \
+  -in danhsach_khachhang.csv -out danhsach_khachhang.bin
+
+# Giải mã
+openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
+  -in danhsach_khachhang.bin -out kiemtra.csv
+
+# So sánh
+cmp danhsach_khachhang.csv kiemtra.csv &amp;&amp; echo &quot;Khớp&quot;
+</code></pre>
+<h4>Bước 3 — Kiểm tra cấu hình mã hoá đường truyền</h4>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-text"># Trên Kali: kiểm tra dịch vụ web của firewall
+nmap --script ssl-enum-ciphers -p 443 192.168.20.1 | head -30
+
+# Xem thông tin chứng thư số
+echo | openssl s_client -connect 192.168.20.1:443 2&gt;/dev/null \
+  | openssl x509 -noout -subject -issuer -dates
+
+# Kiểm tra chứng thư còn hạn trên 30 ngày hay không
+echo | openssl s_client -connect 192.168.20.1:443 2&gt;/dev/null \
+  | openssl x509 -noout -checkend 2592000 \
+  &amp;&amp; echo &quot;Còn hạn trên 30 ngày&quot; || echo &quot;Sắp hết hạn hoặc đã hết hạn&quot;
+</code></pre>
+<p>Đối chiếu kết quả với hiện tượng quan sát được ở bài 1.1: trình duyệt cảnh báo chứng thư không hợp lệ. Lý do nằm ở dòng thông tin về đơn vị cấp chứng thư.</p>
+<h3 id="phieu-ghi-nhan-23">Phiếu ghi nhận 2.3<a class="neo" href="#phieu-ghi-nhan-23" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-13" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 2.3</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời của học viên</th></tr></thead><tbody><tr><td class="bm-ma">Khoá riêng vừa tạo được lưu ở folder nào trên máy?</td><td><textarea rows="2" data-k="Khoá riêng vừa tạo được lưu ở folder nào trên máy? · Trả lời của học viên"></textarea></td></tr><tr><td class="bm-ma">Ai trên máy này đọc được khoá riêng đó?</td><td><textarea rows="2" data-k="Ai trên máy này đọc được khoá riêng đó? · Trả lời của học viên"></textarea></td></tr><tr><td class="bm-ma">Nếu máy bị mất, kẻ lấy được máy có giải mã được file không? Cần thêm điều kiện gì?</td><td><textarea rows="2" data-k="Nếu máy bị mất, kẻ lấy được máy có giải mã được file không? Cần thêm điều kiện g"></textarea></td></tr><tr><td class="bm-ma">Chứng thư của firewall do đơn vị nào cấp? Vì sao trình duyệt cảnh báo?</td><td><textarea rows="2" data-k="Chứng thư của firewall do đơn vị nào cấp? Vì sao trình duyệt cảnh báo? · Trả lời"></textarea></td></tr><tr><td class="bm-ma">Mã hoá ổ đĩa có bảo vệ được trước tấn công ransomware không? Vì sao?</td><td><textarea rows="2" data-k="Mã hoá ổ đĩa có bảo vệ được trước tấn công ransomware không? Vì sao? · Trả lời c"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<h3 id="muc-mo-rong">Mức mở rộng<a class="neo" href="#muc-mo-rong" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Tạo một phân vùng mã hoá bằng cryptsetup trên ổ đĩa phụ của máy ảo, gắn vào hệ thống và ghi thử dữ liệu.</li>
+<li>Nếu tổ chức có 200 nhân viên và mỗi người tự tạo khoá riêng, vấn đề vận hành nào phát sinh khi một người nghỉ việc?</li>
+</ul>
+<hr>
+<p><code>THỜI LƯỢNG 30 PHÚT</code></p>
+<h2 id="bai-24-backup-khoi-phuc-va-do-thoi-gian">Bài 2.4 · Backup, khôi phục và đo thời gian<a class="neo" href="#bai-24-backup-khoi-phuc-va-do-thoi-gian" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mục tiêu: khôi phục dữ liệu sau một sự cố mô phỏng và đo được hai con số RTO và RPO thực tế.</em></p>
+<h3 id="dieu-kien-tien-quyet">Điều kiện tiên quyết<a class="neo" href="#dieu-kien-tien-quyet" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Máy Ubuntu đang bật.</li>
+<li>Có quyền chạy lệnh với sudo.</li>
+<li>Đã chụp trạng thái trước bài.</li>
+</ul>
+<figure class="so-do"><img src="../assets/img/hinh-15-lb-rtorpo.svg" alt="Bốn mốc thời gian và cách tính RTO, RPO ở bài 2.4." loading="lazy"><figcaption>Hình 15 — Bốn mốc thời gian và cách tính RTO, RPO ở bài 2.4.</figcaption></figure>
+
+<h3 id="hai-con-so-can-do">Hai con số cần đo<a class="neo" href="#hai-con-so-can-do" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Chỉ số</th>
+<th>Định nghĩa</th>
+<th>Cách đo trong bài này</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTO</td>
+<td>Khoảng thời gian từ khi phát hiện sự cố đến khi dữ liệu hoạt động trở lại</td>
+<td>Mốc phát hiện trừ đi mốc hoàn thành khôi phục</td>
+</tr>
+<tr>
+<td>RPO</td>
+<td>Khối lượng dữ liệu tính theo thời gian bị mất khi sự cố xảy ra</td>
+<td>Thời điểm sự cố trừ đi thời điểm backup gần nhất</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cac-buoc-thuc-hien">Các bước thực hiện<a class="neo" href="#cac-buoc-thuc-hien" aria-label="Liên kết tới mục này">#</a></h3>
+<h4>Bước 1 — Khởi tạo kho backup và backup lần đầu</h4>
+<p><strong>Bước 1</strong></p>
+<pre><code class="language-bash"># Khởi tạo kho. Khi được hỏi mật khẩu, dùng: LabMinhAn2026
+sudo restic init --repo /mnt/backup/kho
+
+# Ghi lại thời điểm và backup folder dữ liệu
+date &quot;+%H:%M:%S&quot; | tee /tmp/moc_1_saoluu.txt
+sudo restic -r /mnt/backup/kho backup /var/duLieu
+
+# Xem danh sách bản backup
+sudo restic -r /mnt/backup/kho snapshots
+</code></pre>
+<h4>Bước 2 — Ghi nhận trạng thái trước sự cố</h4>
+<p><strong>Bước 2</strong></p>
+<pre><code class="language-text"># Đếm số file và tính tổng dung lượng để so sánh về sau
+find /var/duLieu -type f | wc -l
+du -sh /var/duLieu
+
+# Ghi lại hash của toàn bộ folder
+find /var/duLieu -type f -exec sha256sum {} \; \
+  | sort &gt; /tmp/bangbam_truoc.txt
+wc -l /tmp/bangbam_truoc.txt
+</code></pre>
+<h4>Bước 3 — Giảng viên mô phỏng sự cố</h4>
+<p>Giảng viên chạy kịch bản mã hoá folder dữ liệu trên toàn bộ máy của lớp cùng một thời điểm. Học viên không chạy lệnh nào ở bước này, chỉ ghi lại thời điểm phát hiện.</p>
+<p><strong>Bước 3</strong></p>
+<pre><code class="language-bash"># Ngay khi phát hiện dữ liệu không mở được, ghi mốc thời gian
+date &quot;+%H:%M:%S&quot; | tee /tmp/moc_2_phathien.txt
+
+# Quan sát hiện trạng
+ls -la /var/duLieu/ | head -20
+
+# Thử mở một file để xác nhận
+head -c 200 /var/duLieu/&lt;một_file_bất_kỳ&gt;
+</code></pre>
+<h4>Bước 4 — Khôi phục</h4>
+<p><strong>Bước 4</strong></p>
+<pre><code class="language-bash"># Ghi mốc bắt đầu khôi phục
+date &quot;+%H:%M:%S&quot; | tee /tmp/moc_3_batdau.txt
+
+# Xem lại danh sách bản backup và chọn bản phù hợp
+sudo restic -r /mnt/backup/kho snapshots
+
+# Khôi phục bản mới nhất
+sudo restic -r /mnt/backup/kho restore latest --target /
+
+# Ghi mốc hoàn thành
+date &quot;+%H:%M:%S&quot; | tee /tmp/moc_4_hoanthanh.txt
+</code></pre>
+<h4>Bước 5 — Xác minh khôi phục đúng và đủ</h4>
+<p><strong>Bước 5</strong></p>
+<pre><code class="language-text"># Tính lại hash và so sánh với trạng thái trước sự cố
+find /var/duLieu -type f -exec sha256sum {} \; \
+  | sort &gt; /tmp/bangbam_sau.txt
+
+diff /tmp/bangbam_truoc.txt /tmp/bangbam_sau.txt \
+  &amp;&amp; echo &quot;Khôi phục đầy đủ, không thiếu file nào&quot; \
+  || echo &quot;Có chênh lệch, xem chi tiết ở trên&quot;
+</code></pre>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Bước xác minh bằng hash là bước phân biệt khôi phục thành công thật với khôi phục chỉ nhìn có vẻ thành công. Chạy xong lệnh restore mà không so sánh thì chưa kết luận được gì.</p>
+</blockquote>
+<h3 id="phieu-ghi-nhan-24">Phiếu ghi nhận 2.4<a class="neo" href="#phieu-ghi-nhan-24" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="rto-rpo" data-kieu="rtorpo">
+<div class="bm-dau"><h4>Làm bài ngay tại đây · Đo RTO và RPO</h4>
+<div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div>
+<p class="bm-mota">Nhập bốn mốc theo định dạng giờ phút giây, ví dụ 10:26:00. Hai chỉ số tự tính.</p>
+<div class="bm-cuon"><table class="bm-bang"><thead><tr>
+<th class="stt">#</th>
+<th style="width:26%">Mốc</th>
+<th style="width:22%">Thời điểm</th>
+<th style="width:52%">Ghi chú</th>
+</tr></thead><tbody>
+<tr><td class="stt">1</td><td class="bm-ma">1 · Backup gần nhất</td><td><textarea rows="2" data-k="Thời điểm"></textarea></td><td><textarea rows="2" data-k="Ghi chú"></textarea></td></tr>
+<tr><td class="stt">2</td><td class="bm-ma">2 · Phát hiện sự cố</td><td><textarea rows="2" data-k="Thời điểm"></textarea></td><td><textarea rows="2" data-k="Ghi chú"></textarea></td></tr>
+<tr><td class="stt">3</td><td class="bm-ma">3 · Bắt đầu khôi phục</td><td><textarea rows="2" data-k="Thời điểm"></textarea></td><td><textarea rows="2" data-k="Ghi chú"></textarea></td></tr>
+<tr><td class="stt">4</td><td class="bm-ma">4 · Hoàn thành</td><td><textarea rows="2" data-k="Thời điểm"></textarea></td><td><textarea rows="2" data-k="Ghi chú"></textarea></td></tr>
+</tbody></table></div>
+<div class="bm-tong"></div>
+</section>
+<h3 id="phieu-ghi-nhan-24b-suy-luan-ve-he-thong-that">Phiếu ghi nhận 2.4b — Suy luận về hệ thống thật<a class="neo" href="#phieu-ghi-nhan-24b-suy-luan-ve-he-thong-that" aria-label="Liên kết tới mục này">#</a></h3>
+<section class="bm" data-bm="bm-14" data-kieu="tu-dong"><div class="bm-dau"><h4>Làm bài ngay tại đây · Phiếu ghi nhận 2.4b — Suy luận về hệ thống thật</h4><div class="bm-nut"><button type="button" class="bm-luu">Lưu bài làm</button><button type="button" class="bm-nap">Nạp bài làm</button><button type="button" class="bm-word">Xuất Word</button><button type="button" class="bm-pdf">Xuất PDF</button><button type="button" class="bm-xoa">Xoá hết</button></div></div><div class="bm-cuon"><table class="bm-bang"><thead><tr><th>Câu hỏi</th><th>Trả lời của học viên</th></tr></thead><tbody><tr><td class="bm-ma">Nếu folder dữ liệu lớn gấp 1.000 lần, RTO sẽ thay đổi thế nào? Yếu tố nào quyết định?</td><td><textarea rows="2" data-k="Nếu folder dữ liệu lớn gấp 1.000 lần, RTO sẽ thay đổi thế nào? Yếu tố nào quyết "></textarea></td></tr><tr><td class="bm-ma">Kho backup trong bài này nằm cùng máy với dữ liệu gốc. Vì sao đó là thiết kế sai trong hệ thống thật?</td><td><textarea rows="2" data-k="Kho backup trong bài này nằm cùng máy với dữ liệu gốc. Vì sao đó là thiết kế sai"></textarea></td></tr><tr><td class="bm-ma">Nếu kẻ tấn công có quyền quản trị, họ có xoá được kho backup này không? Biện pháp nào ngăn được?</td><td><textarea rows="2" data-k="Nếu kẻ tấn công có quyền quản trị, họ có xoá được kho backup này không? Biện phá"></textarea></td></tr><tr><td class="bm-ma">Đơn vị của anh chị đã từng đo RTO thực tế chưa, hay chỉ có con số trong tài liệu?</td><td><textarea rows="2" data-k="Đơn vị của anh chị đã từng đo RTO thực tế chưa, hay chỉ có con số trong tài liệu"></textarea></td></tr></tbody></table></div><div class="bm-tong"></div></section>
+<h3 id="muc-mo-rong">Mức mở rộng<a class="neo" href="#muc-mo-rong" aria-label="Liên kết tới mục này">#</a></h3>
+<ul>
+<li>Tạo thêm một bản backup sau khi thêm dữ liệu mới, rồi khôi phục về bản cũ hơn. Điều gì xảy ra với dữ liệu mới?</li>
+<li>Đặt mật khẩu kho backup vào một file và tự động hoá việc backup bằng scheduled task. Cách làm này tạo ra rủi ro mới nào?</li>
+</ul>
+<h3 id="xu-ly-su-co">Xử lý sự cố<a class="neo" href="#xu-ly-su-co" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Cách khắc phục</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>restic báo repository already initialized</td>
+<td>Kho đã được khởi tạo từ trước. Bỏ qua bước init và đi tiếp</td>
+</tr>
+<tr>
+<td>restic hỏi mật khẩu nhiều lần</td>
+<td>Đặt biến môi trường trước khi chạy: export RESTIC_PASSWORD=LabMinhAn2026</td>
+</tr>
+<tr>
+<td>Khôi phục xong nhưng thiếu file</td>
+<td>Kiểm tra đã chọn đúng bản backup chưa. Chạy lại lệnh snapshots và xem thời điểm của từng bản</td>
+</tr>
+<tr>
+<td>Lệnh sha256sum chạy rất lâu</td>
+<td>Folder có nhiều file. Chờ hoặc giới hạn phạm vi bằng: find /var/duLieu -type f -size -10M</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Bốn sản phẩm của Chuyên đề 2 — bảng data classification, báo cáo rà soát phân quyền, kết quả mã hoá và số liệu RTO cùng RPO — được dùng lại ở Chuyên đề 3 và Chuyên đề 5. Kho backup tạo ở bài 2.4 chính là kho sẽ dùng để khôi phục trong bài 5.3.</p>
+</blockquote>
+<hr>
+<nav class="dieu-huong">
+<a class="dh truoc" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="dh sau" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+</nav>
+</main>
+
+<button id="len" aria-label="Lên đầu trang">↑</button>
+<script src="../assets/js/chi-muc.js"></script>
+<script src="../assets/js/cam-nang.js"></script>
+</body>
+</html>

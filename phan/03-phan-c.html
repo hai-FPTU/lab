@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHẦN C · HIỂU BỘ DỮ LIỆU · Cẩm nang thực hành</title>
+<link rel="stylesheet" href="../assets/css/cam-nang.css">
+</head>
+<body>
+<div id="tien-do"></div>
+<div id="lop-phu" role="dialog" aria-label="Xem hình phóng to"></div>
+<button id="nut-canh" aria-label="Mở mục lục">☰</button>
+
+<nav id="canh">
+  <header>
+    <a href="../index.html" class="ve-dau">Cẩm nang thực hành</a>
+    <div class="phu">Dành cho học viên · An ninh mạng nâng cao</div>
+  </header>
+  <input id="o-tim" type="search" placeholder="Tìm trong cẩm nang…" autocomplete="off">
+  <div id="kq-tim"></div>
+  <div id="ml"><a class="ml-phan" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="ml-phan" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-phan dang-xem" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-chuong cap1" href="#phan-c-hieu-bo-du-lieu" data-id="phan-c-hieu-bo-du-lieu">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-chuong cap2" href="#chuong-7-to-chuc-gia-dinh-va-cua-so-thoi-gian" data-id="chuong-7-to-chuc-gia-dinh-va-cua-so-thoi-gian">Chương 7 · Tổ chức giả định và cửa sổ thời gian</a>
+<a class="ml-chuong cap3" href="#71-cong-ty-co-phan-thuong-mai-so-minh-an" data-id="71-cong-ty-co-phan-thuong-mai-so-minh-an">7.1. Công ty Cổ phần Thương mại Số Minh An</a>
+<a class="ml-chuong cap3" href="#72-cua-so-thoi-gian" data-id="72-cua-so-thoi-gian">7.2. Cửa sổ thời gian</a>
+<a class="ml-chuong cap3" href="#73-cac-dia-chi-mang-trong-du-lieu" data-id="73-cac-dia-chi-mang-trong-du-lieu">7.3. Các địa chỉ mạng trong dữ liệu</a>
+<a class="ml-chuong cap3" href="#74-dieu-ban-chua-duoc-biet" data-id="74-dieu-ban-chua-duoc-biet">7.4. Điều bạn chưa được biết</a>
+<a class="ml-chuong cap2" href="#chuong-8-danh-muc-muoi-bay-file-du-lieu" data-id="chuong-8-danh-muc-muoi-bay-file-du-lieu">Chương 8 · Danh mục mười bảy file dữ liệu</a>
+<a class="ml-chuong cap3" href="#81-bang-danh-muc" data-id="81-bang-danh-muc">8.1. Bảng danh mục</a>
+<a class="ml-chuong cap3" href="#82-bon-dinh-dang-file" data-id="82-bon-dinh-dang-file">8.2. Bốn định dạng file</a>
+<a class="ml-chuong cap2" href="#chuong-9-cach-doc-tung-dinh-dang-log" data-id="chuong-9-cach-doc-tung-dinh-dang-log">Chương 9 · Cách đọc từng định dạng log</a>
+<a class="ml-chuong cap3" href="#91-dinh-dang-syslog" data-id="91-dinh-dang-syslog">9.1. Định dạng syslog</a>
+<a class="ml-chuong cap3" href="#92-dinh-dang-log-firewall-pfsense" data-id="92-dinh-dang-log-firewall-pfsense">9.2. Định dạng log firewall pfSense</a>
+<a class="ml-chuong cap3" href="#93-dinh-dang-moi-dong-mot-doi-tuong-json" data-id="93-dinh-dang-moi-dong-mot-doi-tuong-json">9.3. Định dạng mỗi dòng một đối tượng JSON</a>
+<a class="ml-chuong cap3" href="#94-khi-khong-dung-duoc-jq" data-id="94-khi-khong-dung-duoc-jq">9.4. Khi không dùng được jq</a>
+<a class="ml-chuong cap3" href="#95-dinh-dang-netflow" data-id="95-dinh-dang-netflow">9.5. Định dạng netflow</a>
+<a class="ml-chuong cap3" href="#96-dinh-dang-log-web" data-id="96-dinh-dang-log-web">9.6. Định dạng log web</a>
+<a class="ml-chuong cap2" href="#chuong-10-ba-file-ho-so-doi-chieu" data-id="chuong-10-ba-file-ho-so-doi-chieu">Chương 10 · Ba file hồ sơ đối chiếu</a>
+<a class="ml-chuong cap3" href="#101-vi-sao-can-ho-so" data-id="101-vi-sao-can-ho-so">10.1. Vì sao cần hồ sơ</a>
+<a class="ml-chuong cap3" href="#102-cach-dung-ba-file-ho-so" data-id="102-cach-dung-ba-file-ho-so">10.2. Cách dùng ba file hồ sơ</a>
+<a class="ml-phan" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="ml-phan" href="05-phan-e.html">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-phan" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="ml-phan" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-phan" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-phan" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-phan" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="ml-phan" href="11-phan-k.html">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-phan" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a></div>
+</nav>
+
+<main id="than">
+<h1 id="phan-c-hieu-bo-du-lieu">PHẦN C · HIỂU BỘ DỮ LIỆU<a class="neo" href="#phan-c-hieu-bo-du-lieu" aria-label="Liên kết tới mục này">#</a></h1>
+<p><em>Mười ba file và cách đọc từng định dạng</em></p>
+<ul>
+<li>Tổ chức giả định và cửa sổ thời gian</li>
+<li>Danh mục mười bảy file dữ liệu</li>
+<li>Cách đọc từng định dạng log</li>
+<li>Ba file hồ sơ đối chiếu</li>
+</ul>
+<hr>
+<p><code>PHẦN C · DỮ LIỆU</code></p>
+<h2 id="chuong-7-to-chuc-gia-dinh-va-cua-so-thoi-gian">Chương 7 · Tổ chức giả định và cửa sổ thời gian<a class="neo" href="#chuong-7-to-chuc-gia-dinh-va-cua-so-thoi-gian" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Toàn bộ dữ liệu đến từ một tổ chức duy nhất, trong cùng một khoảng thời gian.</em></p>
+<h3 id="71-cong-ty-co-phan-thuong-mai-so-minh-an">7.1. Công ty Cổ phần Thương mại Số Minh An<a class="neo" href="#71-cong-ty-co-phan-thuong-mai-so-minh-an" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Thông tin</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lĩnh vực</td>
+<td>Thương mại điện tử</td>
+</tr>
+<tr>
+<td>Quy mô</td>
+<td>180 nhân viên</td>
+</tr>
+<tr>
+<td>Hệ thống chính</td>
+<td>Cổng dịch vụ khách hàng, server file nội bộ, cơ sở dữ liệu kế toán, server backup, cổng truy cập từ xa cho nhà thầu</td>
+</tr>
+<tr>
+<td>Địa chỉ công cộng</td>
+<td>203.0.113.10</td>
+</tr>
+<tr>
+<td>Mạng nội bộ</td>
+<td>192.168.10.0/24</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-cua-so-thoi-gian">7.2. Cửa sổ thời gian<a class="neo" href="#72-cua-so-thoi-gian" aria-label="Liên kết tới mục này">#</a></h3>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Toàn bộ dữ liệu nằm trong khoảng từ 01/09/2026 00:00 đến 14/09/2026 23:59, theo giờ Việt Nam. Thời điểm giả định của buổi phân tích là sáng 15/09/2026. Khi dùng Grafana, luôn đặt khoảng thời gian là 2026-09-01 đến 2026-09-15, nếu không màn hình sẽ trống rỗng.</p>
+</blockquote>
+<p>Đây là lỗi phổ biến nhất khi bắt đầu dùng Grafana trong bộ lab này. Mặc định Grafana hiển thị sáu giờ gần nhất, tức là tháng 9 năm nay, trong khi dữ liệu nằm ở tháng 9 năm 2026. Kết quả là không có gì hiển thị và bạn sẽ tưởng việc nạp dữ liệu thất bại.</p>
+<h3 id="73-cac-dia-chi-mang-trong-du-lieu">7.3. Các địa chỉ mạng trong dữ liệu<a class="neo" href="#73-cac-dia-chi-mang-trong-du-lieu" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Hiểu ý nghĩa các dải địa chỉ giúp bạn đọc log nhanh hơn nhiều.</p>
+<table>
+<thead>
+<tr>
+<th>Dải địa chỉ</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.10.x</td>
+<td>Server và workstation trong mạng nội bộ của công ty</td>
+</tr>
+<tr>
+<td>192.168.20.x</td>
+<td>Phân đoạn riêng của máy phân tích trong lab</td>
+</tr>
+<tr>
+<td>203.0.113.10</td>
+<td>Địa chỉ công cộng của công ty, nơi khách truy cập cổng dịch vụ</td>
+</tr>
+<tr>
+<td>203.0.113.2 đến 59</td>
+<td>Các dịch vụ bên ngoài mà công ty kết nối tới</td>
+</tr>
+<tr>
+<td>203.0.113.60 đến 199</td>
+<td>Khách truy cập cổng dịch vụ khách hàng</td>
+</tr>
+<tr>
+<td>113.161.44.x và 14.161.9.x</td>
+<td>Nhân viên truy cập từ văn phòng hoặc từ nhà</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Mọi địa chỉ trong bộ dữ liệu đều là hư cấu, thuộc các dải dành riêng cho tài liệu kỹ thuật. Không thử kết nối tới bất kỳ địa chỉ nào xuất hiện trong dữ liệu.</p>
+</blockquote>
+<figure class="so-do"><img src="../assets/img/hinh-02-sodo-thoigian.svg" alt="Mười bốn ngày dữ liệu. Nội dung từng mốc là thứ bạn phải tự tìm ra." loading="lazy"><figcaption>Hình 2 — Mười bốn ngày dữ liệu. Nội dung từng mốc là thứ bạn phải tự tìm ra.</figcaption></figure>
+
+<h3 id="74-dieu-ban-chua-duoc-biet">7.4. Điều bạn chưa được biết<a class="neo" href="#74-dieu-ban-chua-duoc-biet" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Trong bộ dữ liệu có cấy sẵn dấu vết của một số sự việc. Tài liệu này không mô tả chúng. Nhiệm vụ của bạn qua sáu buổi là tự phát hiện bằng phương pháp được dạy.</p>
+<p>Giảng viên có sổ tay chứa đáp án đầy đủ. Bạn không nên hỏi đáp án trước khi làm xong bài, vì phần giá trị nhất của bộ lab nằm ở quá trình đi tìm.</p>
+<hr>
+<p><code>PHẦN C · DỮ LIỆU</code></p>
+<h2 id="chuong-8-danh-muc-muoi-bay-file-du-lieu">Chương 8 · Danh mục mười bảy file dữ liệu<a class="neo" href="#chuong-8-danh-muc-muoi-bay-file-du-lieu" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Toàn bộ file nằm ở ~/lab/dulieu trên máy Kali và /var/lab/dulieu trên máy Ubuntu. Hai bản giống hệt nhau.</em></p>
+<h3 id="81-bang-danh-muc">8.1. Bảng danh mục<a class="neo" href="#81-bang-danh-muc" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Số dòng</th>
+<th>Dung lượng</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth.log</td>
+<td>34.734</td>
+<td>4,0 MB</td>
+<td>Log xác thực của bốn server Linux: đăng nhập thành công và thất bại, nâng đặc quyền, tạo và sửa tài khoản</td>
+</tr>
+<tr>
+<td>audit.log</td>
+<td>5.205</td>
+<td>0,9 MB</td>
+<td>Kết quả hệ thống kiểm toán nhân Linux, ghi theo các quy tắc có gắn từ khoá</td>
+</tr>
+<tr>
+<td>pfsense_filterlog.log</td>
+<td>191.937</td>
+<td>29,9 MB</td>
+<td>Log firewall biên: mọi kết nối được cho qua hoặc bị chặn</td>
+</tr>
+<tr>
+<td>netflow.csv</td>
+<td>38.637</td>
+<td>3,6 MB</td>
+<td>Log luồng mạng, có số byte đi ra và đi vào của từng phiên kết nối</td>
+</tr>
+<tr>
+<td>suricata_eve.json</td>
+<td>6.365</td>
+<td>2,3 MB</td>
+<td>Cảnh báo của IDS</td>
+</tr>
+<tr>
+<td>windows_security.ndjson</td>
+<td>96.618</td>
+<td>19,8 MB</td>
+<td>Log bảo mật Windows của bảy workstation và server file</td>
+</tr>
+<tr>
+<td>sysmon.ndjson</td>
+<td>64.004</td>
+<td>18,4 MB</td>
+<td>Log process, kết nối mạng và thay đổi sổ đăng ký trên máy Windows</td>
+</tr>
+<tr>
+<td>web_access.log</td>
+<td>180.640</td>
+<td>34,2 MB</td>
+<td>Log truy cập cổng dịch vụ khách hàng</td>
+</tr>
+<tr>
+<td>dns_query.log</td>
+<td>96.550</td>
+<td>12,0 MB</td>
+<td>Log truy vấn tên miền của toàn bộ máy nội bộ</td>
+</tr>
+<tr>
+<td>mail.log</td>
+<td>14.006</td>
+<td>1,4 MB</td>
+<td>Log server email, có kết quả xác thực người gửi</td>
+</tr>
+<tr>
+<td>kiem_ke_tai_san.csv</td>
+<td>13</td>
+<td>nhỏ</td>
+<td>Danh mục mười hai hệ thống: địa chỉ, chức năng, mức quan trọng, người chịu trách nhiệm</td>
+</tr>
+<tr>
+<td>danh_sach_nhan_su.csv</td>
+<td>14</td>
+<td>nhỏ</td>
+<td>Danh sách tài khoản, bộ phận, trạng thái làm việc, giờ làm việc, workstation</td>
+</tr>
+<tr>
+<td>ho_so_thay_doi.csv</td>
+<td>7</td>
+<td>nhỏ</td>
+<td>Sáu thay đổi hệ thống trong kỳ và trạng thái phê duyệt</td>
+</tr>
+</tbody>
+</table>
+<p><em>Bảng 8.1 — Tổng cộng 747.194 dòng, 129,7 MB.</em></p>
+<h3 id="82-bon-dinh-dang-file">8.2. Bốn định dạng file<a class="neo" href="#82-bon-dinh-dang-file" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Định dạng</th>
+<th>File thuộc nhóm</th>
+<th>Cách đọc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Syslog</td>
+<td>auth.log, dns_query.log, mail.log, pfsense_filterlog.log</td>
+<td>Mỗi dòng bắt đầu bằng thời gian, tên máy, rồi nội dung. Dùng grep và awk</td>
+</tr>
+<tr>
+<td>Mỗi dòng một đối tượng JSON</td>
+<td>suricata_eve.json, windows_security.ndjson, sysmon.ndjson</td>
+<td>Mỗi dòng là một đối tượng độc lập. Dùng jq hoặc logq.py</td>
+</tr>
+<tr>
+<td>Bảng ngăn cách bằng dấu phẩy</td>
+<td>netflow.csv và ba file hồ sơ</td>
+<td>Dòng đầu là tên cột. Dùng awk với tuỳ chọn -F","</td>
+</tr>
+<tr>
+<td>Log web dạng combined</td>
+<td>web_access.log</td>
+<td>Định dạng chuẩn của server web. Dùng awk theo vị trí cột</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><code>PHẦN C · DỮ LIỆU</code></p>
+<h2 id="chuong-9-cach-doc-tung-dinh-dang-log">Chương 9 · Cách đọc từng định dạng log<a class="neo" href="#chuong-9-cach-doc-tung-dinh-dang-log" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Bốn định dạng, mỗi định dạng có một cách bóc tách riêng. Chương này là chương tra cứu.</em></p>
+<h3 id="91-dinh-dang-syslog">9.1. Định dạng syslog<a class="neo" href="#91-dinh-dang-syslog" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Đây là định dạng của auth.log, dns_query.log và mail.log. Cấu trúc gồm ba phần: thời gian, tên máy, nội dung.</p>
+<p><strong>Cấu trúc và cách bóc tách</strong></p>
+<pre><code class="language-text">Sep  2 02:14:33 vpn-gw-01 sshd[33106]: Accepted password for nhathau_vt from 91.219.236.14 port 54118 ssh2
+|--------------| |---------| |--------------------------------------------------------------------------|
+   thời gian     tên máy                            nội dung
+
+# Lấy cột theo vị trí: cột 1 là tháng, 2 là ngày, 3 là giờ, 4 là tên máy
+awk '{print $4}' auth.log | sort -u          # liệt kê các máy có trong log
+awk '{print $1, $2}' auth.log | uniq -c      # đếm số dòng theo từng ngày
+
+# Lấy một giá trị nằm sau một từ khoá, ví dụ địa chỉ sau chữ from
+grep -oP 'from \K[0-9.]+' auth.log | sort | uniq -c | sort -rn | head
+</code></pre>
+<blockquote>
+<p><strong>LƯU Ý</strong></p>
+<p>Cách viết grep -oP kèm \K nghĩa là: tìm chuỗi đứng sau từ khoá, nhưng chỉ in ra phần sau, không in từ khoá. Đây là cách nhanh nhất để lấy địa chỉ hoặc tên tài khoản ra khỏi một dòng log.</p>
+</blockquote>
+<h3 id="92-dinh-dang-log-firewall-pfsense">9.2. Định dạng log firewall pfSense<a class="neo" href="#92-dinh-dang-log-firewall-pfsense" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Đây là định dạng khó đọc nhất trong bộ dữ liệu, nhưng chỉ cần nhớ bảy trường. Phần sau chữ filterlog là một chuỗi các trường ngăn cách bằng dấu phẩy.</p>
+<p><strong>Bảy trường cần nhớ</strong></p>
+<pre><code class="language-bash">Sep  9 03:12:07 pfsense filterlog: 1200,,,1000000103,em1,match,pass,in,4,0x0,,64,
+  30785,0,DF,6,tcp,1500,192.168.10.20,185.199.110.153,51234,443,1448,S,1234567,,65535,,
+
+# Đếm từ sau chữ filterlog, mỗi dấu phẩy là một trường:
+#   trường 5  = giao diện mạng (em0 hướng Internet, em1 nội bộ, em2 phân đoạn Kali)
+#   trường 7  = hành động (pass là cho qua, block là chặn)
+#   trường 17 = giao thức (tcp, udp)
+#   trường 18 = độ dài gói tin tính bằng byte
+#   trường 19 = địa chỉ nguồn
+#   trường 20 = địa chỉ đích
+#   trường 21 = cổng nguồn
+#   trường 22 = cổng đích
+</code></pre>
+<p><strong>Ba câu hỏi thường gặp</strong></p>
+<pre><code class="language-text"># Đếm số kết nối bị chặn
+awk -F&quot;,&quot; '$7==&quot;block&quot;' pfsense_filterlog.log | wc -l
+
+# Top 10 cổng đích bị quét từ bên ngoài
+awk -F&quot;,&quot; '$5==&quot;em0&quot; &amp;&amp; $7==&quot;block&quot; {print $22}' pfsense_filterlog.log \
+  | sort | uniq -c | sort -rn | head -10
+
+# Các đích mà một máy nội bộ kết nối tới
+awk -F&quot;,&quot; '$19==&quot;192.168.10.20&quot; {print $20}' pfsense_filterlog.log \
+  | sort | uniq -c | sort -rn | head -10
+</code></pre>
+<blockquote>
+<p><strong>CẢNH BÁO</strong></p>
+<p>Trường 18 là độ dài của một gói tin, tối đa khoảng 1500 byte. Không dùng trường này để tính tổng khối lượng dữ liệu đã chuyển, vì firewall chỉ ghi gói đầu tiên của mỗi kết nối. Muốn tính khối lượng, phải dùng file netflow.csv.</p>
+</blockquote>
+<h3 id="93-dinh-dang-moi-dong-mot-doi-tuong-json">9.3. Định dạng mỗi dòng một đối tượng JSON<a class="neo" href="#93-dinh-dang-moi-dong-mot-doi-tuong-json" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Đây là định dạng của suricata_eve.json, windows_security.ndjson và sysmon.ndjson. Mỗi dòng là một đối tượng độc lập, có thể đọc riêng lẻ.</p>
+<p><strong>Năm lệnh jq cần thuộc</strong></p>
+<pre><code class="language-bash"># Xem cấu trúc của một dòng cho dễ hình dung
+head -1 windows_security.ndjson | jq .
+
+# Liệt kê các trường có trong file
+head -1 sysmon.ndjson | jq &quot;keys&quot;
+
+# Lọc theo một điều kiện rồi in ra vài trường
+jq -r 'select(.EventID==1102) | &quot;\(.TimeCreated)  \(.Computer)  \(.TargetUserName)&quot;' \
+  windows_security.ndjson
+
+# Đếm số sự kiện theo mã
+jq -r &quot;.EventID&quot; windows_security.ndjson | sort -n | uniq -c | sort -rn | head
+
+# Truy cập trường lồng nhau bằng dấu chấm
+jq -r &quot;.alert.signature&quot; suricata_eve.json | sort | uniq -c | sort -rn | head
+</code></pre>
+<h3 id="94-khi-khong-dung-duoc-jq">9.4. Khi không dùng được jq<a class="neo" href="#94-khi-khong-dung-duoc-jq" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Nếu jq báo lỗi hoặc bạn thấy cú pháp của nó khó, hãy dùng công cụ thay thế do ban tổ chức viết. Kết quả giống hệt.</p>
+<p><strong>Ba cách dùng logq.py</strong></p>
+<pre><code class="language-bash"># Lọc và lấy trường
+python3 ~/lab/congcu/logq.py windows_security.ndjson \
+        --loc EventID=1102 --lay Computer,TargetUserName
+
+# Đếm theo một trường
+python3 ~/lab/congcu/logq.py suricata_eve.json --dem alert.signature
+
+# Đếm theo trường lồng nhau, dùng dấu chấm giống jq
+python3 ~/lab/congcu/logq.py sysmon.ndjson --loc EventID=1 --dem Computer
+</code></pre>
+<h3 id="95-dinh-dang-netflow">9.5. Định dạng netflow<a class="neo" href="#95-dinh-dang-netflow" aria-label="Liên kết tới mục này">#</a></h3>
+<p>File netflow.csv ghi lại từng phiên kết nối, kèm số byte đã chuyển. Đây là nguồn duy nhất trả lời được câu hỏi về khối lượng dữ liệu.</p>
+<table>
+<thead>
+<tr>
+<th>Cột</th>
+<th>Tên</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>thoi_diem_bat_dau</td>
+<td>Thời điểm phiên kết nối bắt đầu</td>
+</tr>
+<tr>
+<td>2</td>
+<td>thoi_diem_ket_thuc</td>
+<td>Thời điểm phiên kết nối kết thúc</td>
+</tr>
+<tr>
+<td>3</td>
+<td>dia_chi_nguon</td>
+<td>Máy khởi tạo kết nối</td>
+</tr>
+<tr>
+<td>4</td>
+<td>dia_chi_dich</td>
+<td>Máy nhận kết nối</td>
+</tr>
+<tr>
+<td>5, 6</td>
+<td>cong_nguon, cong_dich</td>
+<td>Cổng hai đầu</td>
+</tr>
+<tr>
+<td>7</td>
+<td>giao_thuc</td>
+<td>TCP hoặc UDP</td>
+</tr>
+<tr>
+<td>8</td>
+<td>so_goi</td>
+<td>Số gói tin</td>
+</tr>
+<tr>
+<td>9</td>
+<td>so_byte_ra</td>
+<td>Số byte đi từ nguồn tới đích</td>
+</tr>
+<tr>
+<td>10</td>
+<td>so_byte_vao</td>
+<td>Số byte đi từ đích về nguồn</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tính khối lượng dữ liệu</strong></p>
+<pre><code class="language-bash"># Tổng byte đi ra theo từng đích, sắp giảm dần
+awk -F&quot;,&quot; 'NR&gt;1 {b[$4]+=$9} END {for (i in b) printf &quot;%-18s %12d\n&quot;, i, b[i]}' \
+  netflow.csv | sort -k2 -rn | head -10
+
+# Đổi sang megabyte cho dễ đọc
+awk -F&quot;,&quot; 'NR&gt;1 {b[$4]+=$9} END {for (i in b) printf &quot;%-18s %9.2f MB\n&quot;, i, b[i]/1048576}' \
+  netflow.csv | sort -k2 -rn | head -10
+</code></pre>
+<h3 id="96-dinh-dang-log-web">9.6. Định dạng log web<a class="neo" href="#96-dinh-dang-log-web" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Cấu trúc và cách bóc tách</strong></p>
+<pre><code class="language-text">203.0.113.75 - - [09/Sep/2026:14:22:31 +0700] &quot;GET /san-pham/128 HTTP/1.1&quot; 200 4821 &quot;-&quot; &quot;Mozilla/5.0 ...&quot;
+|----------|     |------------------------|   |--| |------------|          |-| |--|     |------------|
+   cột 1                  cột 4                cột 6   cột 7              cột 9 cột 10   từ cột 12
+địa chỉ nguồn          thời gian            phương thức đường dẫn      mã trạng thái  kích thước  công cụ
+
+# Đếm mã trạng thái
+awk '{print $9}' web_access.log | sort | uniq -c | sort -rn
+
+# Các đường dẫn bị truy cập nhiều nhất mà trả về lỗi 404
+awk '$9==404 {print $7}' web_access.log | sort | uniq -c | sort -rn | head -15
+
+# Lọc theo công cụ truy cập tự động
+grep &quot;python-requests&quot; web_access.log | awk '{print $1}' | sort | uniq -c | sort -rn
+</code></pre>
+<hr>
+<p><code>PHẦN C · DỮ LIỆU</code></p>
+<h2 id="chuong-10-ba-file-ho-so-doi-chieu">Chương 10 · Ba file hồ sơ đối chiếu<a class="neo" href="#chuong-10-ba-file-ho-so-doi-chieu" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Ba file này không phải log. Chúng là hồ sơ quản lý, và là điều kiện để phân tích có kết luận.</em></p>
+<h3 id="101-vi-sao-can-ho-so">10.1. Vì sao cần hồ sơ<a class="neo" href="#101-vi-sao-can-ho-so" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Nếu chỉ có log</th>
+<th>Khi có thêm hồ sơ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thấy một tài khoản mới được tạo, không biết hợp lệ hay không</td>
+<td>Đối chiếu change record. Không có phiếu tương ứng, kết luận là bất thường</td>
+</tr>
+<tr>
+<td>Thấy đăng nhập lúc 2 giờ sáng, không rõ có đáng ngờ không</td>
+<td>Đối chiếu danh sách nhân sự. Tài khoản này chỉ làm việc khung 9 đến 17 giờ</td>
+</tr>
+<tr>
+<td>Thấy một máy bị tác động, không rõ mức độ nghiêm trọng</td>
+<td>Đối chiếu asset inventory. Máy này ở mức quan trọng rất cao và có chứa dữ liệu cá nhân</td>
+</tr>
+<tr>
+<td>Thấy một tài khoản tải nhiều file, không rõ có bình thường không</td>
+<td>Đối chiếu danh sách nhân sự. Người này sắp nghỉ việc</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Nguyên tắc xuyên suốt bộ lab: một dòng log đơn lẻ không bao giờ đủ để kết luận. Kết luận đến từ việc đối chiếu log với hồ sơ quản lý, và đối chiếu nhiều nguồn log với nhau.</p>
+</blockquote>
+<figure class="so-do"><img src="../assets/img/hinh-03-sodo-manhmoi.svg" alt="Bản đồ manh mối theo nguồn dữ liệu" loading="lazy"><figcaption>Hình 3 — Bản đồ manh mối theo nguồn dữ liệu</figcaption></figure>
+
+<h3 id="102-cach-dung-ba-file-ho-so">10.2. Cách dùng ba file hồ sơ<a class="neo" href="#102-cach-dung-ba-file-ho-so" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Năm thao tác tra cứu</strong></p>
+<pre><code class="language-bash">cd ~/lab/dulieu
+
+# Xem hồ sơ ở dạng bảng cho dễ đọc
+column -s, -t kiem_ke_tai_san.csv | less -S      # bấm q để thoát
+
+# Tra một tài khoản trong danh sách nhân sự
+grep &quot;hoangvanh&quot; danh_sach_nhan_su.csv
+
+# Liệt kê các hệ thống ở mức quan trọng rất cao
+awk -F&quot;,&quot; '$6==&quot;Rất cao&quot; {print $2, $5}' kiem_ke_tai_san.csv
+
+# Xem toàn bộ thay đổi đã được phê duyệt trong kỳ
+column -s, -t ho_so_thay_doi.csv
+
+# Tra một địa chỉ IP xem thuộc máy nào
+grep &quot;192.168.10.20&quot; kiem_ke_tai_san.csv
+</code></pre>
+<hr>
+<nav class="dieu-huong">
+<a class="dh truoc" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="dh sau" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+</nav>
+</main>
+
+<button id="len" aria-label="Lên đầu trang">↑</button>
+<script src="../assets/js/chi-muc.js"></script>
+<script src="../assets/js/cam-nang.js"></script>
+</body>
+</html>

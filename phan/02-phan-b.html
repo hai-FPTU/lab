@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHẦN B · HIỂU MÔI TRƯỜNG · Cẩm nang thực hành</title>
+<link rel="stylesheet" href="../assets/css/cam-nang.css">
+</head>
+<body>
+<div id="tien-do"></div>
+<div id="lop-phu" role="dialog" aria-label="Xem hình phóng to"></div>
+<button id="nut-canh" aria-label="Mở mục lục">☰</button>
+
+<nav id="canh">
+  <header>
+    <a href="../index.html" class="ve-dau">Cẩm nang thực hành</a>
+    <div class="phu">Dành cho học viên · An ninh mạng nâng cao</div>
+  </header>
+  <input id="o-tim" type="search" placeholder="Tìm trong cẩm nang…" autocomplete="off">
+  <div id="kq-tim"></div>
+  <div id="ml"><a class="ml-phan" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="ml-phan dang-xem" href="02-phan-b.html">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-chuong cap1" href="#phan-b-hieu-moi-truong" data-id="phan-b-hieu-moi-truong">PHẦN B · HIỂU MÔI TRƯỜNG</a>
+<a class="ml-chuong cap2" href="#chuong-4-ba-may-ao-va-vai-tro-cua-tung-may" data-id="chuong-4-ba-may-ao-va-vai-tro-cua-tung-may">Chương 4 · Ba máy ảo và vai trò của từng máy</a>
+<a class="ml-chuong cap3" href="#41-bang-vai-tro" data-id="41-bang-vai-tro">4.1. Bảng vai trò</a>
+<a class="ml-chuong cap3" href="#42-vi-sao-khong-co-may-windows" data-id="42-vi-sao-khong-co-may-windows">4.2. Vì sao không có máy Windows</a>
+<a class="ml-chuong cap2" href="#chuong-5-so-do-mang-va-ly-do-phan-doan" data-id="chuong-5-so-do-mang-va-ly-do-phan-doan">Chương 5 · Sơ đồ mạng và lý do phân đoạn</a>
+<a class="ml-chuong cap3" href="#51-so-do" data-id="51-so-do">5.1. Sơ đồ</a>
+<a class="ml-chuong cap3" href="#52-vi-sao-phai-phan-doan" data-id="52-vi-sao-phai-phan-doan">5.2. Vì sao phải phân đoạn</a>
+<a class="ml-chuong cap3" href="#53-kiem-chung-bang-lenh" data-id="53-kiem-chung-bang-lenh">5.3. Kiểm chứng bằng lệnh</a>
+<a class="ml-chuong cap2" href="#chuong-6-danh-muc-cong-cu-da-cai-san" data-id="chuong-6-danh-muc-cong-cu-da-cai-san">Chương 6 · Danh mục công cụ đã cài sẵn</a>
+<a class="ml-chuong cap3" href="#61-cong-cu-tren-may-kali" data-id="61-cong-cu-tren-may-kali">6.1. Công cụ trên máy Kali</a>
+<a class="ml-chuong cap3" href="#62-cong-cu-tren-may-ubuntu" data-id="62-cong-cu-tren-may-ubuntu">6.2. Công cụ trên máy Ubuntu</a>
+<a class="ml-chuong cap3" href="#63-ba-cong-cu-ho-tro-do-ban-to-chuc-viet" data-id="63-ba-cong-cu-ho-tro-do-ban-to-chuc-viet">6.3. Ba công cụ hỗ trợ do ban tổ chức viết</a>
+<a class="ml-phan" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+<a class="ml-phan" href="04-phan-d.html">PHẦN D · KỸ NĂNG PHÂN TÍCH</a>
+<a class="ml-phan" href="05-phan-e.html">PHẦN E · NỀN TẢNG GIÁM SÁT</a>
+<a class="ml-phan" href="06-phan-f.html">PHẦN F · QUY TẮC VÀ TRA CỨU</a>
+<a class="ml-phan" href="07-phan-g.html">PHẦN G · THỰC HÀNH VỚI GRAFANA</a>
+<a class="ml-phan" href="08-phan-h.html">PHẦN H · BÀI THỰC HÀNH CHUYÊN ĐỀ 1</a>
+<a class="ml-phan" href="09-phan-i.html">PHẦN I · BÀI THỰC HÀNH CHUYÊN ĐỀ 2</a>
+<a class="ml-phan" href="10-phan-j.html">PHẦN J · MƯỜI BÀI KỸ THUẬT CHUYÊN ĐỀ 3 ĐẾN 6</a>
+<a class="ml-phan" href="11-phan-k.html">PHẦN K · MƯỜI BÀI TÌNH HUỐNG TIẾP THEO</a>
+<a class="ml-phan" href="12-phan-l.html">PHẦN L · AI AGENT HỖ TRỢ ĐIỀU TRA</a></div>
+</nav>
+
+<main id="than">
+<h1 id="phan-b-hieu-moi-truong">PHẦN B · HIỂU MÔI TRƯỜNG<a class="neo" href="#phan-b-hieu-moi-truong" aria-label="Liên kết tới mục này">#</a></h1>
+<p><em>Ba máy ảo, sơ đồ mạng và bộ công cụ</em></p>
+<ul>
+<li>Ba máy ảo và vai trò của từng máy</li>
+<li>Sơ đồ mạng và lý do phân đoạn</li>
+<li>Danh mục công cụ đã cài sẵn</li>
+</ul>
+<hr>
+<p><code>PHẦN B · MÔI TRƯỜNG</code></p>
+<h2 id="chuong-4-ba-may-ao-va-vai-tro-cua-tung-may">Chương 4 · Ba máy ảo và vai trò của từng máy<a class="neo" href="#chuong-4-ba-may-ao-va-vai-tro-cua-tung-may" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Mỗi máy có một vai trò riêng. Hiểu vai trò giúp bạn biết nên chạy lệnh ở máy nào.</em></p>
+<h3 id="41-bang-vai-tro">4.1. Bảng vai trò<a class="neo" href="#41-bang-vai-tro" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Máy</th>
+<th>Địa chỉ</th>
+<th>Vai trò trong bộ lab</th>
+<th>Dùng ở bài nào</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fw-edge-01<br>pfSense 2.7</td>
+<td>192.168.10.1<br>192.168.20.1</td>
+<td>Firewall biên và IDS. Cho bạn thấy một mạng có phân đoạn hoạt động ra sao</td>
+<td>Bài 1.1, 3.3, 5.3</td>
+</tr>
+<tr>
+<td>srv-app-01<br>Ubuntu 22.04</td>
+<td>192.168.10.20</td>
+<td>Server mục tiêu và nền tảng truy vấn log. Nơi chạy Loki và Grafana</td>
+<td>Bài 2.2, 2.4, 3.1, 3.2, 4.1 đến 4.3, 5.1, 5.3</td>
+</tr>
+<tr>
+<td>wks-soc-01<br>Kali Linux</td>
+<td>192.168.20.10</td>
+<td>Máy phân tích. Nơi chạy phần lớn lệnh phân tích dữ liệu, huấn luyện mô hình và trợ lý AI</td>
+<td>Bài 1.2, 2.1, 2.3, 3.4, 4.4, 4.5, 5.2, 6.1 đến 6.3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-vi-sao-khong-co-may-windows">4.2. Vì sao không có máy Windows<a class="neo" href="#42-vi-sao-khong-co-may-windows" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Bộ dữ liệu có hai file log Windows: log bảo mật và log process chi tiết. Bạn sẽ phân tích đầy đủ hai file này, nhưng không cần một máy Windows chạy thật.</p>
+<p>Lý do là một máy Windows chạy trong hai giờ chỉ sinh ra vài trăm sự kiện, trong khi file dữ liệu cấp sẵn có 96.618 sự kiện bảo mật và 64.004 sự kiện process, trải trên 14 ngày, có đủ nhiễu nền để luyện kỹ năng phân biệt bình thường và bất thường. Bỏ máy Windows tiết kiệm 4 GB bộ nhớ và 60 GB ổ đĩa cho mọi học viên.</p>
+<hr>
+<p><code>PHẦN B · MÔI TRƯỜNG</code></p>
+<h2 id="chuong-5-so-do-mang-va-ly-do-phan-doan">Chương 5 · Sơ đồ mạng và lý do phân đoạn<a class="neo" href="#chuong-5-so-do-mang-va-ly-do-phan-doan" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Hai máy Kali và Ubuntu nằm ở hai phân đoạn khác nhau. Mọi lưu lượng giữa chúng đều đi qua firewall.</em></p>
+<h3 id="51-so-do">5.1. Sơ đồ<a class="neo" href="#51-so-do" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Sơ đồ mạng môi trường thực hành</strong></p>
+<figure class="so-do"><img src="../assets/img/hinh-01-sodo-mang.svg" alt="Sơ đồ mạng môi trường thực hành" loading="lazy"><figcaption>Hình 1 — Sơ đồ mạng môi trường thực hành</figcaption></figure>
+
+<h3 id="52-vi-sao-phai-phan-doan">5.2. Vì sao phải phân đoạn<a class="neo" href="#52-vi-sao-phai-phan-doan" aria-label="Liên kết tới mục này">#</a></h3>
+<p>Nếu ba máy nằm chung một dải mạng phẳng, lưu lượng giữa chúng không đi qua firewall, nên firewall không ghi được log nào. Bạn sẽ không thấy được một điều quan trọng của công việc thật.</p>
+<blockquote>
+<p><strong>GHI NHỚ</strong></p>
+<p>Log firewall nhìn thấy những thứ mà log hệ điều hành không nhìn thấy. Cụ thể: địa chỉ đích của một kết nối đi ra, và khối lượng dữ liệu đã chuyển. Trong bộ dữ liệu của bộ lab, địa chỉ đích của vụ data exfiltration chỉ xuất hiện trong log firewall và log luồng mạng. Nó không xuất hiện ở bất kỳ log hệ điều hành nào.</p>
+</blockquote>
+<h3 id="53-kiem-chung-bang-lenh">5.3. Kiểm chứng bằng lệnh<a class="neo" href="#53-kiem-chung-bang-lenh" aria-label="Liên kết tới mục này">#</a></h3>
+<p><strong>Kiểm chứng</strong></p>
+<pre><code class="language-bash"># Trên Kali, xem đường đi tới server Ubuntu
+traceroute -n 192.168.10.20
+
+# Kết quả có hai chặng:
+#   chặng 1: 192.168.20.1   là firewall
+#   chặng 2: 192.168.10.20  là server đích
+# Hai chặng nghĩa là hai máy ở hai phân đoạn khác nhau.
+</code></pre>
+<hr>
+<p><code>PHẦN B · MÔI TRƯỜNG</code></p>
+<h2 id="chuong-6-danh-muc-cong-cu-da-cai-san">Chương 6 · Danh mục công cụ đã cài sẵn<a class="neo" href="#chuong-6-danh-muc-cong-cu-da-cai-san" aria-label="Liên kết tới mục này">#</a></h2>
+<p><em>Toàn bộ công cụ đã được cài và cấu hình. Bạn không cần cài thêm gì.</em></p>
+<h3 id="61-cong-cu-tren-may-kali">6.1. Công cụ trên máy Kali<a class="neo" href="#61-cong-cu-tren-may-kali" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Chức năng</th>
+<th>Dùng ở bài</th>
+<th>Lệnh kiểm tra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grep, awk, cut, sort, uniq</td>
+<td>Lọc và thống kê log dạng văn bản</td>
+<td>Hầu hết các bài</td>
+<td>which grep awk</td>
+</tr>
+<tr>
+<td>jq</td>
+<td>Đọc và lọc file mỗi dòng một đối tượng JSON</td>
+<td>4.2, 4.4, 5.2</td>
+<td>jq --version</td>
+</tr>
+<tr>
+<td>nmap</td>
+<td>Quét phát hiện máy và dịch vụ</td>
+<td>1.2</td>
+<td>nmap --version</td>
+</tr>
+<tr>
+<td>Python 3.11</td>
+<td>Chạy notebook và công cụ hỗ trợ</td>
+<td>4.5, 6.1, 6.2</td>
+<td>python3 --version</td>
+</tr>
+<tr>
+<td>Jupyter</td>
+<td>Môi trường notebook cho phần học máy</td>
+<td>4.5, 6.1, 6.2</td>
+<td>jupyter --version</td>
+</tr>
+<tr>
+<td>scikit-learn, pandas</td>
+<td>Thư viện học máy và xử lý dữ liệu bảng</td>
+<td>4.5, 6.1, 6.2</td>
+<td>python3 -c "import sklearn"</td>
+</tr>
+<tr>
+<td>Ollama</td>
+<td>Chạy mô hình ngôn ngữ ngay trong máy, không gửi dữ liệu ra ngoài</td>
+<td>6.3</td>
+<td>ollama list</td>
+</tr>
+<tr>
+<td>Volatility 3</td>
+<td>Phân tích memory image</td>
+<td>5.2</td>
+<td>python3 /opt/volatility3/vol.py -h</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-cong-cu-tren-may-ubuntu">6.2. Công cụ trên máy Ubuntu<a class="neo" href="#62-cong-cu-tren-may-ubuntu" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Chức năng</th>
+<th>Cổng</th>
+<th>Dùng ở bài</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loki</td>
+<td>Lưu trữ và lập chỉ mục log, trả lời truy vấn</td>
+<td>3100</td>
+<td>4.1 đến 4.4</td>
+</tr>
+<tr>
+<td>Promtail</td>
+<td>Đọc file log và đẩy vào Loki</td>
+<td>không</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>Giao diện truy vấn và dựng dashboard</td>
+<td>3000</td>
+<td>4.2, 4.3</td>
+</tr>
+<tr>
+<td>auditd</td>
+<td>Ghi log kiểm toán nhân hệ điều hành</td>
+<td>không</td>
+<td>2.2</td>
+</tr>
+<tr>
+<td>Lynis</td>
+<td>Kiểm định cấu hình an toàn hệ thống</td>
+<td>không</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td>restic</td>
+<td>Backup và khôi phục dữ liệu</td>
+<td>không</td>
+<td>2.4, 5.3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-ba-cong-cu-ho-tro-do-ban-to-chuc-viet">6.3. Ba công cụ hỗ trợ do ban tổ chức viết<a class="neo" href="#63-ba-cong-cu-ho-tro-do-ban-to-chuc-viet" aria-label="Liên kết tới mục này">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Chức năng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~/lab/congcu/logq.py</td>
+<td>Thay thế jq trong trường hợp jq không dùng được. Cú pháp đơn giản hơn, xem mục 9.4</td>
+</tr>
+<tr>
+<td>~/lab/congcu/kiem_luhn.py</td>
+<td>Lọc bớt kết quả sai khi quét tìm số thẻ thanh toán, xem bài 2.1</td>
+</tr>
+<tr>
+<td>~/lab/congcu/sinh_dulieu_v3.py</td>
+<td>Bộ sinh dữ liệu. Bạn không cần chạy, nhưng có thể đọc để hiểu dữ liệu được tạo ra thế nào</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<nav class="dieu-huong">
+<a class="dh truoc" href="01-phan-a.html">PHẦN A · BẮT ĐẦU</a>
+<a class="dh sau" href="03-phan-c.html">PHẦN C · HIỂU BỘ DỮ LIỆU</a>
+</nav>
+</main>
+
+<button id="len" aria-label="Lên đầu trang">↑</button>
+<script src="../assets/js/chi-muc.js"></script>
+<script src="../assets/js/cam-nang.js"></script>
+</body>
+</html>
